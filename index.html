@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GT7 Car Database</title>
+    <title>GT Database</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+<header>
     <h1>Gran Turismo Database</h1>
     <p>Gestisci la tua collezione</p>
     
@@ -23,10 +23,10 @@
         <select id="filter-country">
             <option value="all">Tutti i Paesi</option>
         </select>
-        
         <select id="filter-brand">
             <option value="all">Tutte le Marche</option>
         </select>
+        <button id="reset-filters">Ripristina</button>
     </div>
 
     <div id="stats-panel">
@@ -35,7 +35,6 @@
             <span id="owned-count">0</span> / <span id="total-count">0</span> 
             (<span id="completion-perc">0%</span>)
         </div>
-        
         <div id="detailed-stats" style="display: none;">
             <span id="detail-label"></span>: 
             <span id="detail-owned"></span> 
@@ -43,22 +42,20 @@
     </div>
 </header>
 
-    <main>
-        <div id="car-grid" class="car-grid">
-            </div>
+<main>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Progetto Fan Gran Turismo 7</p>
-    </footer>
-
-    <script src="script.js"></script>
-    <div id="carModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-body">
-                </div>
-        </div>
+<div id="carModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body"></div>
     </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Progetto Fan Gran Turismo</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
