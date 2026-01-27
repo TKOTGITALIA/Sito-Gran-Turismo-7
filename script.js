@@ -209,6 +209,8 @@ function aggiornaContatore() {
 
     const percGioco = totaleGioco > 0 ? Math.round((posseduteGioco / totaleGioco) * 100) : 0;
     
+    document.getElementById('progress-bar').style.width = percGioco + "%";
+    
     document.getElementById('game-name-label').innerText = giocoAttivo === 'gt7' ? 'Gran Turismo 7' : 'My First Gran Turismo';
     document.getElementById('total-count').innerText = totaleGioco;
     document.getElementById('owned-count').innerText = posseduteGioco;
