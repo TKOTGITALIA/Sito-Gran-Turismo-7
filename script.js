@@ -1,58 +1,87 @@
-let tutteLeAuto = []; 
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// --- VARIABILI GLOBALI ---
+let tutteLeAuto = [];
 let giocoAttivo = "gt7";
+let utenteCorrente = null;
 
-window.addEventListener('DOMContentLoaded', caricaAuto);
-
-async function caricaAuto() {
-    try {
-        const response = await fetch('./data.json');
-        tutteLeAuto = await response.json();
-        popolaFiltri(); 
-        renderizzaAuto();
-    } catch (error) {
-        console.error("Errore nel caricamento dati:", error);
+// --- GESTIONE LOGIN ---
+const loginBtn = document.getElementById('login-btn');
+loginBtn.addEventListener('click', () => {
+    if (!utenteCorrente) {
+        auth.signInWithPopup(provider);
+    } else {
+        auth.signOut();
     }
+});
+
+auth.onAuthStateChanged(user => {
+    utenteCorrente = user;
+    if (user) {
+        loginBtn.innerText = `Esci (${user.displayName.split(' ')[0]})`;
+        caricaDatiUtente();
+    } else {
+        loginBtn.innerText = "Accedi con Google";
+        localStorage.clear(); // Pulisce i dati locali se esci
+        renderizzaAuto();
+    }
+});
+
+// --- CARICAMENTO DATI ---
+window.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('./data.json');
+    tutteLeAuto = await response.json();
+    popolaFiltri();
+    renderizzaAuto();
+});
+
+async function caricaDatiUtente() {
+    if (!utenteCorrente) return;
+    const doc = await db.collection('garages').doc(utenteCorrente.uid).get();
+    if (doc.exists) {
+        const data = doc.data();
+        Object.keys(data).forEach(key => localStorage.setItem(key, data[key]));
+    }
+    renderizzaAuto();
 }
 
 function popolaFiltri() {
-    const countrySelect = document.getElementById('filter-country');
-    const brandSelect = document.getElementById('filter-brand');
-    const filterContainer = document.getElementById('filter-container'); // Prendiamo il contenitore
+    const countryS = document.getElementById('filter-country');
+    const brandS = document.getElementById('filter-brand');
+    const container = document.getElementById('filter-container');
 
-    // SE IL GIOCO È MFGT, NASCONDIAMO I FILTRI E USCIAMO DALLA FUNZIONE
     if (giocoAttivo === "mfgt") {
-        filterContainer.style.display = "none";
-        return; 
-    } else {
-        filterContainer.style.display = "flex"; // Mostriamo i filtri per GT7
+        container.style.display = "none";
+        return;
     }
-    
-    // Il resto del codice rimane uguale...
+    container.style.display = "flex";
+
     const autoGioco = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
     const paesi = [...new Set(autoGioco.map(a => a.paese))].sort();
     const marche = [...new Set(autoGioco.map(a => a.marca))].sort();
 
-    countrySelect.innerHTML = '<option value="all">Tutti i Paesi</option>';
-    brandSelect.innerHTML = '<option value="all">Tutte le Marche</option>';
-
-    paesi.forEach(p => countrySelect.innerHTML += `<option value="${p}">${p}</option>`);
-    marche.forEach(m => brandSelect.innerHTML += `<option value="${m}">${m}</option>`);
+    countryS.innerHTML = '<option value="all">Tutti i Paesi</option>';
+    brandS.innerHTML = '<option value="all">Tutte le Marche</option>';
+    paesi.forEach(p => countryS.innerHTML += `<option value="${p}">${p}</option>`);
+    marche.forEach(m => brandS.innerHTML += `<option value="${m}">${m}</option>`);
 }
 
 function renderizzaAuto() {
     const main = document.querySelector('main');
     const termine = document.getElementById('searchBar').value.toLowerCase();
-    const paeseScelto = document.getElementById('filter-country').value;
-    const marcaScelta = document.getElementById('filter-brand').value;
+    const paese = document.getElementById('filter-country').value;
+    const marca = document.getElementById('filter-brand').value;
 
-    main.innerHTML = ""; 
+    main.innerHTML = "";
 
-    let autoFiltrate = tutteLeAuto.filter(auto => {
-        const matchGioco = auto.gioco === giocoAttivo;
-        const matchRicerca = auto.nome.toLowerCase().includes(termine);
-        const matchPaese = paeseScelto === "all" || auto.paese === paeseScelto;
-        const matchMarca = marcaScelta === "all" || auto.marca === marcaScelta;
-        return matchGioco && matchRicerca && matchPaese && matchMarca;
+    let autoFiltrate = tutteLeAuto.filter(a => {
+        return a.gioco === giocoAttivo && 
+               a.nome.toLowerCase().includes(termine) &&
+               (paese === "all" || a.paese === paese) &&
+               (marca === "all" || a.marca === marca);
     });
 
     if (giocoAttivo === "mfgt") {
@@ -62,27 +91,27 @@ function renderizzaAuto() {
         main.appendChild(grid);
     } else {
         const categorie = {};
-        autoFiltrate.forEach(auto => {
-            if (!categorie[auto.paese]) categorie[auto.paese] = {};
-            if (!categorie[auto.paese][auto.marca]) categorie[auto.paese][auto.marca] = [];
-            categorie[auto.paese][auto.marca].push(auto);
+        autoFiltrate.forEach(a => {
+            if (!categorie[a.paese]) categorie[a.paese] = {};
+            if (!categorie[a.paese][a.marca]) categorie[a.paese][a.marca] = [];
+            categorie[a.paese][a.marca].push(a);
         });
 
-        for (const paese in categorie) {
-            const countrySection = document.createElement('div');
-            countrySection.innerHTML = `<div class="category-header"><h2 class="country-title">${paese}</h2></div>`;
-            main.appendChild(countrySection);
+        for (const p in categorie) {
+            const head = document.createElement('div');
+            head.className = 'category-header';
+            head.innerHTML = `<h2 class="country-title">${p}</h2>`;
+            main.appendChild(head);
 
-            for (const marca in categorie[paese]) {
-                const brandHeader = document.createElement('h3');
-                brandHeader.className = "brand-title";
-                brandHeader.style.paddingLeft = "40px";
-                brandHeader.innerText = `— ${marca}`;
-                main.appendChild(brandHeader);
+            for (const m in categorie[p]) {
+                const bTitle = document.createElement('h3');
+                bTitle.className = "brand-title";
+                bTitle.innerText = `— ${m}`;
+                main.appendChild(bTitle);
 
                 const grid = document.createElement('div');
                 grid.className = 'car-grid';
-                categorie[paese][marca].forEach(auto => grid.appendChild(creaCard(auto)));
+                categorie[p][m].forEach(auto => grid.appendChild(creaCard(auto)));
                 main.appendChild(grid);
             }
         }
@@ -90,55 +119,32 @@ function renderizzaAuto() {
     aggiornaContatore();
 }
 
-// --- EVENT LISTENERS ---
-document.getElementById('filter-country').addEventListener('change', renderizzaAuto);
-document.getElementById('filter-brand').addEventListener('change', renderizzaAuto);
-document.getElementById('searchBar').addEventListener('input', renderizzaAuto);
-
-// Tasto Ripristina Corretto
-document.getElementById('reset-filters').addEventListener('click', () => {
-    document.getElementById('searchBar').value = "";
-    document.getElementById('filter-country').value = "all";
-    document.getElementById('filter-brand').value = "all";
-    popolaFiltri(); 
-    renderizzaAuto();
-});
-
-document.querySelectorAll('.game-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        if(e.target.id === 'reset-filters') return; // Evita conflitti con il tasto reset
-        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        giocoAttivo = e.target.getAttribute('data-game');
-        popolaFiltri(); 
-        renderizzaAuto();
-    });
-});
-
 function creaCard(auto) {
-    const storageKey = `${auto.gioco}-${auto.id}`;
-    const isOwned = localStorage.getItem(storageKey) === 'true';
+    const key = `${auto.gioco}-${auto.id}`;
+    const isOwned = localStorage.getItem(key) === 'true';
     const card = document.createElement('div');
     card.className = `car-card ${isOwned ? 'owned' : ''}`;
-    
     card.innerHTML = `
-        <img src="${auto.immagine}" alt="${auto.nome}" class="car-thumb">
+        <img src="${auto.immagine}" class="car-thumb">
         <h3>${auto.nome}</h3>
         <div class="owned-container">
-            <input type="checkbox" id="check-${storageKey}" ${isOwned ? 'checked' : ''}>
-            <label for="check-${storageKey}">Nel garage</label>
+            <input type="checkbox" ${isOwned ? 'checked' : ''}>
+            <label>Nel garage</label>
         </div>
     `;
 
-    card.querySelector('.car-thumb').onclick = () => mostraDettagli(auto);
-    card.querySelector('h3').onclick = () => mostraDettagli(auto);
-    
-    card.querySelector('input').addEventListener('change', (e) => {
-        localStorage.setItem(storageKey, e.target.checked);
-        card.classList.toggle('owned', e.target.checked);
+    card.querySelector('input').addEventListener('change', async (e) => {
+        const val = e.target.checked;
+        localStorage.setItem(key, val);
+        card.classList.toggle('owned', val);
+        
+        if (utenteCorrente) {
+            await db.collection('garages').doc(utenteCorrente.uid).set({ [key]: val }, { merge: true });
+        }
         aggiornaContatore();
     });
 
+    card.querySelector('img').onclick = () => mostraDettagli(auto);
     return card;
 }
 
@@ -199,39 +205,34 @@ function chiudiModale() {
 }
 
 function aggiornaContatore() {
-    const tutteLeAutoGioco = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
-    const totaleGioco = tutteLeAutoGioco.length;
-    let posseduteGioco = 0;
-    
-    tutteLeAutoGioco.forEach(auto => {
-        if (localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true') posseduteGioco++;
-    });
+    const autoG = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
+    const possedute = autoG.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
+    const perc = autoG.length > 0 ? Math.round((possedute / autoG.length) * 100) : 0;
 
-    const percGioco = totaleGioco > 0 ? Math.round((posseduteGioco / totaleGioco) * 100) : 0;
-    
-    document.getElementById('progress-bar').style.width = percGioco + "%";
-    
-    document.getElementById('game-name-label').innerText = giocoAttivo === 'gt7' ? 'Gran Turismo 7' : 'My First Gran Turismo';
-    document.getElementById('total-count').innerText = totaleGioco;
-    document.getElementById('owned-count').innerText = posseduteGioco;
-    document.getElementById('completion-perc').innerText = percGioco + "%";
-
-    const detailedStats = document.getElementById('detailed-stats');
-    const paeseScelto = document.getElementById('filter-country').value;
-    const marcaScelta = document.getElementById('filter-brand').value;
-
-    if (giocoAttivo === 'gt7' && (paeseScelto !== 'all' || marcaScelta !== 'all')) {
-        detailedStats.style.display = "block";
-        let autoFiltrateDettaglio = marcaScelta !== 'all' ? 
-            tutteLeAutoGioco.filter(a => a.marca === marcaScelta) : 
-            tutteLeAutoGioco.filter(a => a.paese === paeseScelto);
-
-        let posseduteDettaglio = autoFiltrateDettaglio.filter(auto => localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true').length;
-        const percDettaglio = autoFiltrateDettaglio.length > 0 ? Math.round((posseduteDettaglio / autoFiltrateDettaglio.length) * 100) : 0;
-
-        document.getElementById('detail-label').innerText = marcaScelta !== 'all' ? marcaScelta : paeseScelto;
-        document.getElementById('detail-owned').innerText = `${posseduteDettaglio} / ${autoFiltrateDettaglio.length} (${percDettaglio}%)`;
-    } else {
-        detailedStats.style.display = "none";
-    }
+    document.getElementById('owned-count').innerText = possedute;
+    document.getElementById('total-count').innerText = autoG.length;
+    document.getElementById('completion-perc').innerText = perc + "%";
+    document.getElementById('progress-bar').style.width = perc + "%";
 }
+
+// Event Listeners base
+document.getElementById('filter-country').addEventListener('change', renderizzaAuto);
+document.getElementById('filter-brand').addEventListener('change', renderizzaAuto);
+document.getElementById('searchBar').addEventListener('input', renderizzaAuto);
+document.getElementById('reset-filters').onclick = () => {
+    document.getElementById('searchBar').value = "";
+    document.getElementById('filter-country').value = "all";
+    document.getElementById('filter-brand').value = "all";
+    renderizzaAuto();
+};
+
+document.querySelectorAll('.game-btn').forEach(btn => {
+    btn.onclick = (e) => {
+        if (e.target.id === 'login-btn') return;
+        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        giocoAttivo = e.target.dataset.game;
+        popolaFiltri();
+        renderizzaAuto();
+    };
+});
