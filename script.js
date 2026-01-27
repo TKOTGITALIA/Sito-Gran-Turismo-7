@@ -7,25 +7,31 @@ async function caricaAuto() {
     try {
         const response = await fetch('./data.json');
         tutteLeAuto = await response.json();
-        popolaFiltri(); // Crea le opzioni nei menu a tendina
+        popolaFiltri(); 
         renderizzaAuto();
     } catch (error) {
-        console.error("Errore:", error);
+        console.error("Errore nel caricamento dati:", error);
     }
 }
 
 function popolaFiltri() {
     const countrySelect = document.getElementById('filter-country');
     const brandSelect = document.getElementById('filter-brand');
+    const filterContainer = document.getElementById('filter-container'); // Prendiamo il contenitore
+
+    // SE IL GIOCO È MFGT, NASCONDIAMO I FILTRI E USCIAMO DALLA FUNZIONE
+    if (giocoAttivo === "mfgt") {
+        filterContainer.style.display = "none";
+        return; 
+    } else {
+        filterContainer.style.display = "flex"; // Mostriamo i filtri per GT7
+    }
     
-    // Prendiamo solo le auto del gioco attuale
+    // Il resto del codice rimane uguale...
     const autoGioco = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
-    
-    // Estraiamo valori unici per Paesi e Marche
     const paesi = [...new Set(autoGioco.map(a => a.paese))].sort();
     const marche = [...new Set(autoGioco.map(a => a.marca))].sort();
 
-    // Reset e ripopolamento
     countrySelect.innerHTML = '<option value="all">Tutti i Paesi</option>';
     brandSelect.innerHTML = '<option value="all">Tutte le Marche</option>';
 
@@ -41,7 +47,6 @@ function renderizzaAuto() {
 
     main.innerHTML = ""; 
 
-    // Applichiamo TUTTI i filtri insieme
     let autoFiltrate = tutteLeAuto.filter(auto => {
         const matchGioco = auto.gioco === giocoAttivo;
         const matchRicerca = auto.nome.toLowerCase().includes(termine);
@@ -56,7 +61,6 @@ function renderizzaAuto() {
         autoFiltrate.forEach(auto => grid.appendChild(creaCard(auto)));
         main.appendChild(grid);
     } else {
-        // Logica raggruppata per GT7 (Paese -> Marca)
         const categorie = {};
         autoFiltrate.forEach(auto => {
             if (!categorie[auto.paese]) categorie[auto.paese] = {};
@@ -86,26 +90,33 @@ function renderizzaAuto() {
     aggiornaContatore();
 }
 
-// Event Listeners per i filtri
+// --- EVENT LISTENERS ---
 document.getElementById('filter-country').addEventListener('change', renderizzaAuto);
 document.getElementById('filter-brand').addEventListener('change', renderizzaAuto);
 document.getElementById('searchBar').addEventListener('input', renderizzaAuto);
 
-// Quando cambi gioco, resetta e aggiorna i filtri
+// Tasto Ripristina Corretto
+document.getElementById('reset-filters').addEventListener('click', () => {
+    document.getElementById('searchBar').value = "";
+    document.getElementById('filter-country').value = "all";
+    document.getElementById('filter-brand').value = "all";
+    popolaFiltri(); 
+    renderizzaAuto();
+});
+
 document.querySelectorAll('.game-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
+        if(e.target.id === 'reset-filters') return; // Evita conflitti con il tasto reset
         document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
         giocoAttivo = e.target.getAttribute('data-game');
-        popolaFiltri(); // Aggiorna le tendine con i nuovi paesi/marche
+        popolaFiltri(); 
         renderizzaAuto();
     });
 });
 
 function creaCard(auto) {
-    // MODIFICA: Creiamo una chiave unica che unisce gioco e ID
     const storageKey = `${auto.gioco}-${auto.id}`;
-    
     const isOwned = localStorage.getItem(storageKey) === 'true';
     const card = document.createElement('div');
     card.className = `car-card ${isOwned ? 'owned' : ''}`;
@@ -123,7 +134,6 @@ function creaCard(auto) {
     card.querySelector('h3').onclick = () => mostraDettagli(auto);
     
     card.querySelector('input').addEventListener('change', (e) => {
-        // MODIFICA: Salviamo usando la chiave specifica per quel gioco
         localStorage.setItem(storageKey, e.target.checked);
         card.classList.toggle('owned', e.target.checked);
         aggiornaContatore();
@@ -132,48 +142,23 @@ function creaCard(auto) {
     return card;
 }
 
-// Gestione pulsanti gioco
-document.querySelectorAll('.game-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        giocoAttivo = e.target.getAttribute('data-game');
-        renderizzaAuto();
-    });
-});
-
-// Ricerca (aggiornata per funzionare con le card generate)
-document.getElementById('searchBar').addEventListener('input', (e) => {
-    const termine = e.target.value.toLowerCase();
-    document.querySelectorAll('.car-card').forEach(card => {
-        const nome = card.querySelector('h3').innerText.toLowerCase();
-        card.style.display = nome.includes(termine) ? "block" : "none";
-    });
-});
-
 function mostraDettagli(auto) {
     const modal = document.getElementById("carModal");
     const modalBody = document.getElementById("modal-body");
-    
-    // 1. Prepariamo la griglia delle specifiche e il link in base al gioco
     let specsHTML = "";
-    let linkHTML = ""; // Variabile per contenere il pulsante del link
+    let linkHTML = "";
 
     if (auto.gioco === "mfgt") {
-        // --- SPECIFICHE PER MY FIRST GRAN TURISMO ---
         specsHTML = `
             <div class="specs-grid">
                 <div class="spec-item"><strong>Anno</strong> ${auto.anno}</div>
-                <div class="spec-item"><strong>Velocità Max.</strong> ${auto.velocita}</div>
-                <div class="spec-item"><strong>Accelerazione</strong> ${auto.accelerazione}</div>
-                <div class="spec-item"><strong>Frenata</strong> ${auto.frenata}</div>
-                <div class="spec-item"><strong>Sterzata</strong> ${auto.sterzata}</div>
-                <div class="spec-item"><strong>Stabilità</strong> ${auto.stabilita}</div>
-            </div>
-        `;
-        // Per MFGT linkHTML rimane vuoto
+                <div class="spec-item"><strong>Velocità Max.</strong> ${auto.velocita || '-'}</div>
+                <div class="spec-item"><strong>Accelerazione</strong> ${auto.accelerazione || '-'}</div>
+                <div class="spec-item"><strong>Frenata</strong> ${auto.frenata || '-'}</div>
+                <div class="spec-item"><strong>Sterzata</strong> ${auto.sterzata || '-'}</div>
+                <div class="spec-item"><strong>Stabilità</strong> ${auto.stabilita || '-'}</div>
+            </div>`;
     } else {
-        // --- SPECIFICHE PER GRAN TURISMO 7 ---
         specsHTML = `
             <div class="specs-grid">
                 <div class="spec-item"><strong>Anno</strong> ${auto.anno}</div>
@@ -182,18 +167,12 @@ function mostraDettagli(auto) {
                 <div class="spec-item"><strong>Negozio</strong> ${auto.acquisto}</div>
                 <div class="spec-item"><strong>Potenza</strong> ${auto.cv}</div>
                 <div class="spec-item"><strong>Peso</strong> ${auto.peso}</div>
-            </div>
-        `;
-        
-        // Aggiungiamo il pulsante link solo per GT7
-        linkHTML = `
-            <div style="margin-top: 25px; text-align: center;">
-                <a href="${auto.link}" target="_blank" class="btn-link">Sito Ufficiale</a>
-            </div>
-        `;
+            </div>`;
+        linkHTML = `<div style="margin-top: 25px; text-align: center;">
+                        <a href="${auto.link}" target="_blank" class="btn-link">Sito Ufficiale</a>
+                    </div>`;
     }
 
-    // 2. Costruiamo il corpo del modale
     modalBody.innerHTML = `
         <img src="${auto.immagine}" class="modal-img">
         <div style="padding: 20px;">
@@ -205,40 +184,27 @@ function mostraDettagli(auto) {
             <hr style="border: 0.5px solid #333; margin: 20px 0;">
             <p class="modal-desc">${auto.descrizione}</p>
             ${linkHTML} 
-        </div>
-    `;
+        </div>`;
 
     modal.style.display = "block";
     document.body.style.overflow = "hidden";
 
-    // Gestione chiusura
-    const closeBtn = document.querySelector(".close-button");
-    closeBtn.onclick = () => chiudiModale();
+    document.querySelector(".close-button").onclick = chiudiModale;
     window.onclick = (event) => { if (event.target == modal) chiudiModale(); };
 }
 
-// Funzione unica per chiudere e ripristinare lo scroll
 function chiudiModale() {
-    const modal = document.getElementById("carModal");
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // Riattiva lo scroll
-}
-
-document.querySelector(".close-button").onclick = () => {
     document.getElementById("carModal").style.display = "none";
     document.body.style.overflow = "auto";
-};
+}
 
 function aggiornaContatore() {
-    // 1. Statistiche Generali del Gioco Attivo
     const tutteLeAutoGioco = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
     const totaleGioco = tutteLeAutoGioco.length;
     let posseduteGioco = 0;
     
     tutteLeAutoGioco.forEach(auto => {
-        if (localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true') {
-            posseduteGioco++;
-        }
+        if (localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true') posseduteGioco++;
     });
 
     const percGioco = totaleGioco > 0 ? Math.round((posseduteGioco / totaleGioco) * 100) : 0;
@@ -248,42 +214,21 @@ function aggiornaContatore() {
     document.getElementById('owned-count').innerText = posseduteGioco;
     document.getElementById('completion-perc').innerText = percGioco + "%";
 
-    // 2. Statistiche Dettagliate (Nazione/Marca) - Solo per GT7
     const detailedStats = document.getElementById('detailed-stats');
     const paeseScelto = document.getElementById('filter-country').value;
     const marcaScelta = document.getElementById('filter-brand').value;
 
     if (giocoAttivo === 'gt7' && (paeseScelto !== 'all' || marcaScelta !== 'all')) {
         detailedStats.style.display = "block";
-        
-        let autoFiltrateDettaglio = tutteLeAutoGioco;
-        let etichetta = "";
+        let autoFiltrateDettaglio = marcaScelta !== 'all' ? 
+            tutteLeAutoGioco.filter(a => a.marca === marcaScelta) : 
+            tutteLeAutoGioco.filter(a => a.paese === paeseScelto);
 
-        if (marcaScelta !== 'all') {
-            autoFiltrateDettaglio = tutteLeAutoGioco.filter(a => a.marca === marcaScelta);
-            etichetta = marcaScelta;
-        } else if (paeseScelto !== 'all') {
-            autoFiltrateDettaglio = tutteLeAutoGioco.filter(a => a.paese === paeseScelto);
-            etichetta = paeseScelto;
-        }
+        let posseduteDettaglio = autoFiltrateDettaglio.filter(auto => localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true').length;
+        const percDettaglio = autoFiltrateDettaglio.length > 0 ? Math.round((posseduteDettaglio / autoFiltrateDettaglio.length) * 100) : 0;
 
-        const totaleDettaglio = autoFiltrateDettaglio.length;
-        let posseduteDettaglio = 0;
-        autoFiltrateDettaglio.forEach(auto => {
-            if (localStorage.getItem(`${auto.gioco}-${auto.id}`) === 'true') {
-                posseduteDettaglio++;
-            }
-        });
-        
-        const percDettaglio = totaleDettaglio > 0 ? Math.round((posseduteDettaglio / totaleDettaglio) * 100) : 0;
-
-        document.getElementById('detail-label').innerText = etichetta;
-        
-        // Questa riga ora mostra solo "X / Y (Z%)" senza pezzi extra alla fine
-        document.getElementById('detail-owned').innerText = `${posseduteDettaglio} / ${totaleDettaglio} (${percDettaglio}%)`;
-        
-        // HO RIMOSSO LA RIGA: document.getElementById('detail-total').innerText = totaleDettaglio;
-        // che era quella che causava il "/ 3" fastidioso.
+        document.getElementById('detail-label').innerText = marcaScelta !== 'all' ? marcaScelta : paeseScelto;
+        document.getElementById('detail-owned').innerText = `${posseduteDettaglio} / ${autoFiltrateDettaglio.length} (${percDettaglio}%)`;
     } else {
         detailedStats.style.display = "none";
     }
