@@ -6,6 +6,7 @@
     <title>GT Database Cloud</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
+    
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -55,26 +56,24 @@
 
 <footer><p>&copy; 2026 Progetto Fan Gran Turismo</p></footer>
 
-<body>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCcdcsIWEZ1j6Vq0_ImyNRxna2bJyVYWL0",
-  authDomain: "gt-database-fedcd.firebaseapp.com",
-  projectId: "gt-database-fedcd",
-  storageBucket: "gt-database-fedcd.firebasestorage.app",
-  messagingSenderId: "542867018660",
-  appId: "1:542867018660:web:dacf4c5243e37259d32731"
-        };
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCcdcsIWEZ1j6Vq0_ImyNRxna2bJyVYWL0",
+        authDomain: "gt-database-fedcd.firebaseapp.com",
+        projectId: "gt-database-fedcd",
+        storageBucket: "gt-database-fedcd.firebasestorage.app",
+        messagingSenderId: "542867018660",
+        appId: "1:542867018660:web:dacf4c5243e37259d32731"
+    };
 
-        // Inizializza Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        const auth = firebase.auth();
-        const provider = new firebase.auth.GoogleAuthProvider();
-    </script>
+    // Inizializza Firebase una sola volta
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+    var provider = new firebase.auth.GoogleAuthProvider();
+</script>
 
-    <script src="script.js"></script>
-</body>
 <script src="script.js"></script>
+
 </body>
 </html>
