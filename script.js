@@ -15,10 +15,9 @@ auth.onAuthStateChanged(u => {
     }
 });
 
-// Cambiato window.onload con un listener più solido
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        const res = await fetch('data.json'); // Rimosso ./ per GitHub
+        const res = await fetch('./data.json?v=2');
         if (!res.ok) throw new Error();
         tutteLeAuto = await res.json();
         popolaFiltri();
@@ -108,3 +107,4 @@ document.getElementById('filter-brand').onchange = renderizzaAuto;
 document.getElementById('searchBar').oninput = renderizzaAuto;
 document.getElementById('reset-filters').onclick = () => { document.getElementById('searchBar').value = ""; document.getElementById('filter-country').value = "all"; document.getElementById('filter-brand').value = "all"; renderizzaAuto(); };
 document.querySelectorAll('.game-btn').forEach(b => b.onclick = (e) => { if(e.target.id === 'login-btn') return; document.querySelectorAll('.game-btn').forEach(x => x.classList.remove('active')); e.target.classList.add('active'); giocoAttivo = e.target.dataset.game; popolaFiltri(); renderizzaAuto(); });
+
