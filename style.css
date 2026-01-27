@@ -1,18 +1,16 @@
-/* Impostazioni generali: Font e Colori */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b0d10; /* Nero bluastro tipico dei menu GT */
+    background-color: #0b0d10;
     color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
-/* Testata del sito */
 header {
     background: linear-gradient(135deg, #1a1d23 0%, #000000 100%);
     padding: 40px 20px;
     text-align: center;
-    border-bottom: 3px solid #e10600; /* Rosso sportivo GT */
+    border-bottom: 3px solid #e10600;
 }
 
 header h1 {
@@ -22,7 +20,6 @@ header h1 {
     text-transform: uppercase;
 }
 
-/* Barra di ricerca */
 #searchBar {
     margin-top: 20px;
     padding: 12px;
@@ -35,351 +32,17 @@ header h1 {
     font-size: 1rem;
 }
 
-/* La Griglia delle Auto */
-.car-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* La singola "Card" dell'auto */
-.car-card {
-    background-color: #1a1d23;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 1px solid #333;
-}
-
-.car-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(225, 6, 0, 0.2);
-    border-color: #e10600;
-}
-
-.car-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover; /* Taglia l'immagine bene senza deformarla */
-}
-
-.car-card h3 {
-    padding: 15px;
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-/* Stile per la checkbox del garage */
-.owned-container {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-top: 1px solid #333;
-}
-
-.owned-container label {
-    font-size: 0.8rem;
-    color: #aaa;
-    cursor: pointer;
-}
-
-.owned-container input[type="checkbox"] {
-    cursor: pointer;
-    accent-color: #e10600; /* La spunta diventa rossa come GT */
-}
-
-/* Effetto visivo quando l'auto è posseduta */
-.car-card.owned {
-    border-color: #e10600;
-    opacity: 0.9;
-}
-/* Titoli delle Categorie (Paese e Marca) */
-.category-header {
-    width: 100%;
-    padding: 20px 40px;
-    background-color: #1a1d23;
-    border-left: 5px solid #e10600;
-    margin-top: 30px;
-}
-
-.country-title {
-    font-size: 2rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.brand-title {
-    font-size: 1.2rem;
-    color: #e10600;
-    margin-bottom: 20px;
-}
-
-/* Modifica la griglia per stare sotto i titoli */
-.car-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px 40px 40px 40px; /* Ridotto il padding superiore */
-}
-/* --- SISTEMAZIONE MODAL --- */
-
-/* 1. Lo sfondo oscurato */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 9999; /* Portalo sopra a tutto */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Nero profondo trasparente */
-    backdrop-filter: blur(8px); /* Effetto sfocato bellissimo */
-    overflow-y: auto; /* Permette di scrollare se il testo è lungo */
-}
-
-/* 2. Il riquadro centrale */
-.modal-content {
-    background-color: #1a1d23;
-    margin: 50px auto;
-    padding: 0; /* Togliamo il padding per far toccare l'immagine ai bordi sopra */
-    border: 1px solid #444;
-    border-top: 4px solid #e10600; /* Linea rossa GT in alto */
-    width: 90%;
-    max-width: 700px;
-    border-radius: 12px;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    overflow: hidden; /* Taglia gli angoli dell'immagine se ha border-radius */
-}
-
-/* 3. L'immagine dentro il modal */
-.modal-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 1px solid #333;
-}
-
-/* 4. Il testo dentro il modal */
-#modal-body {
-    padding: 30px;
-}
-
-#modal-body h2 {
-    margin-top: 0;
-    font-size: 1.8rem;
-    color: #fff;
-}
-
-.modal-desc {
-    color: #bbb;
-    line-height: 1.6;
-    font-size: 1rem;
-    margin-top: 15px;
-}
-
-/* 5. Il tasto chiudi */
-.close-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    color: #fff;
-    font-size: 30px;
-    background: rgba(0,0,0,0.5);
-    width: 40px;
-    height: 40px;
-    line-height: 35px;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10001;
-    transition: 0.3s;
-}
-
-.close-button:hover {
-    background-color: #e10600;
-}
-#stats-container {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #e10600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
-#owned-count {
-    color: #fff;
-    font-size: 1.2rem;
-}
-.specs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Mantiene le due colonne */
-    gap: 15px;
-    background: #111;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #333;
-    margin-bottom: 10px;
-}
-
-.spec-item {
-    color: #eee;
-    font-size: 0.95rem;
-    display: flex;
-    flex-direction: column; /* Mette l'etichetta sopra il valore per più chiarezza */
-    border-bottom: 1px solid #222;
-    padding-bottom: 5px;
-}
-
-.spec-item strong {
-    color: #e10600;
-    text-transform: uppercase;
-    font-size: 0.65rem; /* Ridotto leggermente per far stare "Punti Prestazione" su una riga */
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-}
-.btn-link {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #e10600;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.btn-link:hover {
-    background-color: #e10600;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
-}
-.count-badge {
-    font-size: 0.9rem;
-    color: #888; /* Grigio di base */
-    font-weight: normal;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-/* Quando tutte le auto di quella categoria sono possedute, il badge diventa dorato o verde */
-.count-badge {
-    transition: color 0.3s ease;
-}
-
-/* Opzionale: evidenzia se hai completato la marca */
-.marca-count, .paese-count {
-    font-family: 'Courier New', Courier, monospace; /* Stile più tecnico */
-}
-/* Container per il link ufficiale */
-.official-list-container {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: #bbb;
-}
-
-.header-link {
-    color: #e10600;
-    text-decoration: none;
-    font-weight: bold;
-    transition: text-shadow 0.3s;
-}
-
-.header-link:hover {
-    text-shadow: 0 0 8px rgba(225, 6, 0, 0.6);
-    text-decoration: underline;
-}
-
-/* --- CONTATORE STATI GRANDE --- */
-.paese-count {
-    font-size: 1.8rem; /* Molto più grande */
-    color: #fff;
-    background: #e10600; /* Sfondo rosso per farlo risaltare */
-    padding: 2px 15px;
-    border-radius: 4px;
-    font-family: 'Arial Black', sans-serif;
-}
-
-/* Allineamento titolo e contatore */
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
-}
-
-/* Badge Marchi (resta piccolo) */
-.marca-count {
-    font-size: 1rem;
-    color: #888;
-    font-weight: normal;
-}
-/* --- STILE SELETTORE GIOCHI --- */
-#game-selector {
-    margin-top: 20px;
+#game-selector, #filter-container {
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding-bottom: 10px;
-}
-
-.game-btn {
-    background-color: #2a2e35;
-    color: #fff;
-    border: 2px solid transparent;
-    padding: 10px 25px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.game-btn:hover {
-    background-color: #3d424a;
-    border-color: #555;
-}
-
-.game-btn.active {
-    background-color: #e10600;
-    border-color: #e10600;
-    box-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
-}
-/* --- SELETTORE GIOCHI AGGIORNATO --- */
-#game-selector {
     margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
     padding: 0 20px;
-    flex-wrap: wrap; /* Fondamentale per il nome lungo sui cellulari */
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.game-btn {
+.game-btn, #reset-filters {
     background-color: #2a2e35;
     color: #fff;
     border: 2px solid transparent;
@@ -391,38 +54,20 @@ footer {
     font-size: 0.85rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    min-width: 180px; /* Diamo spazio al nome My First Gran Turismo */
+    min-width: 150px;
     text-align: center;
 }
 
-.game-btn:hover {
+.game-btn:hover, #reset-filters:hover {
     background-color: #3d424a;
-    border-color: #555;
+    border-color: #e10600;
 }
 
 .game-btn.active {
     background-color: #e10600;
-    border-color: #e10600;
     box-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
 }
 
-/* Ottimizzazione per schermi piccoli (Smartphone) */
-@media (max-width: 600px) {
-    .game-btn {
-        width: 100%; /* I tasti si impilano uno sopra l'altro sui telefoni */
-    }
-}
-/* --- STILE FILTRI (PAESE E MARCA) --- */
-#filter-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
-    margin-bottom: 10px; /* Spazio ridotto verso le stats */
-    padding: 0 20px;
-    flex-wrap: wrap;
-}
-
 #filter-container select {
     background-color: #2a2e35;
     color: white;
@@ -431,85 +76,8 @@ footer {
     border-radius: 5px;
     font-size: 0.9rem;
     cursor: pointer;
-    outline: none;
     min-width: 180px;
-    transition: border-color 0.3s;
-}
-
-#filter-container select:focus {
-    border-color: #e10600;
-}
-/* --- PANNELLO STATISTICHE --- */
-#stats-panel {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 12px;
-    margin: 0 auto 20px auto; /* Centrato con margine solo sotto */
-    max-width: 600px;
-    text-align: center;
-}
-
-#game-stats {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-#game-name-label {
-    color: #e10600;
-    text-transform: uppercase;
-}
-
-/* Colore percentuale bianco con leggero bagliore */
-#completion-perc {
-    color: #ffffff; 
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Questo crea l'effetto bagliore */
-}
-
-#detailed-stats {
-    font-size: 0.9rem;
-    color: #aaa;
-    border-top: 1px solid #222;
-    padding-top: 8px;
-    margin-top: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-#detail-label {
-    color: #e10600; 
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-#detail-owned {
-    color: #ffffff;
-    font-weight: bold;
-    margin-left: 5px;
-}
-/* --- RIPRISTINO FILTRI E STATISTICHE --- */
-#filter-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    padding: 0 20px;
-    flex-wrap: wrap;
-}
-
-#filter-container select {
-    background-color: #2a2e35;
-    color: white;
-    border: 1px solid #444;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
     outline: none;
-    min-width: 180px;
 }
 
 #filter-container select:focus {
@@ -524,53 +92,145 @@ footer {
     margin: 20px auto;
     max-width: 600px;
     text-align: center;
-    font-family: 'Segoe UI', sans-serif;
 }
 
-#game-stats {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-#game-name-label {
-    color: #e10600;
-    text-transform: uppercase;
-}
-
-/* Colore percentuale bianco */
-#completion-perc {
-    color: #ffffff; 
-}
+#game-stats { font-size: 1.1rem; font-weight: bold; color: #fff; }
+#game-name-label { color: #e10600; text-transform: uppercase; }
+#completion-perc { color: #fff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); }
 
 #detailed-stats {
     font-size: 0.9rem;
-    color: #aaa;
     border-top: 1px solid #222;
     padding-top: 8px;
     margin-top: 8px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-#detail-label {
-    color: #e10600; 
-    font-weight: bold;
-    margin-right: 5px;
+#detail-label { color: #e10600; font-weight: bold; }
+#detail-owned { color: #fff; font-weight: bold; }
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #1a1d23;
+    border-left: 5px solid #e10600;
+    margin-top: 30px;
 }
 
-#detail-owned {
-    color: #ffffff;
-    font-weight: bold;
-    margin-left: 5px;
+.country-title { font-size: 2rem; text-transform: uppercase; margin: 0; }
+.paese-count { font-size: 1.5rem; color: #fff; background: #e10600; padding: 2px 15px; border-radius: 4px; }
+.brand-title { font-size: 1.2rem; color: #e10600; margin: 20px 0 10px 40px; }
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-/* Aggiungi questo nel tuo style.css */
+
+.car-card {
+    background-color: #1a1d23;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(225, 6, 0, 0.2);
+    border-color: #e10600;
+}
+
 .car-card.owned {
     border-color: #e10600;
-    background: linear-gradient(180deg, #1a1d23 0%, #2d1010 100%); /* Sfumatura rossastra */
+    background: linear-gradient(180deg, #1a1d23 0%, #2d1010 100%);
 }
 
-.car-card.owned h3 {
-    color: #e10600;
+.car-card.owned h3 { color: #e10600; }
+
+.car-card img { width: 100%; height: 180px; object-fit: cover; }
+.car-card h3 { padding: 15px; margin: 0; font-size: 1.2rem; text-align: center; }
+
+.owned-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px solid #333;
 }
+
+.owned-container input[type="checkbox"] { accent-color: #e10600; cursor: pointer; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #1a1d23;
+    margin: 50px auto;
+    border-top: 4px solid #e10600;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-img { width: 100%; border-bottom: 1px solid #333; }
+#modal-body { padding: 30px; }
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.spec-item { display: flex; flex-direction: column; border-bottom: 1px solid #222; padding-bottom: 5px; }
+.spec-item strong { color: #e10600; text-transform: uppercase; font-size: 0.65rem; margin-bottom: 2px; }
+
+.btn-link {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #e10600;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-link:hover { background-color: #e10600; box-shadow: 0 0 15px rgba(225, 6, 0, 0.4); }
+
+.close-button {
+    position: absolute;
+    top: 15px; right: 20px;
+    color: #fff; font-size: 30px;
+    background: rgba(0,0,0,0.5);
+    width: 40px; height: 40px;
+    line-height: 35px; text-align: center;
+    border-radius: 50%; cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .game-btn, #searchBar { width: 90%; }
+    .specs-grid { grid-template-columns: 1fr; }
+}
+
+footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #666; }
