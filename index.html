@@ -6,56 +6,35 @@
     <title>GT Database Cloud</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 </head>
 <body>
-
 <header>
     <h1>Gran Turismo Database</h1>
-    <div id="auth-status">
-        <button id="login-btn" class="game-btn" style="min-width: auto;">Accedi con Google</button>
-    </div>
-    
+    <div id="auth-status"><button id="login-btn" class="game-btn">Accedi con Google</button></div>
     <input type="text" id="searchBar" placeholder="Cerca un'auto o una marca...">
-    
     <div id="game-selector">
         <button class="game-btn active" data-game="gt7">Gran Turismo 7</button>
         <button class="game-btn" data-game="mfgt">My First Gran Turismo</button>
     </div>
-
     <div id="filter-container">
         <select id="filter-country"><option value="all">Tutti i Paesi</option></select>
         <select id="filter-brand"><option value="all">Tutte le Marche</option></select>
         <button id="reset-filters">Ripristina</button>
     </div>
-
     <div id="stats-panel">
-        <div id="game-stats">
-            <span id="game-name-label">GT7</span>: 
-            <span id="owned-count">0</span> / <span id="total-count">0</span> 
-            (<span id="completion-perc">0%</span>)
-        </div>
+        <div id="game-stats"><span id="game-name-label">GT7</span>: <span id="owned-count">0</span> / <span id="total-count">0</span> (<span id="completion-perc">0%</span>)</div>
         <div class="progress-container"><div id="progress-bar"></div></div>
-        <div id="detailed-stats" style="display: none;">
-            <span id="detail-label"></span>: <span id="detail-owned"></span> 
-        </div>
+        <div id="detailed-stats" style="display:none;"><span id="detail-label"></span>: <span id="detail-owned"></span></div>
     </div>
 </header>
-
 <main></main>
-
 <div id="carModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <div id="modal-body"></div>
-    </div>
+    <div class="modal-content"><span class="close-button">&times;</span><div id="modal-body"></div></div>
 </div>
-
 <footer><p>&copy; 2026 Progetto Fan Gran Turismo</p></footer>
-
 <script>
     const firebaseConfig = {
         apiKey: "AIzaSyCcdcsIWEZ1j6Vq0_ImyNRxna2bJyVYWL0",
@@ -65,15 +44,11 @@
         messagingSenderId: "542867018660",
         appId: "1:542867018660:web:dacf4c5243e37259d32731"
     };
-
-    // Inizializza Firebase una sola volta
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
     var auth = firebase.auth();
     var provider = new firebase.auth.GoogleAuthProvider();
 </script>
-
 <script src="script.js"></script>
-
 </body>
 </html>
