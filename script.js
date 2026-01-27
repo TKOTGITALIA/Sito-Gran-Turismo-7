@@ -1,23 +1,23 @@
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-
 // --- VARIABILI GLOBALI ---
+// Nota: db, auth e provider sono già definiti nell'HTML
 let tutteLeAuto = [];
 let giocoAttivo = "gt7";
 let utenteCorrente = null;
 
 // --- GESTIONE LOGIN ---
 const loginBtn = document.getElementById('login-btn');
-loginBtn.addEventListener('click', () => {
-    if (!utenteCorrente) {
-        auth.signInWithPopup(provider);
-    } else {
-        auth.signOut();
-    }
-});
 
+if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+        if (!utenteCorrente) {
+            auth.signInWithPopup(provider).catch(err => console.error("Errore login:", err));
+        } else {
+            auth.signOut();
+        }
+    });
+}
+
+// Monitora lo stato dell'utente
 auth.onAuthStateChanged(user => {
     utenteCorrente = user;
     if (user) {
@@ -25,27 +25,36 @@ auth.onAuthStateChanged(user => {
         caricaDatiUtente();
     } else {
         loginBtn.innerText = "Accedi con Google";
-        localStorage.clear(); // Pulisce i dati locali se esci
+        localStorage.clear(); 
         renderizzaAuto();
     }
 });
 
 // --- CARICAMENTO DATI ---
 window.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('./data.json');
-    tutteLeAuto = await response.json();
-    popolaFiltri();
-    renderizzaAuto();
+    try {
+        const response = await fetch('./data.json');
+        tutteLeAuto = await response.json();
+        popolaFiltri();
+        renderizzaAuto();
+    } catch (err) {
+        console.error("Errore caricamento data.json:", err);
+    }
 });
 
 async function caricaDatiUtente() {
     if (!utenteCorrente) return;
-    const doc = await db.collection('garages').doc(utenteCorrente.uid).get();
-    if (doc.exists) {
-        const data = doc.data();
-        Object.keys(data).forEach(key => localStorage.setItem(key, data[key]));
+    try {
+        const doc = await db.collection('garages').doc(utenteCorrente.uid).get();
+        if (doc.exists) {
+            const data = doc.data();
+            // Sincronizza il cloud con il localStorage
+            Object.keys(data).forEach(key => localStorage.setItem(key, data[key]));
+        }
+        renderizzaAuto();
+    } catch (err) {
+        console.error("Errore recupero dati cloud:", err);
     }
-    renderizzaAuto();
 }
 
 function popolaFiltri() {
@@ -71,6 +80,8 @@ function popolaFiltri() {
 
 function renderizzaAuto() {
     const main = document.querySelector('main');
+    if(!main) return;
+    
     const termine = document.getElementById('searchBar').value.toLowerCase();
     const paese = document.getElementById('filter-country').value;
     const marca = document.getElementById('filter-brand').value;
@@ -125,7 +136,7 @@ function creaCard(auto) {
     const card = document.createElement('div');
     card.className = `car-card ${isOwned ? 'owned' : ''}`;
     card.innerHTML = `
-        <img src="${auto.immagine}" class="car-thumb">
+        <img src="${auto.immagine}" class="car-thumb" loading="lazy">
         <h3>${auto.nome}</h3>
         <div class="owned-container">
             <input type="checkbox" ${isOwned ? 'checked' : ''}>
@@ -215,7 +226,7 @@ function aggiornaContatore() {
     document.getElementById('progress-bar').style.width = perc + "%";
 }
 
-// Event Listeners base
+// Listeners
 document.getElementById('filter-country').addEventListener('change', renderizzaAuto);
 document.getElementById('filter-brand').addEventListener('change', renderizzaAuto);
 document.getElementById('searchBar').addEventListener('input', renderizzaAuto);
