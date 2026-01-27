@@ -17,13 +17,14 @@ auth.onAuthStateChanged(u => {
 
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        const res = await fetch('./data.json?v=2');
-        if (!res.ok) throw new Error();
+        // Fetch senza ./ per evitare errori 404 su alcune configurazioni GitHub
+        const res = await fetch('data.json?v=3'); 
+        if (!res.ok) throw new Error("Status: " + res.status);
         tutteLeAuto = await res.json();
         popolaFiltri();
         renderizzaAuto();
     } catch (e) {
-        console.error("Errore: file data.json non trovato o non valido");
+        console.error("Impossibile caricare data.json. Verifica che il file sia nella cartella principale e tutto minuscolo.");
     }
 });
 
@@ -107,4 +108,5 @@ document.getElementById('filter-brand').onchange = renderizzaAuto;
 document.getElementById('searchBar').oninput = renderizzaAuto;
 document.getElementById('reset-filters').onclick = () => { document.getElementById('searchBar').value = ""; document.getElementById('filter-country').value = "all"; document.getElementById('filter-brand').value = "all"; renderizzaAuto(); };
 document.querySelectorAll('.game-btn').forEach(b => b.onclick = (e) => { if(e.target.id === 'login-btn') return; document.querySelectorAll('.game-btn').forEach(x => x.classList.remove('active')); e.target.classList.add('active'); giocoAttivo = e.target.dataset.game; popolaFiltri(); renderizzaAuto(); });
+
 
