@@ -6,6 +6,8 @@
         "marca": "Audi",
         "paese": "Germania",
         "anno": "2003",
+        "titolo": "La piccola ed eccentrica auto che ha rivoluzionato il design automobilistico sportivo!",
+        "trasmissione": "Trazione integrale (4WD)",
         "velocita": "6/10",
         "accelerazione": "6/10",
         "frenata": "6/10",
@@ -21,6 +23,8 @@
         "marca": "BMW",
         "paese": "Germania",
         "anno": "1989",
+        "titolo": "Nata per vincere: la famosa \"Serie 3\"",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "6/10",
         "accelerazione": "5/10",
         "frenata": "5/10",
@@ -36,6 +40,8 @@
         "marca": "Citroën",
         "paese": "Francia",
         "anno": "1970",
+        "titolo": "\"Astronave\" francese e auto del futuro",
+        "trasmissione": "Motore anteriore Trazione anteriore (FF)",
         "velocita": "4/10",
         "accelerazione": "4/10",
         "frenata": "2/10",
@@ -51,13 +57,15 @@
         "marca": "Daihatsu",
         "paese": "Giappone",
         "anno": "2002",
+        "titolo": "Un piccolissimo modello scoperto ricco di sogni",
+        "trasmissione": "Motore anteriore Trazione anteriore (FF)",
         "velocita": "2/10",
         "accelerazione": "2/10",
         "frenata": "3/10",
         "sterzata": "3/10",
         "stabilita": "2/10",
         "immagine": "img/My First Gran Turismo/Daihatsu Copen Active Top ‘02.jpg",
-        "descrizione": "/"
+        "descrizione": "La Copen è un'auto giapponese prodotta da Daihatsu.<br>In Giappone viene commercializzata una categoria di auto relativamente economiche, note come \"Keicar\". I loro motori sono limitati a 660 cc e le carrozzerie sono fra le più piccole al mondo. La Copen è nata dal desiderio di realizzare un modello scoperto fedele ai principi della categoria Keicar.<br>La Copen risale al 2002. All'epoca era possibile sceglierla con tetto sganciabile \"attivo\" apribile e chiudibile a comando, una caratteristica che ha reso popolare l'auto. Nessuno immaginava che fosse possibile costruire una convertibile così piccola.<br>La Copen era anche capace di velocità incredibili. Grazie al suo turbocompressore e alla carrozzeria robusta, trasmetteva sensazione di guida simile a quelle di un'auto sportiva.<br>Daihatsu ha commercializzato la Copen di seconda generazione nel 2014. Speriamo che non smetta mai di produrle!"
       },
       {
         "id": "dodge-challenger-r-t-'70",
@@ -66,13 +74,15 @@
         "marca": "Dodge",
         "paese": "Stati Uniti",
         "anno": "1970",
+        "titolo": "Un \"mostro\" nato dal boom delle pony car",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "5/10",
         "accelerazione": "7/10",
         "frenata": "5/10",
         "sterzata": "5/10",
         "stabilita": "4/10",
         "immagine": "img/My First Gran Turismo/Dodge Challenger R T ‘70.jpg",
-        "descrizione": "/"
+        "descrizione": "La Challenger R/T è un'auto americana prodotta da Chrysler (ora Stellantis), venduta sotto il marchio Dodge.<br>Il suo debutto risale agli anni '60 e '70, un'epoca in cui il pubblico americano chiedeva a gran voce una macchina potente dallo stile sportivo. Da quest'esigenza è nata la \"pony car\", che è diventata in breve tempo un simbolo della cultura giovanile americana.<br>La Challenger era la pony car per eccellenza. Ha debuttato nel 1969. Aveva un cofano motore allungato e un abitacolo stretto. Le ruote posteriori sembravano trascinate dal resto dell'auto, secondo lo stile dell'epoca.<br>la Challenger R/T era la variante con il motore più motore. Come suggeriscono le iniziali, era un'auto costruita per guidare su strada e tracciato (\"Road\" e \"Track\"). La sua caratteristica più attraente era forse il motore da 7 litri che le permetteva di raggiungere velocità estreme, ideali per il soprasso."
       },
       {
         "id": "ferrari-308-gtb-'75",
@@ -81,13 +91,15 @@
         "marca": "Ferrari",
         "paese": "Italia",
         "anno": "1975",
+        "titolo": "Una Ferrari piccola e leggera con motore a 8 cilindri",
+        "trasmissione": "Motore centrale Trazione posteriore (MR)",
         "velocita": "8/10",
         "accelerazione": "8/10",
         "frenata": "6/10",
         "sterzata": "6/10",
         "stabilita": "5/10",
         "immagine": "img/My First Gran Turismo/Ferrari 308 GTB ‘75.jpg",
-        "descrizione": "/"
+        "descrizione": "La 308 GTB è un'auto italiana prodotto da Ferrari.<br>Ferrari, fondata nel 1947, ha preso il nome dal suo fondatore, il grande Enzo Ferrari. Enzo, un uomo dalla passione per la velocità, dava molta importanza alla vittoria delle gare. Dopo diversi successi, ha reso Ferrari uno dei migliori costruttori di auto sportive a livello internazionale.<br> La 308 GTB, nata nel 1975, è un'auto sportiva che monta un motore a 8 cilindri. 8 cilindri in cui bruciare carburante. Prima di questo modello, le auto Ferrari erano famose per i loro motori a 12 cilindri, ma  questo motore a 8 cilindri rendeva la 308 più piccola e leggera. La carrozzeria, progettata da Pininfarina, è caratterizzata da una forma a cuneo molto accentuata che fa pensare che l'auto possa fendere l'aria sempre più facilmente man mano che la velocità aumenta.<br>Nel tempo sono state prodotte altre varianti di quest'auto, come la GTS, dotata di un tetto rimovibile, e un modello a prestazioni elevate chiamato Quattrovalvole. La 308, la cui produzione proseguì per 10 anni, è una delle auto sportive più iconiche degli anni '70."
       },
       {
         "id": "honda-nsx-type-r-'92",
@@ -96,13 +108,15 @@
         "marca": "Honda",
         "paese": "Giappone",
         "anno": "1992",
+        "titolo": "Una grande auto sportiva giapponese, piena di tecnologia da Formula 1",
+        "trasmissione": "Motore centrale Trazione posteriore (MR)",
         "velocita": "8/10",
         "accelerazione": "8/10",
         "frenata": "9/10",
         "sterzata": "9/10",
         "stabilita": "6/10",
         "immagine": "img/My First Gran Turismo/Honda NSX Type R ‘92.jpg",
-        "descrizione": "/"
+        "descrizione": "La NSX Type R è un'auto giapponese prodotta da Honda.<br>Honda ha perfezionato le sue stellari tecnologie di gara fin dagli anni '60 in Formula 1, la competizione automobilistica di punta a livello internazionale. Nel 1990 ha riversato tutta la sua esperienza nella creazione della NSX.<br>Prima di quell'anno, la maggior parte delle auto veniva realizzata in acciaio. Gli ingegneri di Honda, intenzionati a utilizzare un materiale più leggero, hanno deciso di utilizzare per la NSX un telaio in semi-monoscocca realizzato interamente in alluminio.<br>Il motore è posizionato non più nell'avantreno, ma dietro i sedili, secondo una configurazione \"a motore centrale\" ideale per percorrere curve veloci a causa della distribuzione bilanciata del peso.<br>Questa NSX Type R era capace di una velocità superiore rispetto al modello base. L'eliminazione di elementi superflui ha permesso di ridurne il peso di 120 kg e il motore finemente elaborato e più reattivo dà vita a un'esperienza di guida più emozionante. Era un'evoluzione speciale di un'auto già notevole."
       },
       {
         "id": "lamborghini-countach-lp400-'74",
@@ -111,13 +125,15 @@
         "marca": "Lamborghini",
         "paese": "Italia",
         "anno": "1974",
+        "titolo": "\"Non è un sogno, vero?\" L'auto futuristica che ha sconvolto il mondo",
+        "trasmissione": "Motore centrale Trazione posteriore (MR)",
         "velocita": "9/10",
         "accelerazione": "8/10",
         "frenata": "7/10",
         "sterzata": "9/10",
         "stabilita": "6/10",
         "immagine": "img/My First Gran Turismo/Lamborghini Countach LP400 ‘74.jpg",
-        "descrizione": "/"
+        "descrizione": "La Countach LP400 è un'auto italiana prodotta da Lamborghini.<br>Lamborghini è stata fondata da Ferruccio Lamborghini nel 1963. Da allora, si è sempre distinta nella produzione di velocissime auto sportive lussuose e confortevoli.<br>Poco dopo la sua fondazione, Lamborghini ha commercializzato auto eccezionali come la 400GT e la Miura. L'auto che ha davvero reso celebre Lamborghini è pero la Countach.<br>La Countach ha debuttato nel 1974 e ha riscosso u nsuccesso incredibile fin da subito. La sensazione che quest'auto dava era che incarnasse il futuro del design automobilistico. La sua carrozzeria bassa e larga poteva ospitare solo due passeggeri. Le portiere non si aprivano lateralmente, bensì verso l'alto. Il motore V12, con i suoi dodici cilindri a gas, si trovava in posizione centrale, dietro i sedili.<br>L'evoluzione della Countach proseguì ben oltre la LP400 e la sua produzione andò avanti per la bellezza di 17 anni. Velocissima e bellissima, la Countach è giustamente considerata un vero capolavoro delle auto sportive."
       },
       {
         "id": "mazda-roadster-(nd)-'15",
@@ -126,13 +142,15 @@
         "marca": "Mazda",
         "paese": "Giappone",
         "anno": "2015",
+        "titolo": "Sentiti \"tutt'uno con l'auto\" a bordo di questa detentrice di un record del Guinness dei primati",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "5/10",
         "accelerazione": "5/10",
         "frenata": "5/10",
         "sterzata": "7/10",
         "stabilita": "5/10",
         "immagine": "img/My First Gran Turismo/Mazda Roadster (ND) ‘15.jpg",
-        "descrizione": "/"
+        "descrizione": "La Mazda Roadster S (ND) è un'auto giapponese prodotta da Mazda.<br>..."
       },
       {
         "id": "mazda-rx-7-spirit-r-type-a-(fd)-'02",
@@ -141,28 +159,32 @@
         "marca": "Mazda",
         "paese": "Giappone",
         "anno": "2002",
+        "titolo": "Un'auto sportiva dotata del \"motore più incredibile del mondo\"",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "7/10",
         "accelerazione": "7/10",
         "frenata": "9/10",
         "sterzata": "9/10",
         "stabilita": "7/10",
         "immagine": "img/My First Gran Turismo/Mazda RX-7 Spirit R Type A (FD) ‘02.jpg",
-        "descrizione": "/"
+        "descrizione": "La RX-7 Spirit R Type A (FD) è un'auto giapponese prodotta da Mazda.<br>..."
       },
       {
         "id": "mini-cooper-s-'05",
         "gioco": "mfgt",
         "nome": "MINI Cooper S ‘05",
         "marca": "Mini",
-        "paese": "Regno Unito",
+        "paese": "Germania",
         "anno": "2005",
+        "titolo": "La quintissenza della gioia di guidare un'auto piccola",
+        "trasmissione": "Motore anteriore Trazione anteriore (FF)",
         "velocita": "4/10",
         "accelerazione": "4/10",
         "frenata": "4/10",
         "sterzata": "5/10",
         "stabilita": "4/10",
         "immagine": "img/My First Gran Turismo/MINI Cooper S ‘05.jpg",
-        "descrizione": "/"
+        "descrizione": "La Cooper S è un'auto tedesca prodotta da Mini.<br>..."
       },
       {
         "id": "mitsubishi-lancer-evolution-v-gsr-'98",
@@ -171,13 +193,15 @@
         "marca": "Mitsubishi",
         "paese": "Giappone",
         "anno": "1998",
+        "titolo": "Robusta e imponente! la regina delle auto da corsa!",
+        "trasmissione": "Trazione integrale (4WD)",
         "velocita": "6/10",
         "accelerazione": "8/10",
         "frenata": "7/10",
         "sterzata": "8/10",
         "stabilita": "7/10",
         "immagine": "img/My First Gran Turismo/Mitsubishi Lancer Evolution V GSR ‘98.jpg",
-        "descrizione": "/"
+        "descrizione": "La Lancer Evolution V GSR è un'auto giapponese prodotta da Mitsubishi Motors.<br>..."
       },
       {
         "id": "nissan-r32-gt-r-v-spec-ii-'94",
@@ -186,13 +210,15 @@
         "marca": "Nissan",
         "paese": "Giappone",
         "anno": "1994",
+        "titolo": "Il rinnovamento del 1989: l'ultima R32 GT-R",
+        "trasmissione": "Trazione integrale (4WD)",
         "velocita": "7/10",
         "accelerazione": "9/10",
         "frenata": "8/10",
         "sterzata": "8/10",
         "stabilita": "9/10",
         "immagine": "img/My First Gran Turismo/Nissan R32 GT-R V-spec II ‘94.jpg",
-        "descrizione": "/"
+        "descrizione": "La Skyline GT-R V-spec II (R32) è un'auto giapponese prodotta da Nissan.<br>..."
       },
       {
         "id": "porsche-911-turbo-(930)-'81",
@@ -201,13 +227,15 @@
         "marca": "Porsche",
         "paese": "Germania",
         "anno": "1981",
+        "titolo": "Il demone della velocità dal motore turbo che ha sbalordito il mondo",
+        "trasmissione": "Motore posteriore Trazione posteriore",
         "velocita": "7/10",
         "accelerazione": "7/10",
         "frenata": "8/10",
         "sterzata": "7/10",
         "stabilita": "7/10",
         "immagine": "img/My First Gran Turismo/Porsche 911 Turbo (930) ‘81.jpg",
-        "descrizione": "/"
+        "descrizione": "La 911 Turbo (930) è un'auto tedesca prodotta da Porsche.<br>..."
       },
       {
         "id": "suzuki-jimny-xc-'18",
@@ -216,13 +244,15 @@
         "marca": "Suzuki",
         "paese": "Giappone",
         "anno": "2018",
+        "titolo": "Questa piccola belva non ha paura del fango: va dove vuole!",
+        "trasmissione": "Trazione integrale (4WD)",
         "velocita": "2/10",
         "accelerazione": "3/10",
         "frenata": "2/10",
         "sterzata": "2/10",
         "stabilita": "2/10",
         "immagine": "img/My First Gran Turismo/Suzuki Jimny XC ‘18.jpg",
-        "descrizione": "/"
+        "descrizione": "La Jimny è prodotta dal colosso giapponese Suzuki, un eccezionale produttore di auto compatte.<br>..."
       },
       {
         "id": "toyota-sprinter-trueno-3door-1600gt-apex-(ae86)-'83",
@@ -231,13 +261,15 @@
         "marca": "Toyota",
         "paese": "Giappone",
         "anno": "1983",
+        "titolo": "La \"Hachi-Roku\", un'auto resa celebre da un fumetto!",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "5/10",
         "accelerazione": "5/10",
         "frenata": "5/10",
         "sterzata": "6/10",
         "stabilita": "4/10",
         "immagine": "img/My First Gran Turismo/Toyota Sprinter Trueno 3door 1600GT APEX (AE86) ‘83.jpg",
-        "descrizione": "/"
+        "descrizione": "La Toyota Sprinter Trueno 1600GT Apex (AE86) a 3 porte del 1983 è un'auto giapponese prodotta da Toyota.<br>..."
       },
       {
         "id": "volkswagen-golf-vii-gti-'14",
@@ -246,13 +278,15 @@
         "marca": "Volkswagen",
         "paese": "Germania",
         "anno": "2014",
+        "titolo": "Un'auto che ti accompagna in tutto, dal lavoro allo svago!",
+        "trasmissione": "Motore anteriore Trazione anteriore (FF)",
         "velocita": "5/10",
         "accelerazione": "5/10",
         "frenata": "5/10",
         "sterzata": "5/10",
         "stabilita": "5/10",
         "immagine": "img/My First Gran Turismo/Volkswagen Golf VII GTI ‘14.jpg",
-        "descrizione": "/"
+        "descrizione": "La Golf VII GTI è un'auto tedesca prodotta da Volkswagen.<br>..."
       },
       {
         "id": "volvo-240-se-estate-'93",
@@ -261,13 +295,15 @@
         "marca": "Volvo",
         "paese": "Svezia",
         "anno": "1993",
+        "titolo": "\"Grande e sicura\" - La station wagon più amata al mondo",
+        "trasmissione": "Motore anteriore Trazione posteriore (FR)",
         "velocita": "2/10",
         "accelerazione": "2/10",
         "frenata": "3/10",
         "sterzata": "3/10",
         "stabilita": "3/10",
         "immagine": "img/My First Gran Turismo/Volvo 240 SE Estate ‘93.jpg",
-        "descrizione": "/"
+        "descrizione": "La 240 SE Estate è un'auto svedese prodotta da Volvo.<br>..."
       },
     {
         "id": "ktm-x-bow-r-'12",
