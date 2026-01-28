@@ -1,16 +1,45 @@
+/* ============================================================
+   1. VARIABILI E BASE
+   ============================================================ */
+:root {
+    --primary-red: #e10600;
+    --dark-bg: #0b0d10;
+    --card-bg: #1a1d23;
+    --text-main: #f0f0f0;
+    --text-muted: #888;
+    --accent-gray: #2a2e35;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #0b0d10;
-    color: #f0f0f0;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
     margin: 0;
     padding: 0;
 }
 
+/* Scrollbar personalizzata stile Racing */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+/* ============================================================
+   2. HEADER E FILTRI
+   ============================================================ */
 header {
     background: linear-gradient(135deg, #1a1d23 0%, #000000 100%);
     padding: 30px 20px;
     text-align: center;
-    border-bottom: 3px solid #e10600;
+    border-bottom: 3px solid var(--primary-red);
 }
 
 header h1 {
@@ -27,7 +56,7 @@ header h1 {
     max-width: 500px;
     border-radius: 25px;
     border: none;
-    background-color: #2a2e35;
+    background-color: var(--accent-gray);
     color: white;
     font-size: 1rem;
     outline: none;
@@ -44,9 +73,10 @@ header h1 {
     align-items: center;
 }
 
+/* Pulsanti */
 .game-btn, 
 #reset-filters {
-    background-color: #2a2e35;
+    background-color: var(--accent-gray);
     color: #fff;
     border: 2px solid transparent;
     padding: 12px 25px;
@@ -61,17 +91,17 @@ header h1 {
 
 .game-btn:hover, 
 #reset-filters:hover {
-    border-color: #e10600;
+    border-color: var(--primary-red);
     background-color: #3d424a;
 }
 
 .game-btn.active {
-    background-color: #e10600;
+    background-color: var(--primary-red);
     box-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
 }
 
 #filter-container select {
-    background-color: #2a2e35;
+    background-color: var(--accent-gray);
     color: white;
     border: 1px solid #444;
     padding: 10px 15px;
@@ -80,6 +110,7 @@ header h1 {
     cursor: pointer;
 }
 
+/* Pannello Statistiche */
 #stats-panel {
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid #333;
@@ -93,7 +124,7 @@ header h1 {
 .progress-container {
     width: 100%;
     height: 8px;
-    background-color: #2a2e35;
+    background-color: var(--accent-gray);
     border-radius: 4px;
     margin: 10px 0;
     overflow: hidden;
@@ -103,17 +134,20 @@ header h1 {
 #progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #e10600, #ff4d4d);
+    background: linear-gradient(90deg, var(--primary-red), #ff4d4d);
     transition: width 0.5s ease;
 }
 
+/* ============================================================
+   3. GRIGLIA AUTO E CARD
+   ============================================================ */
 .category-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background-color: #1a1d23;
-    border-left: 5px solid #e10600;
+    background-color: var(--card-bg);
+    border-left: 5px solid var(--primary-red);
     margin-top: 30px;
 }
 
@@ -125,7 +159,7 @@ header h1 {
 
 .brand-title {
     font-size: 1.2rem;
-    color: #e10600;
+    color: var(--primary-red);
     margin: 20px 0 10px 40px;
 }
 
@@ -139,7 +173,7 @@ header h1 {
 }
 
 .car-card {
-    background-color: #1a1d23;
+    background-color: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
@@ -149,11 +183,11 @@ header h1 {
 
 .car-card:hover {
     transform: translateY(-5px);
-    border-color: #e10600;
+    border-color: var(--primary-red);
 }
 
 .car-card.owned {
-    border-color: #e10600;
+    border-color: var(--primary-red);
     background: linear-gradient(180deg, #1a1d23 0%, #2d1010 100%);
 }
 
@@ -163,11 +197,23 @@ header h1 {
     object-fit: cover;
 }
 
-.car-card h3 {
+.car-info {
     padding: 15px;
-    margin: 0;
-    font-size: 1.2rem;
     text-align: center;
+}
+
+.car-brand-tag {
+    font-size: 0.7rem;
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.car-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
 }
 
 .owned-container {
@@ -180,9 +226,12 @@ header h1 {
 }
 
 .owned-container input {
-    accent-color: #e10600;
+    accent-color: var(--primary-red);
 }
 
+/* ============================================================
+   4. MODALE (DETTAGLI AUTO)
+   ============================================================ */
 .modal {
     display: none;
     position: fixed;
@@ -197,9 +246,9 @@ header h1 {
 }
 
 .modal-content {
-    background-color: #1a1d23;
+    background-color: var(--card-bg);
     margin: 50px auto;
-    border-top: 4px solid #e10600;
+    border-top: 4px solid var(--primary-red);
     width: 90%;
     max-width: 700px;
     border-radius: 12px;
@@ -209,12 +258,22 @@ header h1 {
 
 .modal-img {
     width: 100%;
+    display: block;
 }
 
+.modal-brand {
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Griglia Dati Tecnici */
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 10px;
     background: #111;
     padding: 20px;
     border-radius: 8px;
@@ -225,12 +284,51 @@ header h1 {
     flex-direction: column;
     border-bottom: 1px solid #222;
     padding-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 .spec-item strong {
-    color: #e10600;
+    color: var(--primary-red);
     text-transform: uppercase;
     font-size: 0.7rem;
+}
+
+/* Titoletto MFGT */
+.mfgt-subtitle {
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+    font-style: italic;
+    border-bottom: 1px solid var(--primary-red);
+    display: block;
+    font-size: 1.1rem;
+}
+
+.modal-description {
+    margin-top: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #ccc;
+    border-left: 2px solid #444;
+    padding-left: 15px;
+}
+
+.external-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background: var(--primary-red);
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.external-link:hover {
+    background: #ff0800;
+    transform: scale(1.05);
 }
 
 .close-button {
@@ -243,6 +341,9 @@ header h1 {
     z-index: 10;
 }
 
+/* ============================================================
+   5. FOOTER E RESPONSIVE
+   ============================================================ */
 footer {
     text-align: center;
     padding: 40px;
@@ -257,5 +358,9 @@ footer {
     
     header h1 {
         font-size: 1.8rem;
+    }
+
+    .car-grid {
+        padding: 20px;
     }
 }
