@@ -14,31 +14,40 @@ const scaricaPDF = async () => {
     const gameNome = giocoAttivo === "gt7" ? "Gran Turismo 7" : "My First Gran Turismo";
     let titoloGarage = (utenteCorrente && utenteCorrente.displayName) ? `GARAGE DI ${utenteCorrente.displayName.toUpperCase()}` : "GARAGE PERSONALE";
     const btn = document.getElementById('download-pdf'); 
-    const originalText = btn.innerText;
-    
     btn.innerText = "Generazione..."; btn.disabled = true;
-    doc.setFontSize(22); doc.setTextColor(225, 6, 0); doc.text(titoloGarage, 20, 20);
-    doc.setFontSize(14); doc.setTextColor(40, 40, 40); doc.text(gameNome, 20, 30);
-    doc.setLineWidth(0.5); doc.setDrawColor(225, 6, 0); doc.line(20, 42, 190, 42);
+
+    doc.setFontSize(18); doc.setTextColor(225, 6, 0); doc.text(titoloGarage, 15, 15);
+    doc.setFontSize(10); doc.setTextColor(100); doc.text(gameNome, 15, 22);
+    doc.setDrawColor(225, 6, 0); doc.line(15, 25, 195, 25);
     
-    let y = 55; 
     const possedute = tutteLeAuto.filter(a => a.gioco === giocoAttivo && localStorage.getItem(`${a.gioco}-${a.id}`) === 'true');
     
     if (possedute.length === 0) { 
-        doc.text("Garage vuoto.", 20, y); 
+        doc.setFontSize(10); doc.setTextColor(0); doc.text("Il garage è attualmente vuoto.", 15, 35); 
     } else {
-        for (const [i, a] of possedute.entries()) {
-            if (y > 250) { doc.addPage(); y = 20; }
+        let x = 15, y = 35; 
+        const colWidth = 60, rowHeight = 28, imgW = 20, imgH = 11;      
+        let count = 0;
+
+        for (const a of possedute) {
+            if (y > 270) { doc.addPage(); y = 20; x = 15; }
             try { 
                 const imgData = await getBase64Image(a.immagine); 
-                doc.addImage(imgData, 'JPEG', 20, y, 30, 17); 
-            } catch (e) { doc.rect(20, y, 30, 17); }
-            doc.setFontSize(11); doc.setTextColor(0); doc.text(`${i + 1}. ${a.marca} - ${a.nome}`, 55, y + 10);
-            y += 25;
+                doc.addImage(imgData, 'JPEG', x, y, imgW, imgH); 
+            } catch (e) { doc.setDrawColor(200); doc.rect(x, y, imgW, imgH); }
+
+            doc.setFontSize(7); doc.setFont("helvetica", "bold"); doc.setTextColor(0);
+            doc.text(`${a.marca.toUpperCase()} (${a.paese || '-'})`, x + 22, y + 4);
+
+            doc.setFont("helvetica", "normal"); doc.setTextColor(60); 
+            doc.text(doc.splitTextToSize(a.nome, colWidth - 23), x + 22, y + 8);
+
+            count++;
+            if (count % 3 === 0) { x = 15; y += rowHeight; } else { x += colWidth + 5; }
         }
     }
     doc.save(`Garage_${giocoAttivo}.pdf`); 
-    btn.innerText = originalText; btn.disabled = false;
+    btn.innerText = "Scarica Lista PDF"; btn.disabled = false;
 };
 
 function getBase64Image(url) {
@@ -71,11 +80,10 @@ window.onload = async () => {
     document.getElementById('login-btn').onclick = gestisciLogin; 
     document.getElementById('download-pdf').onclick = scaricaPDF;
     try { 
-        const res = await fetch('data.json?v=8'); 
+        const res = await fetch('data.json?v=10'); 
         tutteLeAuto = await res.json(); 
-        popolaFiltri(); 
-        renderizzaAuto(); 
-    } catch (e) { console.error("Errore caricamento dati"); }
+        popolaFiltri(); renderizzaAuto(); 
+    } catch (e) { console.error("Errore dati"); }
 };
 
 async function caricaDatiUtente() {
@@ -96,11 +104,9 @@ function popolaFiltri() {
 }
 
 function renderizzaAuto() {
-    const main = document.querySelector('main'); 
-    const s = document.getElementById('searchBar').value.toLowerCase();
+    const main = document.querySelector('main'), s = document.getElementById('searchBar').value.toLowerCase();
     const pF = document.getElementById('filter-country').value, mF = document.getElementById('filter-brand').value;
     main.innerHTML = "";
-    
     let f = tutteLeAuto.filter(a => a.gioco === giocoAttivo && a.nome.toLowerCase().includes(s) && (pF === "all" || a.paese === pF) && (mF === "all" || a.marca === mF));
     
     if (giocoAttivo === "mfgt") {
@@ -114,8 +120,7 @@ function renderizzaAuto() {
             for (let m in g[p]) {
                 const b = document.createElement('h3'); b.className = 'brand-title'; b.innerText = `— ${m}`; main.appendChild(b);
                 const grid = document.createElement('div'); grid.className = 'car-grid'; 
-                g[p][m].forEach(a => grid.appendChild(creaCard(a))); 
-                main.appendChild(grid);
+                g[p][m].forEach(a => grid.appendChild(creaCard(a))); main.appendChild(grid);
             }
         }
     }
@@ -126,11 +131,9 @@ function creaCard(a) {
     const k = `${a.gioco}-${a.id}`, owned = localStorage.getItem(k) === 'true';
     const c = document.createElement('div'); c.className = `car-card ${owned ? 'owned' : ''}`;
     c.innerHTML = `<img src="${a.immagine}" class="car-thumb"><div class="car-info"><span class="car-brand-tag">${a.marca}</span><h3>${a.nome}</h3></div><div class="owned-container"><input type="checkbox" ${owned ? 'checked' : ''}><label>Nel garage</label></div>`;
-    
     const ck = c.querySelector('input');
     ck.onchange = async () => { 
-        localStorage.setItem(k, ck.checked); 
-        c.classList.toggle('owned', ck.checked); 
+        localStorage.setItem(k, ck.checked); c.classList.toggle('owned', ck.checked); 
         if (utenteCorrente) await db.collection('garages').doc(utenteCorrente.uid).set({[k]: ck.checked}, {merge: true}); 
         aggiornaContatore(); 
     };
@@ -140,43 +143,36 @@ function creaCard(a) {
 
 function mostraDettagli(a) {
     const m = document.getElementById("carModal"), b = document.getElementById("modal-body");
-    
-    let specs = a.gioco === "mfgt" ? 
-        `<div class="specs-grid">
-            <div class="spec-item"><strong>Anno</strong>${a.anno}</div>
+    let s = a.gioco === "mfgt" ? `
+        <div class="specs-grid">
+            <div class="spec-item"><strong>Anno</strong>${a.anno || '-'}</div>
             <div class="spec-item"><strong>Trasmissione</strong>${a.trasmissione || '-'}</div>
-            <div class="spec-item"><strong>Velocità Massima</strong>${a.velocita}</div>
-            <div class="spec-item"><strong>Accelerazione</strong>${a.accelerazione}</div>
-            <div class="spec-item"><strong>Frenata</strong>${a.frenata}</div>
-            <div class="spec-item"><strong>Sterzata</strong>${a.sterzata}</div>
-            <div class="spec-item"><strong>Stabilità</strong>${a.stabilita}</div>
-        </div><h4 class="mfgt-subtitle">${a.titolo || ''}</h4>` : 
-        `<div class="specs-grid">
-            <div class="spec-item"><strong>Anno</strong>${a.anno}</div>
-            <div class="spec-item"><strong>Punti Prestazione</strong>${a.pp}</div>
-            <div class="spec-item"><strong>Potenza</strong>${a.cv}</div>
-            <div class="spec-item"><strong>Peso</strong>${a.peso}</div>
-            <div class="spec-item"><strong>Prezzo</strong>${a.prezzo}</div>
-            <div class="spec-item"><strong>Negozio</strong>${a.acquisto}</div>
+            <div class="spec-item"><strong>Velocità Massima</strong>${a.velocita || '-'}</div>
+            <div class="spec-item"><strong>Accelerazione</strong>${a.accelerazione || '-'}</div>
+            <div class="spec-item"><strong>Frenata</strong>${a.frenata || '-'}</div>
+            <div class="spec-item"><strong>Sterzata</strong>${a.sterzata || '-'}</div>
+            <div class="spec-item"><strong>Stabilità</strong>${a.stabilita || '-'}</div>
+        </div>` : `
+        <div class="specs-grid">
+            <div class="spec-item"><strong>Anno</strong>${a.anno || '-'}</div>
+            <div class="spec-item"><strong>Punti Prestazione</strong>${a.pp || '-'}</div>
+            <div class="spec-item"><strong>Aspirazione</strong>${a.aspirazione || '-'}</div>
+            <div class="spec-item"><strong>Trasmissione</strong>${a.trasmissione || '-'}</div>
+            <div class="spec-item"><strong>Cilindrata</strong>${a.cilindrata || '-'}</div>
+            <div class="spec-item"><strong>Tipo motore</strong>${a.tipo_motore || '-'}</div>
+            <div class="spec-item"><strong>Potenza</strong>${a.cv || '-'}</div>
+            <div class="spec-item"><strong>Peso</strong>${a.peso || '-'}</div>
+            <div class="spec-item"><strong>Prezzo</strong>${a.prezzo || '-'}</div>
+            <div class="spec-item"><strong>Negozio</strong>${a.acquisto || '-'}</div>
         </div>`;
 
-    b.innerHTML = `
-        <img src="${a.immagine}" class="modal-img">
-        <div style="padding:20px;">
-            <h2>${a.nome}</h2>
-            <p class="modal-brand">${a.marca}</p>
-            ${specs}
-            <p class="modal-description">${a.descrizione}</p>
-            ${a.link ? `<a href="${a.link}" target="_blank" class="external-link">Sito Ufficiale</a>`:''}
-        </div>`;
-
+    b.innerHTML = `<img src="${a.immagine}" class="modal-img"><div style="padding:20px;"><h2>${a.nome}</h2><p class="modal-brand">${a.marca}</p>${s}<h4 class="mfgt-subtitle">${a.titolo || ''}</h4><p class="modal-description">${a.descrizione || ''}</p>${a.link ? `<a href="${a.link}" target="_blank" class="external-link">Sito Ufficiale</a>`:''}</div>`;
     m.style.display = "block"; 
     document.querySelector(".close-button").onclick = () => m.style.display = "none";
 }
 
 function aggiornaContatore() {
-    const l = tutteLeAuto.filter(a => a.gioco === giocoAttivo); 
-    const o = l.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
+    const l = tutteLeAuto.filter(a => a.gioco === giocoAttivo), o = l.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
     const p = l.length > 0 ? Math.round((o / l.length) * 100) : 0;
     document.getElementById('owned-count').innerText = o; 
     document.getElementById('total-count').innerText = l.length;
@@ -188,20 +184,24 @@ document.getElementById('searchBar').oninput = renderizzaAuto;
 document.getElementById('filter-country').onchange = renderizzaAuto;
 document.getElementById('filter-brand').onchange = renderizzaAuto;
 document.getElementById('reset-filters').onclick = () => { 
-    document.getElementById('searchBar').value = ""; 
-    document.getElementById('filter-country').value = "all"; 
-    document.getElementById('filter-brand').value = "all"; 
-    renderizzaAuto(); 
+    document.getElementById('searchBar').value = ""; document.getElementById('filter-country').value = "all"; 
+    document.getElementById('filter-brand').value = "all"; renderizzaAuto(); 
 };
 
 document.querySelectorAll('.game-btn').forEach(b => { 
     b.onclick = (e) => { 
         if (e.target.id.includes('-btn') || e.target.id === 'download-pdf') return; 
         document.querySelectorAll('.game-btn').forEach(x => x.classList.remove('active')); 
-        e.target.classList.add('active'); 
-        giocoAttivo = e.target.dataset.game; 
+        e.target.classList.add('active'); giocoAttivo = e.target.dataset.game; 
+        const asp = document.getElementById('legenda-aspirazione');
+        if (asp) asp.style.display = (giocoAttivo === "mfgt") ? "none" : "block";
         document.getElementById('filter-container').style.display = giocoAttivo === "mfgt" ? "none" : "flex"; 
-        popolaFiltri(); 
-        renderizzaAuto(); 
+        popolaFiltri(); renderizzaAuto(); 
     }; 
 });
+
+document.getElementById('legenda-toggle').onclick = (e) => { e.stopPropagation(); document.getElementById('legenda-content').classList.toggle('show'); };
+window.onclick = (e) => { 
+    const c = document.getElementById('legenda-content');
+    if (!e.target.matches('#legenda-toggle') && !e.target.closest('#legenda-content')) c.classList.remove('show');
+};
