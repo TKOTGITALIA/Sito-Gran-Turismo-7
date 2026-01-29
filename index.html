@@ -38,6 +38,30 @@
 <div id="carModal" class="modal">
     <div class="modal-content"><span class="close-button">&times;</span><div id="modal-body"></div></div>
 </div>
+<div id="legenda-container">
+    <button id="legenda-toggle">Legenda Abbreviazioni ▾</button>
+    <div id="legenda-content">
+        <div class="legenda-section">
+            <h4>Trasmissione</h4>
+            <ul>
+                <li><strong>FF:</strong> Motore Ant. Trazione Ant.</li>
+                <li><strong>FR:</strong> Motore Ant. Trazione Post.</li>
+                <li><strong>MR:</strong> Motore Centr. Trazione Post.</li>
+                <li><strong>RR:</strong> Motore Post. Trazione Post.</li>
+                <li><strong>4WD:</strong> Trazione Integrale</li>
+            </ul>
+        </div>
+        <div class="legenda-section" id="legenda-aspirazione">
+            <h4>Aspirazione</h4>
+            <ul>
+                <li><strong>AN:</strong> Aspirazione Naturale</li>
+                <li><strong>TC:</strong> Turbocompressore</li>
+                <li><strong>CV:</strong> Compressore Volumetrico</li>
+                <li><strong>TC+CV:</strong> Turbo + Compressore</li>
+            </ul>
+        </div>
+    </div>
+</div>
 <footer><p>&copy; 2026 Progetto Fan Gran Turismo</p></footer>
 <script>
     const firebaseConfig = {
@@ -53,7 +77,8 @@
     var auth = firebase.auth();
     var provider = new firebase.auth.GoogleAuthProvider();
 </script>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>
+
 
