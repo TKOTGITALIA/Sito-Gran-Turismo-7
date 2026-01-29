@@ -15,7 +15,7 @@
 <body>
 <header>
     <h1>Gran Turismo Database</h1>
-    <div id="auth-status" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+    <div id="auth-status">
         <button id="login-btn" class="game-btn">Accedi con Google</button>
         <button id="download-pdf" class="game-btn">Scarica Lista PDF</button>
     </div>
@@ -30,13 +30,30 @@
         <button id="reset-filters">Ripristina</button>
     </div>
     <div id="stats-panel">
-        <div id="game-stats"><span id="game-name-label">GT7</span>: <span id="owned-count">0</span> / <span id="total-count">0</span> (<span id="completion-perc">0%</span>)</div>
-        <div class="progress-container"><div id="progress-bar"></div></div>
+        <div id="game-stats">
+            <span id="game-name-label">GT7</span>: 
+            <span id="owned-count">0</span> / <span id="total-count">0</span> 
+            (<span id="completion-perc">0%</span>)
+        </div>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+    <div id="sort-container">
+        <button class="sort-btn active" data-sort="default">Default</button>
+        <button class="sort-btn" data-sort="marca">Per costruttore</button>
+        <button class="sort-btn" data-sort="paese">Per Paese/regione</button>
+        <button class="sort-btn" data-sort="trasmissione">Per trasmissione</button>
+        <button class="sort-btn" data-sort="potenza">Per potenza</button>
+        <button class="sort-btn" data-sort="peso">Per peso</button>
     </div>
 </header>
 <main></main>
 <div id="carModal" class="modal">
-    <div class="modal-content"><span class="close-button">&times;</span><div id="modal-body"></div></div>
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body"></div>
+    </div>
 </div>
 <div id="legenda-container">
     <button id="legenda-toggle">Legenda Abbreviazioni ▾</button>
@@ -77,8 +94,6 @@
     var auth = firebase.auth();
     var provider = new firebase.auth.GoogleAuthProvider();
 </script>
-<script src="script.js?v=10"></script>
+<script src="script.js?v=15"></script>
 </body>
 </html>
-
-
