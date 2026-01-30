@@ -211,39 +211,59 @@ function renderHeader(t, l, c) {
 }
 
 function creaCard(a) {
-    const k = `${a.gioco}-${a.id}`, o = localStorage.getItem(k) === 'true';
-    const c = document.createElement('div');
-    c.className = `car-card ${o ? 'owned' : ''}`;
-    c.innerHTML = `<img src="${a.immagine}" class="car-thumb">
-        <div class="car-info"><span class="car-brand-tag">${a.marca}</span><h3>${a.nome}</h3></div>
-        <div class="owned-container"><input type="checkbox" ${o ? 'checked' : ''}><label>Nel garage</label></div>`;
-    const ck = c.querySelector('input');
-    ck.onchange = async () => {
-        localStorage.setItem(k, ck.checked);
-        if(utenteCorrente) await db.collection('garages').doc(utenteCorrente.uid).set({[k]: ck.checked}, {merge: true});
-        renderizzaAuto();
-    };
-    c.querySelector('img').onclick = () => mostraDettagli(a);
-    return c;
+    const card = document.createElement('div');
+    card.className = `car-card ${localStorage.getItem(`${a.gioco}-${a.id}`) === 'true' ? 'owned' : ''}`;
+
+    card.innerHTML = `
+        <img src="${a.immagine_small || a.immagine}" 
+             loading="lazy" 
+             alt="${a.nome}" 
+             width="280" 
+             height="180">
+        <div class="car-info">
+            <span class="car-brand-tag">${a.marca}</span>
+            <h3>${a.nome}</h3>
+        </div>
+        <div class="owned-container">
+            <input type="checkbox" ${localStorage.getItem(`${a.gioco}-${a.id}`) === 'true' ? 'checked' : ''} 
+                   onclick="togglePossesso(event, '${a.gioco}', '${a.id}')">
+            <span>Posseduta</span>
+        </div>
+    `;
+    card.onclick = () => mostraDettagli(a);
+    return card;
 }
 
 function mostraDettagli(a) {
-    const m = document.getElementById("carModal"), b = document.getElementById("modal-body");
+    const m = document.getElementById("carModal");
+    const b = document.getElementById("modal-body");
+    
     const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] 
                                  : ['anno','pp','aspirazione','trasmissione','cilindrata','tipo_motore','cv','peso','prezzo','acquisto'];
+    
     const lbl = {pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità Massima'};
+    
     let g = '<div class="specs-grid">';
-    s.forEach(x => g += `<div class="spec-item"><strong>${lbl[x]||x}</strong>${a[x]||'-'}</div>`);
+    s.forEach(x => {
+        g += `<div class="spec-item"><strong>${lbl[x] || x.replace('_', ' ')}</strong>${a[x] || '-'}</div>`;
+    });
     g += '</div>';
-    b.innerHTML = `<img src="${a.immagine}" class="modal-img">
+
+    b.innerHTML = `
+        <img src="${a.immagine}" class="modal-img">
         <div style="padding:20px;">
-            <h2>${a.nome}</h2><p class="modal-brand">${a.marca}</p>${g}
-            <h4 class="mfgt-subtitle">${a.titolo || ''}</h4>
-            <p class="modal-description">${a.descrizione || ''}</p>
-            ${a.link ? `<a href="${a.link}" target="_blank" class="external-link">Sito Ufficiale</a>`:''}
+            <h2>${a.nome}</h2>
+            <p class="modal-brand">${a.marca}</p>
+            ${g}
+            ${a.titolo ? `<h4 class="mfgt-subtitle">${a.titolo}</h4>` : ''}
+            <p class="modal-description">${a.descrizione || 'Nessuna descrizione disponibile.'}</p>
+            ${a.link ? `<a href="${a.link}" target="_blank" class="external-link">Sito Ufficiale</a>` : ''}
         </div>`;
+
     m.style.display = "block";
+
     document.querySelector(".close-button").onclick = () => m.style.display = "none";
+    window.onclick = (event) => { if (event.target == m) m.style.display = "none"; };
 }
 
 function aggiornaContatore() {
