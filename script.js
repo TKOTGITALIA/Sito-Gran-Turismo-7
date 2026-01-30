@@ -1,49 +1,57 @@
 let tutteLeAuto = [], giocoAttivo = "gt7", utenteCorrente = null, sortAttivo = "default";
 
-const parseVal = (s) => {
+const parseVal = s => {
     if (!s || s === "-") return null;
-    const m = s.toString().replace(/'/g, '').match(/\d+/);
+    const m = s.toString().replace(/'/g, '').replace(/\./g, '').match(/\d+/);
     return m ? parseInt(m[0]) : null;
 };
 
-const mapTrasmissione = (t) => {
+const mapTrasmissione = t => {
     if (!t) return "Altro";
-    const str = t.toLowerCase();
-    if (str.includes("4wd") || str.includes("integrale") || str.includes("awd")) return "4WD";
-    if (str.includes("mr") || (str.includes("centrale") && str.includes("posteriore"))) return "MR";
-    if (str.includes("ff") || (str.includes("anteriore") && str.includes("anteriore"))) return "FF";
-    if (str.includes("fr") || (str.includes("anteriore") && str.includes("posteriore"))) return "FR";
-    if (str.includes("rr") || (str.includes("posteriore") && str.includes("posteriore"))) return "RR";
+    const s = t.toLowerCase();
+    if (s.includes("4wd") || s.includes("integrale") || s.includes("awd")) return "4WD";
+    if (s.includes("mr") || (s.includes("centrale") && s.includes("posteriore"))) return "MR";
+    if (s.includes("rr") || (s.includes("motore posteriore") && s.includes("trazione posteriore"))) return "RR";
+    if (s.includes("ff") || (s.includes("motore anteriore") && s.includes("trazione anteriore"))) return "FF";
+    if (s.includes("fr") || (s.includes("motore anteriore") && s.includes("trazione posteriore"))) return "FR";
     return "Altro";
 };
 
-const gestisciLogin = () => { 
-    !utenteCorrente ? auth.signInWithPopup(provider).catch(e => alert(e.message)) : auth.signOut(); 
-};
+const gestisciLogin = () => !utenteCorrente ? auth.signInWithPopup(provider).catch(e => alert(e.message)) : auth.signOut();
+
+const getBase64Image = u => new Promise(r => {
+    const i = new Image();
+    i.setAttribute('crossOrigin', 'anonymous');
+    i.onload = () => {
+        const c = document.createElement("canvas");
+        c.width = i.width; c.height = i.height;
+        c.getContext("2d").drawImage(i, 0, 0);
+        r(c.toDataURL("image/jpeg", 0.7));
+    };
+    i.onerror = () => r("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+    i.src = u;
+});
 
 const scaricaPDF = async () => {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    const gN = giocoAttivo === "gt7" ? "Gran Turismo 7" : "My First Gran Turismo";
-    const tit = utenteCorrente?.displayName ? `GARAGE DI ${utenteCorrente.displayName.toUpperCase()}` : "GARAGE PERSONALE";
     const btn = document.getElementById('download-pdf');
-    
     btn.innerText = "Generazione..."; btn.disabled = true;
-    doc.setFontSize(18); doc.setTextColor(225, 6, 0); doc.text(tit, 15, 15);
-    doc.setFontSize(10); doc.setTextColor(100); doc.text(gN, 15, 22);
+    
+    doc.setFontSize(18); doc.setTextColor(225, 6, 0);
+    doc.text(utenteCorrente?.displayName ? `GARAGE DI ${utenteCorrente.displayName.toUpperCase()}` : "GARAGE PERSONALE", 15, 15);
+    doc.setFontSize(10); doc.setTextColor(100);
+    doc.text(giocoAttivo === "gt7" ? "Gran Turismo 7" : "My First Gran Turismo", 15, 22);
     doc.setDrawColor(225, 6, 0); doc.line(15, 25, 195, 25);
     
     const poss = tutteLeAuto.filter(a => a.gioco === giocoAttivo && localStorage.getItem(`${a.gioco}-${a.id}`) === 'true');
-    if (!poss.length) {
-        doc.text("Il garage è vuoto.", 15, 35);
-    } else {
+    if (!poss.length) doc.text("Il garage è vuoto.", 15, 35);
+    else {
         let x = 15, y = 35;
         for (const a of poss) {
             if (y > 270) { doc.addPage(); y = 20; x = 15; }
-            try { 
-                const imgData = await getBase64Image(a.immagine);
-                doc.addImage(imgData, 'JPEG', x, y, 20, 11); 
-            } catch(e) { doc.rect(x, y, 20, 11); }
+            const imgData = await getBase64Image(a.immagine);
+            doc.addImage(imgData, 'JPEG', x, y, 20, 11);
             doc.setFontSize(7); doc.text(a.marca.toUpperCase(), x + 22, y + 4);
             doc.text(doc.splitTextToSize(a.nome, 37), x + 22, y + 8);
             x > 130 ? (x = 15, y += 28) : x += 65;
@@ -52,17 +60,6 @@ const scaricaPDF = async () => {
     doc.save(`Garage_${giocoAttivo}.pdf`);
     btn.innerText = "Scarica Lista PDF"; btn.disabled = false;
 };
-
-const getBase64Image = u => new Promise(r => {
-    const i = new Image(); i.setAttribute('crossOrigin', 'anonymous');
-    i.onload = () => { 
-        const c = document.createElement("canvas"); 
-        c.width = i.width; c.height = i.height; 
-        c.getContext("2d").drawImage(i, 0, 0); 
-        r(c.toDataURL("image/jpeg", 0.7)); 
-    };
-    i.src = u;
-});
 
 auth.onAuthStateChanged(u => {
     utenteCorrente = u;
@@ -74,12 +71,12 @@ auth.onAuthStateChanged(u => {
 window.onload = async () => {
     document.getElementById('login-btn').onclick = gestisciLogin;
     document.getElementById('download-pdf').onclick = scaricaPDF;
-    try { 
-        const r = await fetch('data.json?v=15'); 
-        tutteLeAuto = await r.json(); 
-        popolaFiltri(); 
-        renderizzaAuto(); 
-    } catch(e) { console.error("Errore caricamento dati:", e); }
+    try {
+        const r = await fetch('data.json?v=15');
+        tutteLeAuto = await r.json();
+        popolaFiltri();
+        renderizzaAuto();
+    } catch(e) { console.error(e); }
 };
 
 async function caricaDatiUtente() {
@@ -89,36 +86,45 @@ async function caricaDatiUtente() {
 }
 
 function popolaFiltri() {
-    const cS = document.getElementById('filter-country'), bS = document.getElementById('filter-brand');
     const f = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
     const p = [...new Set(f.map(a => a.paese).filter(Boolean))].sort();
     const m = [...new Set(f.map(a => a.marca).filter(Boolean))].sort();
-    cS.innerHTML = '<option value="all">Tutti i Paesi</option>' + p.map(x => `<option value="${x}">${x}</option>`).join('');
-    bS.innerHTML = '<option value="all">Tutte le Marche</option>' + m.map(x => `<option value="${x}">${x}</option>`).join('');
+    document.getElementById('filter-country').innerHTML = '<option value="all">Tutti i Paesi</option>' + p.map(x => `<option value="${x}">${x}</option>`).join('');
+    document.getElementById('filter-brand').innerHTML = '<option value="all">Tutte le Marche</option>' + m.map(x => `<option value="${x}">${x}</option>`).join('');
 }
 
 function renderizzaAuto() {
-    const main = document.querySelector('main'), s = document.getElementById('searchBar').value.toLowerCase();
-    const pF = document.getElementById('filter-country').value, mF = document.getElementById('filter-brand').value;
+    const main = document.querySelector('main');
+    const s = document.getElementById('searchBar').value.toLowerCase();
+    const pF = document.getElementById('filter-country').value;
+    const mF = document.getElementById('filter-brand').value;
     const sC = document.getElementById('sort-container');
     main.innerHTML = "";
     
-    let fil = tutteLeAuto.filter(a => a.gioco === giocoAttivo && a.nome.toLowerCase().includes(s) && (pF === "all" || a.paese === pF) && (mF === "all" || a.marca === mF));
+    let fil = tutteLeAuto.filter(a => 
+        a.gioco === giocoAttivo && 
+        a.nome.toLowerCase().includes(s) && 
+        (pF === "all" || a.paese === pF) && 
+        (mF === "all" || a.marca === mF)
+    );
 
     if (giocoAttivo === "mfgt") {
         if(sC) sC.style.display = "none";
-        const g = document.createElement('div'); g.className = 'car-grid';
+        const g = document.createElement('div'); 
+        g.className = 'car-grid';
         fil.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
         main.appendChild(g);
     } else {
         if(sC) sC.style.display = "flex";
         let groups = {};
+        const ordineTrasmissioni = ["FF", "FR", "MR", "RR", "Altro", "4WD"];
+
         if (sortAttivo === "default") {
-            fil.forEach(a => { 
-                const p = a.paese || "Altro"; 
-                if(!groups[p]) groups[p] = {}; 
-                if(!groups[p][a.marca]) groups[p][a.marca] = []; 
-                groups[p][a.marca].push(a); 
+            fil.forEach(a => {
+                const p = a.paese || "Altro";
+                if(!groups[p]) groups[p] = {};
+                if(!groups[p][a.marca]) groups[p][a.marca] = [];
+                groups[p][a.marca].push(a);
             });
         } else if (sortAttivo === "marca" || sortAttivo === "paese") {
             fil.forEach(a => {
@@ -127,7 +133,7 @@ function renderizzaAuto() {
                 groups[k].push(a);
             });
         } else if (sortAttivo === "trasmissione") {
-            ["FF","FR","MR","RR","4WD","Altro"].forEach(o => groups[o] = []);
+            ordineTrasmissioni.forEach(o => groups[o] = []);
             fil.forEach(a => groups[mapTrasmissione(a.trasmissione)].push(a));
         } else if (sortAttivo === "potenza" || sortAttivo === "peso") {
             const isPot = sortAttivo === "potenza";
@@ -148,24 +154,37 @@ function renderizzaAuto() {
             });
         }
 
-        let sK = Object.keys(groups).sort((a,b) => a === "Altro" ? 1 : b === "Altro" ? -1 : 0);
-        sK.forEach(k => {
+        Object.keys(groups).sort((a, b) => {
+            if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
+            if (a === "Altro") return 1;
+            if (b === "Altro") return -1;
+            return a.localeCompare(b);
+        }).forEach(k => {
             if (sortAttivo === "default") {
-                if(Object.keys(groups[k]).length === 0) return;
+                if (Object.keys(groups[k]).length === 0) return;
                 renderHeader(k, fil.filter(a => (a.paese || "Altro") === k), main);
-                Object.keys(groups[k]).sort((a,b) => a === "Altro" ? 1 : b === "Altro" ? -1 : a.localeCompare(b)).forEach(m => {
-                    const t = document.createElement('h3'); t.className = 'brand-title';
+                
+                Object.keys(groups[k]).sort((a, b) => {
+                    if (a === "Altro") return 1;
+                    if (b === "Altro") return -1;
+                    return a.localeCompare(b);
+                }).forEach(m => {
+                    const t = document.createElement('h3'); 
+                    t.className = 'brand-title';
                     const pM = groups[k][m].filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
                     t.innerHTML = `— ${m} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${groups[k][m].length}</span>`;
                     main.appendChild(t);
-                    const g = document.createElement('div'); g.className = 'car-grid';
-                    groups[k][m].forEach(a => g.appendChild(creaCard(a)));
+                    
+                    const g = document.createElement('div'); 
+                    g.className = 'car-grid';
+                    groups[k][m].sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
                     main.appendChild(g);
                 });
             } else {
                 if (groups[k].length === 0) return;
                 renderHeader(k, groups[k], main);
-                const g = document.createElement('div'); g.className = 'car-grid';
+                const g = document.createElement('div'); 
+                g.className = 'car-grid';
                 groups[k].sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
                 main.appendChild(g);
             }
@@ -180,9 +199,7 @@ function renderHeader(t, l, c) {
     const id = t.replace(/[^a-z0-9]/gi, '');
     const h = document.createElement('div');
     h.className = 'category-header';
-    h.style = "flex-direction:column; align-items:flex-start; padding:15px 40px;";
-    h.innerHTML = `
-        <div style="display:flex; justify-content:space-between; width:100%; align-items:baseline;">
+    h.innerHTML = `<div style="display:flex; justify-content:space-between; width:100%; align-items:baseline;">
             <h2 class="country-title">${t}</h2>
             <span style="font-size:0.9rem; font-weight:bold; color:${pr===100?'#e10600':'white'}">${p}/${l.length} (${pr}%)</span>
         </div>
@@ -197,15 +214,14 @@ function creaCard(a) {
     const k = `${a.gioco}-${a.id}`, o = localStorage.getItem(k) === 'true';
     const c = document.createElement('div');
     c.className = `car-card ${o ? 'owned' : ''}`;
-    c.innerHTML = `
-        <img src="${a.immagine}" class="car-thumb">
+    c.innerHTML = `<img src="${a.immagine}" class="car-thumb">
         <div class="car-info"><span class="car-brand-tag">${a.marca}</span><h3>${a.nome}</h3></div>
         <div class="owned-container"><input type="checkbox" ${o ? 'checked' : ''}><label>Nel garage</label></div>`;
     const ck = c.querySelector('input');
-    ck.onchange = async () => { 
-        localStorage.setItem(k, ck.checked); 
-        if(utenteCorrente) await db.collection('garages').doc(utenteCorrente.uid).set({[k]: ck.checked}, {merge: true}); 
-        renderizzaAuto(); 
+    ck.onchange = async () => {
+        localStorage.setItem(k, ck.checked);
+        if(utenteCorrente) await db.collection('garages').doc(utenteCorrente.uid).set({[k]: ck.checked}, {merge: true});
+        renderizzaAuto();
     };
     c.querySelector('img').onclick = () => mostraDettagli(a);
     return c;
@@ -219,8 +235,7 @@ function mostraDettagli(a) {
     let g = '<div class="specs-grid">';
     s.forEach(x => g += `<div class="spec-item"><strong>${lbl[x]||x}</strong>${a[x]||'-'}</div>`);
     g += '</div>';
-    b.innerHTML = `
-        <img src="${a.immagine}" class="modal-img">
+    b.innerHTML = `<img src="${a.immagine}" class="modal-img">
         <div style="padding:20px;">
             <h2>${a.nome}</h2><p class="modal-brand">${a.marca}</p>${g}
             <h4 class="mfgt-subtitle">${a.titolo || ''}</h4>
