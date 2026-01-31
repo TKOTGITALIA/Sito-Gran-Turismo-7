@@ -192,3 +192,51 @@ body.game-mfgt #sort-container { display: none !important; }
 header h1 {
     margin-bottom: 0;
 }
+.header-progress-bar {
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Container del menu */
+.pdf-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenuto a comparsa */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1000;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #e10600;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #333;
+    margin: 4px 0;
+}
+
+/* Mostra il menu al click o hover (gestito via JS o CSS) */
+.pdf-dropdown:hover .dropdown-content {
+    display: block;
+}
+header h1 {
+    margin-bottom: 0;
+}
+
