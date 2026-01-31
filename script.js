@@ -1,4 +1,5 @@
 let tutteLeAuto = [];
+let infoMarchi = {};
 let giocoAttivo = "gt7";
 let utenteCorrente = null;
 let sortAttivo = "default";
@@ -204,16 +205,24 @@ async function scaricaPDF(tipo) {
     }
 }
 
-window.onload = async () => {
-    document.getElementById('login-btn').onclick = gestisciLogin;
+async function caricaDati() {
     try {
-        const r = await fetch('data.json?v=' + new Date().getTime());
-        tutteLeAuto = await r.json();
+        const [resAuto, resBrands] = await Promise.all([
+            fetch('data.json?v=' + new Date().getTime()),
+            fetch('brands.json?v=' + new Date().getTime())
+        ]);
+        tutteLeAuto = await resAuto.json();
+        infoMarchi = await resBrands.json();
         popolaFiltri();
         renderizzaAuto();
     } catch(e) { 
         console.error(e); 
     }
+}
+
+window.onload = () => {
+    document.getElementById('login-btn').onclick = gestisciLogin;
+    caricaDati();
 };
 
 function popolaFiltri() {
@@ -231,19 +240,24 @@ function renderizzaAuto() {
     const mF = document.getElementById('filter-brand').value;
     const sC = document.getElementById('sort-container');
     main.innerHTML = "";
+
     let fil = tutteLeAuto.filter(a => {
         const chiaveAuto = `${a.gioco}-${a.id}`;
         const isOwned = localStorage.getItem(chiaveAuto) === 'true';
         let matchBase = a.gioco === giocoAttivo && a.nome.toLowerCase().includes(s);
+        
         if (giocoAttivo !== "mfgt") {
             if (pF !== "all" && a.paese !== pF) matchBase = false;
             if (mF !== "all" && a.marca !== mF) matchBase = false;
         }
+
         let matchGarage = true;
         if (filtroGarage === "possedute") matchGarage = isOwned;
         else if (filtroGarage === "mancanti") matchGarage = !isOwned;
+
         return matchBase && matchGarage;
     });
+
     if (giocoAttivo === "mfgt") {
         if(sC) sC.style.display = "none";
         if (fil.length === 0) {
@@ -261,9 +275,17 @@ function renderizzaAuto() {
             aggiornaContatore();
             return;
         }
+
         if (mF !== "all") {
             const paeseMarca = fil[0].paese || "Altro";
             renderHeader(`${mF} (${paeseMarca})`, fil, main);
+            const infoIcon = `<span class="brand-info-icon" onclick="mostraInfoBrand('${mF}')">i</span>`;
+            const t = document.createElement('h3');
+            t.className = 'brand-title';
+            const pM = fil.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
+            t.innerHTML = `— ${mF} ${infoIcon} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${fil.length}</span>`;
+            main.appendChild(t);
+
             const g = document.createElement('div'); 
             g.className = 'car-grid';
             fil.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
@@ -271,12 +293,15 @@ function renderizzaAuto() {
             aggiornaContatore();
             return;
         }
+
         let groups = {};
         const ordineTrasmissioni = ["FF", "FR", "MR", "RR", "Altro", "4WD"];
+        
         const addToGroup = (key, item) => {
             if(!groups[key]) groups[key] = [];
             groups[key].push(item);
         };
+
         if (sortAttivo === "default") {
             fil.forEach(a => {
                 const p = a.paese || "Altro";
@@ -292,6 +317,7 @@ function renderizzaAuto() {
         } else if (sortAttivo === "potenza" || sortAttivo === "peso") {
             const isPot = sortAttivo === "potenza";
             const cats = isPot ? ["1'600 CV -", "1'300 - 1'599 CV", "1'100 - 1'299 CV", "1'000 - 1'099 CV", "900 - 999 CV", "800 - 899 CV", "700 - 799 CV", "600 - 699 CV", "500 - 599 CV", "400 - 499 CV", "300 - 399 CV", "200 - 299 CV", "100 - 199 CV", "- 99 CV", "Altro"] : ["2'300 Kg -", "2'000 - 2'299 Kg", "1'800 - 1'999 Kg", "1'700 - 1'799 Kg", "1'600 - 1'699 Kg", "1'500 - 1'599 Kg", "1'400 - 1'499 Kg", "1'300 - 1'399 Kg", "1'200 - 1'299 Kg", "1'100 - 1'199 Kg", "1'000 - 1'099 Kg", "900 - 999 Kg", "800 - 899 Kg", "700 - 799 Kg", "600 - 699 Kg", "500 - 599 Kg", "- 499 Kg", "Altro"];
+            
             cats.forEach(c => groups[c] = []);
             fil.forEach(a => {
                 const v = parseVal(isPot ? a.cv : a.peso);
@@ -305,6 +331,7 @@ function renderizzaAuto() {
                 }
                 groups[c].push(a);
             });
+
             cats.forEach(k => {
                 if (groups[k].length === 0) return;
                 renderHeader(k, groups[k], main);
@@ -316,23 +343,28 @@ function renderizzaAuto() {
             aggiornaContatore();
             return; 
         }
+
         const keys = Object.keys(groups).sort((a, b) => {
             if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
             if (a === "Altro") return 1; if (b === "Altro") return -1;
             return a.localeCompare(b);
         });
+
         keys.forEach(k => {
             if (sortAttivo === "default") {
                 const marcheNelPaese = Object.keys(groups[k]);
                 if (marcheNelPaese.length === 0) return;
                 renderHeader(k, Object.values(groups[k]).flat(), main);
+                
                 marcheNelPaese.sort().forEach(m => {
                     const subList = groups[k][m];
                     const t = document.createElement('h3'); 
                     t.className = 'brand-title';
                     const pM = subList.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
-                    t.innerHTML = `— ${m} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${subList.length}</span>`;
+                    const infoIcon = `<span class="brand-info-icon" onclick="mostraInfoBrand('${m}')">i</span>`;
+                    t.innerHTML = `— ${m} ${infoIcon} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${subList.length}</span>`;
                     main.appendChild(t);
+
                     const g = document.createElement('div'); 
                     g.className = 'car-grid';
                     subList.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
@@ -488,16 +520,19 @@ window.onclick = e => {
     }
     const m = document.getElementById('carModal');
     if(e.target === m) m.style.display = 'none';
+    const bm = document.getElementById('brandModal');
+    if(e.target === bm) bm.style.display = 'none';
 };
 
 function aggiornaContatorsMarche() {
     document.querySelectorAll('.brand-title').forEach(titleElement => {
-        const brandName = titleElement.innerText.split('—')[1].split(/[0-9]/)[0].trim();
+        const brandName = titleElement.innerText.split('—')[1].split('i')[0].trim();
         const grid = titleElement.nextElementSibling;
         if (grid && grid.classList.contains('car-grid')) {
             const total = grid.querySelectorAll('.car-card').length;
             const owned = grid.querySelectorAll('.car-card.owned').length;
-            titleElement.innerHTML = `— ${brandName} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${owned}/${total}</span>`;
+            const infoIcon = `<span class="brand-info-icon" onclick="mostraInfoBrand('${brandName}')">i</span>`;
+            titleElement.innerHTML = `— ${brandName} ${infoIcon} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${owned}/${total}</span>`;
         }
     });
 }
@@ -511,3 +546,31 @@ window.setFiltroGarage = function(tipo, btn) {
     if (btn) btn.classList.add('active');
     renderizzaAuto();
 };
+
+function mostraInfoBrand(nomeBrand) {
+    const data = infoMarchi[nomeBrand];
+    const modal = document.getElementById("brandModal");
+    const body = document.getElementById("brand-modal-body");
+
+    if (!data) {
+        alert("Informazioni non disponibili per " + nomeBrand);
+        return;
+    }
+
+    body.innerHTML = `
+        <img src="${data.logo}" class="brand-logo-img" alt="Logo ${nomeBrand}" onerror="this.style.display='none'">
+        <h2 style="margin: 10px 0;">${nomeBrand}</h2>
+        ${data.slogan ? `<p class="brand-slogan">"${data.slogan}"</p>` : ''}
+        
+        <div class="brand-details-list">
+            <div><strong>Paese:</strong> ${data.paese || 'N/D'}</div>
+            <div><strong>Sede:</strong> ${data.sede || 'N/D'}</div>
+            <div><strong>Fondazione:</strong> ${data.fondazione || 'N/D'}</div>
+            <div><strong>Fondatore:</strong> ${data.fondatore || 'N/D'}</div>
+        </div>
+    `;
+
+    modal.style.display = "block";
+    const closeBtn = document.querySelector(".close-brand-button");
+    closeBtn.onclick = () => modal.style.display = "none";
+}
