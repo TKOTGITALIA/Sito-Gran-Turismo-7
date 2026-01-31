@@ -284,3 +284,55 @@ body.game-mfgt #sort-container { display: none !important; }
     .car-grid { padding: 20px; }
     #legenda-container { top: 10px; right: 10px; }
 }
+.brand-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-red);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-style: italic;
+}
+
+.brand-modal-content {
+    max-width: 450px;
+    text-align: center;
+    padding: 30px;
+}
+
+.brand-logo-img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.brand-slogan {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.brand-details-list {
+    text-align: left;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.brand-details-list div {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.brand-details-list strong {
+    color: var(--primary-red);
+    margin-right: 5px;
+}
