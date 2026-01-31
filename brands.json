@@ -1,6 +1,6 @@
 {
   "KTM": {
-    "logo": "img/.Brands/KTM.jpg",
+    "logo": "img/Brands/KTM.jpg",
     "slogan": "READY TO RACE",
     "paese": "Austria",
     "sede": "Mattighofen, Austria",
@@ -8,7 +8,7 @@
     "fondatore": "Hans Trunkenpolz, Ernst Kronreif"
   },
   "Xiaomi": {
-    "logo": "img/.Brands/Xiaomi.png",
+    "logo": "img/Brands/Xiaomi.png",
     "slogan": "",
     "paese": "Cina",
     "sede": "Pechino, Cina",
@@ -16,7 +16,7 @@
     "fondatore": "Lei Jun"
   },
   "Genesis": {
-    "logo": "img/.Brands/Genesis.png",
+    "logo": "img/Brands/Genesis.png",
     "slogan": "",
     "paese": "Corea del Sud",
     "sede": "Seul, Corea del Sud",
@@ -24,7 +24,7 @@
     "fondatore": "/"
   },
   "Hyundai": {
-    "logo": "img/.Brands/Hyundai.png",
+    "logo": "img/Brands/Hyundai.png",
     "slogan": "",
     "paese": "Corea del Sud",
     "sede": "Seul, Corea del Sud",
@@ -32,7 +32,7 @@
     "fondatore": "Chung Ju-yung"
   },
   "Alpine": {
-    "logo": "img/.Brands/Alpine.png",
+    "logo": "img/Brands/Alpine.png",
     "slogan": "",
     "paese": "Francia",
     "sede": "Dieppe, Francia",
@@ -40,7 +40,7 @@
     "fondatore": "Jean Rédélé"
   },
   "Bugatti": {
-    "logo": "img/.Brands/Bugatti.png",
+    "logo": "img/Brands/Bugatti.png",
     "slogan": "Art Forme Technique",
     "paese": "Francia",
     "sede": "Molsheim, Francia",
@@ -48,7 +48,7 @@
     "fondatore": "Ettore Bugatti"
   },
   "Citroën": {
-    "logo": "img/.Brands/Citroën.png",
+    "logo": "img/Brands/Citroën.png",
     "slogan": "Inspired by you",
     "paese": "Francia",
     "sede": "Parigi, Francia",
@@ -56,7 +56,7 @@
     "fondatore": "André Citroën"
   },
   "DS Automobiles": {
-    "logo": "img/.Brands/DS Automobiles.png",
+    "logo": "img/Brands/DS Automobiles.png",
     "slogan": "",
     "paese": "Francia",
     "sede": "Parigi, Francia",
@@ -64,7 +64,7 @@
     "fondatore": "/"
   },
   "Peugeot": {
-    "logo": "img/.Brands/Peugeot.png",
+    "logo": "img/Brands/Peugeot.png",
     "slogan": "",
     "paese": "Francia",
     "sede": "Parigi, Francia",
@@ -72,7 +72,7 @@
     "fondatore": "Armand Peugeot"
   },
   "Renault": {
-    "logo": "img/.Brands/Renault.png",
+    "logo": "img/Brands/Renault.png",
     "slogan": "",
     "paese": "Francia",
     "sede": "Boulogne-Billancourt, Francia",
@@ -80,7 +80,7 @@
     "fondatore": "Fernand Renault, Marcel Renault, Louis Renault"
   },
   "BMW": {
-    "logo": "img/.Brands/BMW.png",
+    "logo": "img/Brands/BMW.png",
     "slogan": "",
     "paese": "Germania",
     "sede": "Monaco, Germania",
@@ -88,7 +88,7 @@
     "fondatore": "Franz Josef Popp, Karl Rapp, Camillo Castiglioni"
   },
   "Mercedes-Benz": {
-    "logo": "img/.Brands/Mercedes-Benz.png",
+    "logo": "img/Brands/Mercedes-Benz.png",
     "slogan": "",
     "paese": "Germania",
     "sede": "Stoccarda, Germania",
@@ -96,11 +96,12 @@
     "fondatore": "Carl Benz, Gottlieb Daimler"
   },
   "Porsche": {
-    "logo": "img/.Brands/Porsche.png",
+    "logo": "img/Brands/Porsche.png",
     "slogan": "",
     "paese": "Germania",
     "sede": "Stoccarda, Germania",
     "fondazione": "1931",
     "fondatore": "Ferdinand Porsche"
   }
+
 }
