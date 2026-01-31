@@ -1,0 +1,106 @@
+{
+  "KTM": {
+    "logo": "img/.Brands/KTM.jpg",
+    "slogan": "READY TO RACE",
+    "paese": "Austria",
+    "sede": "Mattighofen, Austria",
+    "fondazione": "1934",
+    "fondatore": "Hans Trunkenpolz, Ernst Kronreif"
+  },
+  "Xiaomi": {
+    "logo": "img/.Brands/Xiaomi.png",
+    "slogan": "",
+    "paese": "Cina",
+    "sede": "Pechino, Cina",
+    "fondazione": "6 aprile 2010",
+    "fondatore": "Lei Jun"
+  },
+  "Genesis": {
+    "logo": "img/.Brands/Genesis.png",
+    "slogan": "",
+    "paese": "Corea del Sud",
+    "sede": "Seul, Corea del Sud",
+    "fondazione": "Novembre 2015",
+    "fondatore": "/"
+  },
+  "Hyundai": {
+    "logo": "img/.Brands/Hyundai.png",
+    "slogan": "",
+    "paese": "Corea del Sud",
+    "sede": "Seul, Corea del Sud",
+    "fondazione": "29 dicembre 2967",
+    "fondatore": "Chung Ju-yung"
+  },
+  "Alpine": {
+    "logo": "img/.Brands/Alpine.png",
+    "slogan": "",
+    "paese": "Francia",
+    "sede": "Dieppe, Francia",
+    "fondazione": "1955",
+    "fondatore": "Jean Rédélé"
+  },
+  "Bugatti": {
+    "logo": "img/.Brands/Bugatti.png",
+    "slogan": "Art Forme Technique",
+    "paese": "Francia",
+    "sede": "Molsheim, Francia",
+    "fondazione": "1909",
+    "fondatore": "Ettore Bugatti"
+  },
+  "Citroën": {
+    "logo": "img/.Brands/Citroën.png",
+    "slogan": "Inspired by you",
+    "paese": "Francia",
+    "sede": "Parigi, Francia",
+    "fondazione": "1919",
+    "fondatore": "André Citroën"
+  },
+  "DS Automobiles": {
+    "logo": "img/.Brands/DS Automobiles.png",
+    "slogan": "",
+    "paese": "Francia",
+    "sede": "Parigi, Francia",
+    "fondazione": "1 giugno 2014",
+    "fondatore": "/"
+  },
+  "Peugeot": {
+    "logo": "img/.Brands/Peugeot.png",
+    "slogan": "",
+    "paese": "Francia",
+    "sede": "Parigi, Francia",
+    "fondazione": "1882",
+    "fondatore": "Armand Peugeot"
+  },
+  "Renault": {
+    "logo": "img/.Brands/Renault.png",
+    "slogan": "",
+    "paese": "Francia",
+    "sede": "Boulogne-Billancourt, Francia",
+    "fondazione": "25 febbrario 1898",
+    "fondatore": "Fernand Renault, Marcel Renault, Louis Renault"
+  },
+  "BMW": {
+    "logo": "img/.Brands/BMW.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Monaco, Germania",
+    "fondazione": "7 marzo 1916",
+    "fondatore": "Franz Josef Popp, Karl Rapp, Camillo Castiglioni"
+  },
+  "Mercedes-Benz": {
+    "logo": "img/.Brands/Mercedes-Benz.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Stoccarda, Germania",
+    "fondazione": "1883 (Benz & Cie.), 1890 (Daimler Motoren Gesellschaft)",
+    "fondatore": "Carl Benz, Gottlieb Daimler"
+  },
+  "Porsche": {
+    "logo": "img/.Brands/Porsche.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Stoccarda, Germania",
+    "fondazione": "1931",
+    "fondatore": "Ferdinand Porsche"
+  }
+}
