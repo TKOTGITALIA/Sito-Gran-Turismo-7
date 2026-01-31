@@ -18,7 +18,15 @@
     <span class="version-badge">Alpha</span>
     <div id="auth-status">
         <button id="login-btn" class="game-btn">Accedi con Google</button>
-        <button id="download-pdf" class="game-btn">Scarica Lista PDF</button>
+        <div class="pdf-dropdown">
+    <button id="pdf-main-btn" class="game-btn">Scarica Lista PDF ▼</button>
+    <div id="pdf-options" class="dropdown-content">
+        <a href="javascript:void(0)" onclick="scaricaPDF('gt7')">Gran Turismo 7</a>
+        <a href="javascript:void(0)" onclick="scaricaPDF('mfgt')">My First Gran Turismo</a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" onclick="scaricaPDF('entrambi')">Lista completa</a>
+    </div>
+</div>
     </div>
     <input type="text" id="searchBar" placeholder="Cerca un'auto o una marca...">
     <div id="game-selector">
