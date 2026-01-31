@@ -79,7 +79,8 @@
     </div>
 </header>
 
-<main></main>
+<main>
+    </main>
 
 <div id="carModal" class="modal">
     <div class="modal-content">
@@ -88,12 +89,20 @@
     </div>
 </div>
 
+<div id="brandModal" class="modal">
+    <div class="modal-content brand-modal-content">
+        <span class="close-brand-button">&times;</span>
+        <div id="brand-modal-body">
+            </div>
+    </div>
+</div>
+
 <div id="legenda-container">
     <button id="legenda-toggle">Legenda Abbreviazioni ▾</button>
     <div id="legenda-content">
         <div class="legenda-section">
             <h4>Trasmissione</h4>
-            <ul style="list-style: none; padding: 0;">
+            <ul>
                 <li><strong>FF:</strong> Motore Ant. Trazione Ant.</li>
                 <li><strong>FR:</strong> Motore Ant. Trazione Post.</li>
                 <li><strong>MR:</strong> Motore Centr. Trazione Post.</li>
@@ -103,7 +112,7 @@
         </div>
         <div class="legenda-section" id="legenda-aspirazione">
             <h4>Aspirazione</h4>
-            <ul style="list-style: none; padding: 0;">
+            <ul>
                 <li><strong>AN:</strong> Aspirazione Naturale</li>
                 <li><strong>TC:</strong> Turbocompressore</li>
                 <li><strong>CV:</strong> Compressore Volumetrico</li>
@@ -112,7 +121,7 @@
         </div>
         <div class="legenda-section">
             <h4>Tipo di motore</h4>
-            <ul style="list-style: none; padding: 0;">
+            <ul>
                 <li><strong>I:</strong> Cilindri in linea</li>
                 <li><strong>B:</strong> Cilindri piatti (Boxer)</li>
                 <li><strong>V:</strong> Cilindri a V</li>
@@ -140,6 +149,6 @@
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
 </script>
-<script src="script.js?v=17"></script>
+<script src="script.js?v=18"></script>
 </body>
 </html>
