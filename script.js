@@ -235,20 +235,20 @@ function popolaFiltri() {
 
 function renderizzaAuto() {
     const main = document.querySelector('main');
-    const searchVal = document.getElementById('searchBar').value.toLowerCase();
-    const countryFilter = document.getElementById('filter-country').value;
-    const brandFilter = document.getElementById('filter-brand').value;
-    const sortContainer = document.getElementById('sort-container');
+    const s = document.getElementById('searchBar').value.toLowerCase();
+    const pF = document.getElementById('filter-country').value;
+    const mF = document.getElementById('filter-brand').value;
+    const sC = document.getElementById('sort-container');
     main.innerHTML = "";
 
-    let filtrati = tutteLeAuto.filter(auto => {
-        const idUnivoco = `${auto.gioco}-${auto.id}`;
-        const isOwned = localStorage.getItem(idUnivoco) === 'true';
-        let matchBase = auto.gioco === giocoAttivo && auto.nome.toLowerCase().includes(searchVal);
+    let fil = tutteLeAuto.filter(a => {
+        const chiaveAuto = `${a.gioco}-${a.id}`;
+        const isOwned = localStorage.getItem(chiaveAuto) === 'true';
+        let matchBase = a.gioco === giocoAttivo && a.nome.toLowerCase().includes(s);
         
         if (giocoAttivo !== "mfgt") {
-            if (countryFilter !== "all" && auto.paese !== countryFilter) matchBase = false;
-            if (brandFilter !== "all" && auto.marca !== brandFilter) matchBase = false;
+            if (pF !== "all" && a.paese !== pF) matchBase = false;
+            if (mF !== "all" && a.marca !== mF) matchBase = false;
         }
 
         let matchGarage = true;
@@ -258,137 +258,148 @@ function renderizzaAuto() {
         return matchBase && matchGarage;
     });
 
-    if (filtrati.length === 0) {
-        main.innerHTML = `<p style="text-align:center; color:gray; margin-top:50px;">Nessuna auto trovata.</p>`;
-        aggiornaContatore();
-        return;
-    }
-
     if (giocoAttivo === "mfgt") {
-        if(sortContainer) sortContainer.style.display = "none";
-        const grid = document.createElement('div');
-        grid.className = 'car-grid';
-        filtrati.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => grid.appendChild(creaCard(a)));
-        main.appendChild(grid);
-        aggiornaContatore();
-        return;
-    }
-
-    if(sortContainer) sortContainer.style.display = "flex";
-    let groups = {};
-
-    const ordineAspirazioni = [
-        "Aspirazione Naturale", 
-        "Turbocompressore", 
-        "Compressore Volumetrico", 
-        "Turbocompressore + Compressore Volumetrico",
-        "Elettrico"
-    ];
-
-    const nomiTrasmissioni = {
-        "FF": "Motore anteriore Trazione anteriore",
-        "FR": "Motore anteriore Trazione posteriore",
-        "MR": "Motore centrale Trazione posteriore",
-        "RR": "Motore posteriore Trazione posteriore",
-        "4WD": "Trazione integrale",
-        "Altro": "Altro"
-    };
-
-    const ordineTrasmissioni = [
-        nomiTrasmissioni["FF"],
-        nomiTrasmissioni["FR"],
-        nomiTrasmissioni["MR"],
-        nomiTrasmissioni["RR"],
-        nomiTrasmissioni["4WD"],
-        "Altro"
-    ];
-
-    const addToGroup = (key, item) => {
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(item);
-    };
-
-    filtrati.forEach(auto => {
-        if (sortAttivo === "default") {
-            const p = auto.paese || "Altro";
-            if (!groups[p]) groups[p] = {};
-            if (!groups[p][auto.marca]) groups[p][auto.marca] = [];
-            groups[p][auto.marca].push(auto);
-        } 
-        else if (sortAttivo === "anno") {
-            const annoVal = (!auto.anno || auto.anno === "/" || auto.anno === "") ? "Altro" : auto.anno;
-            addToGroup(annoVal, auto);
-        } 
-        else if (sortAttivo === "aspirazione") {
-            const asp = auto.aspirazione || "";
-            let cat = "Altro";
-            
-            if (asp.includes("Veicolo elettrico") || asp.includes("Elettrico")) {
-                cat = "Elettrico";
-            } else if (asp.includes("Turbo + Compressore") || asp.includes("TC + CV")) {
-                cat = "Turbocompressore + Compressore Volumetrico";
-            } else if (asp.includes("Aspirazione Naturale") || asp.includes("(AN)")) {
-                cat = "Aspirazione Naturale";
-            } else if (asp.includes("Turbocompressore") || asp.includes("(TC)")) {
-                cat = "Turbocompressore";
-            } else if (asp.includes("Compressore Volumetrico") || asp.includes("(CV)")) {
-                cat = "Compressore Volumetrico";
-            }
-            
-            addToGroup(cat, auto);
-        }
-        else if (sortAttivo === "marca") {
-            addToGroup(auto.marca || "Altro", auto);
-        }
-        else if (sortAttivo === "paese") {
-            addToGroup(auto.paese || "Altro", auto);
-        }
-        else if (sortAttivo === "trasmissione") {
-            const sigla = mapTrasmissione(auto.trasmissione); 
-            const nomeEsteso = nomiTrasmissioni[sigla] || "Altro";
-            addToGroup(nomeEsteso, auto);
-        }
-    });
-
-    const keys = Object.keys(groups).sort((a, b) => {
-        if (a === "Altro") return 1;
-        if (b === "Altro") return -1;
-
-        if (sortAttivo === "anno") return parseInt(a) - parseInt(b);
-        if (sortAttivo === "aspirazione") return ordineAspirazioni.indexOf(a) - ordineAspirazioni.indexOf(b);
-        if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
-        
-        return a.localeCompare(b);
-    });
-
-    keys.forEach(k => {
-        if (sortAttivo === "default") {
-            const marche = Object.keys(groups[k]);
-            renderHeader(k, Object.values(groups[k]).flat(), main);
-            
-            marche.sort().forEach(m => {
-                const autoList = groups[k][m];
-                const title = document.createElement('h3');
-                title.className = 'brand-title';
-                const possedute = autoList.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
-                title.innerHTML = `— ${m} <span class="brand-info-icon" onclick="mostraInfoBrand('${m}')">i</span> <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${possedute}/${autoList.length}</span>`;
-                main.appendChild(title);
-
-                const grid = document.createElement('div');
-                grid.className = 'car-grid';
-                autoList.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => grid.appendChild(creaCard(a)));
-                main.appendChild(grid);
-            });
+        if(sC) sC.style.display = "none";
+        if (fil.length === 0) {
+            main.innerHTML = `<p style="text-align:center; color:gray; margin-top:50px;">Nessuna auto trovata.</p>`;
         } else {
-            if (groups[k].length === 0) return;
-            renderHeader(k, groups[k], main);
-            const grid = document.createElement('div');
-            grid.className = 'car-grid';
-            groups[k].sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => grid.appendChild(creaCard(a)));
-            main.appendChild(grid);
+            const g = document.createElement('div');
+            g.className = 'car-grid';
+            fil.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
+            main.appendChild(g);
         }
-    });
+    } else {
+        if(sC) sC.style.display = "flex";
+        if (fil.length === 0) {
+            main.innerHTML = `<p style="text-align:center; color:gray; margin-top:50px;">Nessuna auto trovata.</p>`;
+            aggiornaContatore();
+            return;
+        }
 
+        if (mF !== "all") {
+            const paeseMarca = fil[0].paese || "Altro";
+            renderHeader(`${mF} (${paeseMarca})`, fil, main);
+            const infoIcon = `<span class="brand-info-icon" onclick="mostraInfoBrand('${mF}')">i</span>`;
+            const t = document.createElement('h3');
+            t.className = 'brand-title';
+            const pM = fil.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
+            t.innerHTML = `— ${mF} ${infoIcon} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${fil.length}</span>`;
+            main.appendChild(t);
+
+            const g = document.createElement('div');
+            g.className = 'car-grid';
+            fil.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
+            main.appendChild(g);
+            aggiornaContatore();
+            return;
+        }
+
+        let groups = {};
+        const ordineTrasmissioni = ["FF", "FR", "MR", "RR", "Altro", "4WD"];
+        const ordineAspirazioni = ["Aspirazione Naturale", "Turbocompressore", "Compressore Volumetrico", "Turbo + Compressore", "Elettrico"];
+
+        const addToGroup = (key, item) => {
+            if(!groups[key]) groups[key] = [];
+            groups[key].push(item);
+        };
+
+        if (sortAttivo === "default") {
+            fil.forEach(a => {
+                const p = a.paese || "Altro";
+                if(!groups[p]) groups[p] = {};
+                if(!groups[p][a.marca]) groups[p][a.marca] = [];
+                groups[p][a.marca].push(a);
+            });
+        } else if (sortAttivo === "marca" || sortAttivo === "paese") {
+            fil.forEach(a => addToGroup(sortAttivo === "marca" ? (a.marca || "Altro") : (a.paese || "Altro"), a));
+        } else if (sortAttivo === "anno") {
+            fil.forEach(a => addToGroup(a.anno || "Altro", a));
+        } else if (sortAttivo === "trasmissione") {
+            ordineTrasmissioni.forEach(o => groups[o] = []);
+            fil.forEach(a => addToGroup(mapTrasmissione(a.trasmissione), a));
+        } else if (sortAttivo === "aspirazione") {
+            ordineAspirazioni.forEach(o => groups[o] = []);
+            fil.forEach(a => {
+                const asp = a.aspirazione || "";
+                let cat = "Altro";
+                if (asp.includes("Veicolo elettrico") || asp.includes("Elettrico")) cat = "Elettrico";
+                else if (asp.includes("Turbo + Compressore") || asp.includes("TC + CV")) cat = "Turbo + Compressore";
+                else if (asp.includes("Aspirazione Naturale") || asp.includes("(AN)")) cat = "Aspirazione Naturale";
+                else if (asp.includes("Turbocompressore") || asp.includes("(TC)")) cat = "Turbocompressore";
+                else if (asp.includes("Compressore Volumetrico") || asp.includes("(CV)")) cat = "Compressore Volumetrico";
+                addToGroup(cat, a);
+            });
+        } else if (sortAttivo === "potenza" || sortAttivo === "peso") {
+            const isPot = sortAttivo === "potenza";
+            const cats = isPot ? ["1'600 CV -", "1'300 - 1'599 CV", "1'100 - 1'299 CV", "1'000 - 1'099 CV", "900 - 999 CV", "800 - 899 CV", "700 - 799 CV", "600 - 699 CV", "500 - 599 CV", "400 - 499 CV", "300 - 399 CV", "200 - 299 CV", "100 - 199 CV", "- 99 CV", "Altro"] : ["2'300 Kg -", "2'000 - 2'299 Kg", "1'800 - 1'999 Kg", "1'700 - 1'799 Kg", "1'600 - 1'699 Kg", "1'500 - 1'599 Kg", "1'400 - 1'499 Kg", "1'300 - 1'399 Kg", "1'200 - 1'299 Kg", "1'100 - 1'199 Kg", "1'000 - 1'099 Kg", "900 - 999 Kg", "800 - 899 Kg", "700 - 799 Kg", "600 - 699 Kg", "500 - 599 Kg", "- 499 Kg", "Altro"];
+            
+            cats.forEach(c => groups[c] = []);
+            fil.forEach(a => {
+                const v = parseVal(isPot ? a.cv : a.peso);
+                let c = "Altro";
+                if(v !== null) {
+                    if(isPot) {
+                        if(v >= 1600) c = cats[0]; else if(v >= 1300) c = cats[1]; else if(v >= 1100) c = cats[2]; else if(v >= 1000) c = cats[3]; else if(v >= 900) c = cats[4]; else if(v >= 800) c = cats[5]; else if(v >= 700) c = cats[6]; else if(v >= 600) c = cats[7]; else if(v >= 500) c = cats[8]; else if(v >= 400) c = cats[9]; else if(v >= 300) c = cats[10]; else if(v >= 200) c = cats[11]; else if(v >= 100) c = cats[12]; else c = cats[13];
+                    } else {
+                        if(v >= 2300) c = cats[0]; else if(v >= 2000) c = cats[1]; else if(v >= 1800) c = cats[2]; else if(v >= 1700) c = cats[3]; else if(v >= 1600) c = cats[4]; else if(v >= 1500) c = cats[5]; else if(v >= 1400) c = cats[6]; else if(v >= 1300) c = cats[7]; else if(v >= 1200) c = cats[8]; else if(v >= 1100) c = cats[9]; else if(v >= 1000) c = cats[10]; else if(v >= 900) c = cats[11]; else if(v >= 800) c = cats[12]; else if(v >= 700) c = cats[13]; else if(v >= 600) c = cats[14]; else if(v >= 500) c = cats[15]; else c = cats[16];
+                    }
+                }
+                groups[c].push(a);
+            });
+
+            cats.forEach(k => {
+                if (groups[k].length === 0) return;
+                renderHeader(k, groups[k], main);
+                const g = document.createElement('div');
+                g.className = 'car-grid';
+                groups[k].sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
+                main.appendChild(g);
+            });
+            aggiornaContatore();
+            return;
+        }
+
+        const keys = Object.keys(groups).sort((a, b) => {
+            if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
+            if (sortAttivo === "aspirazione") return ordineAspirazioni.indexOf(a) - ordineAspirazioni.indexOf(b);
+            if (sortAttivo === "anno") {
+                if (a === "Altro") return 1; if (b === "Altro") return -1;
+                return parseInt(a) - parseInt(b);
+            }
+            if (a === "Altro") return 1; if (b === "Altro") return -1;
+            return a.localeCompare(b);
+        });
+
+        keys.forEach(k => {
+            if (sortAttivo === "default") {
+                const marcheNelPaese = Object.keys(groups[k]);
+                if (marcheNelPaese.length === 0) return;
+                renderHeader(k, Object.values(groups[k]).flat(), main);
+                
+                marcheNelPaese.sort().forEach(m => {
+                    const subList = groups[k][m];
+                    const t = document.createElement('h3');
+                    t.className = 'brand-title';
+                    const pM = subList.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
+                    const infoIcon = `<span class="brand-info-icon" onclick="mostraInfoBrand('${m}')">i</span>`;
+                    t.innerHTML = `— ${m} ${infoIcon} <span style="font-size:0.8rem; color:var(--text-muted); font-weight:normal; margin-left:10px;">${pM}/${subList.length}</span>`;
+                    main.appendChild(t);
+
+                    const g = document.createElement('div');
+                    g.className = 'car-grid';
+                    subList.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
+                    main.appendChild(g);
+                });
+            } else {
+                if (groups[k].length === 0) return;
+                renderHeader(k, groups[k], main);
+                const g = document.createElement('div');
+                g.className = 'car-grid';
+                groups[k].sort((a, b) => a.nome.localeCompare(b.nome)).forEach(a => g.appendChild(creaCard(a)));
+                main.appendChild(g);
+            }
+        });
+    }
     aggiornaContatore();
 }
 
