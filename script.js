@@ -442,7 +442,20 @@ function creaCard(a) {
     const card = document.createElement('div');
     card.className = `car-card ${isOwned ? 'owned' : ''}`;
     const safeId = a.id.replace(/'/g, "\\'"); 
-    card.innerHTML = `<img src="${a.immagine_small || a.immagine}" loading="lazy" alt="${a.nome}" width="280" height="180"><div class="car-info"><span class="car-brand-tag">${a.marca}</span><h3>${a.nome}</h3></div><div class="owned-container" onclick="togglePossesso(event, '${a.gioco}', '${safeId}')"><input type="checkbox" ${isOwned ? 'checked' : ''} style="pointer-events:none;"><span>Nel garage</span></div>`;
+
+    card.innerHTML = `
+        <img src="${a.immagine_small || a.immagine}" loading="lazy" alt="${a.nome}" width="280" height="180">
+        <div class="car-info">
+            <span class="car-brand-tag">${a.marca}</span>
+            <h3>${a.nome}</h3>
+        </div>
+        
+        <div class="owned-container" onclick="togglePossesso(event, '${a.gioco}', '${safeId}')">
+            <input type="checkbox" ${isOwned ? 'checked' : ''} style="pointer-events:none;">
+            <span>Nel garage</span>
+        </div>
+    `;
+
     card.onclick = (e) => {
         if(!e.target.closest('.owned-container')) mostraDettagli(a);
     };
@@ -452,14 +465,49 @@ function creaCard(a) {
 function mostraDettagli(a) {
     const m = document.getElementById("carModal");
     const b = document.getElementById("modal-body");
-    const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] : ['anno','pp','aspirazione','trasmissione','cilindrata','tipo_motore','cv','peso','prezzo','acquisto'];
-    const lbl = {pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità Massima'};
-    let g = '<div class="specs-grid">';
+    
+    // Lista campi per GT7
+    const campiGT7 = ['categoria', 'anno', 'pp', 'aspirazione', 'trasmissione', 'cilindrata', 'tipo_motore', 'cv', 'peso', 'prezzo', 'acquisto'];
+    const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] : campiGT7;
+    
+    const lbl = {categoria: 'Categoria', pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità'};
+    
+    // Griglia informazioni in stile tabella
+    let g = '<div class="specs-list" style="margin-top: 15px; border-top: 1px solid #333;">';
     s.forEach(x => {
-        g += `<div class="spec-item"><strong>${lbl[x] || x.replace('_', ' ')}</strong>${a[x] || '-'}</div>`;
+        if (a[x]) {
+            g += `
+            <div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
+                <span style="color: #888; text-transform: uppercase; font-weight: bold; font-size: 0.75rem;">${lbl[x] || x.replace('_', ' ')}</span>
+                <span style="color: #fff; font-weight: 500;">${a[x]}</span>
+            </div>`;
+        }
     });
     g += '</div>';
-    b.innerHTML = `<img src="${a.immagine}" class="modal-img"><div style="padding:20px;"><h2>${a.nome}</h2><p class="modal-brand">${a.marca}</p>${g}${a.titolo ? `<h4 class="mfgt-subtitle">${a.titolo}</h4>` : ''}<p class="modal-description">${a.descrizione || 'Nessuna descrizione disponibile.'}</p>${a.link ? `<a href="${a.link}" target="_blank" class="external-link">Sito Ufficiale</a>` : ''}</div>`;
+
+    // Link rossi
+    const link1 = a.link ? `<a href="${a.link}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; font-size:0.9rem;">Sito Ufficiale</a>` : '';
+    const link2 = a.link2 ? `<a href="${a.link2}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; margin-left:10px; font-size:0.9rem;">Pagina Ufficiale</a>` : '';
+
+    b.innerHTML = `
+        <img src="${a.immagine}" class="modal-img" style="width:100%; display:block;">
+        <div style="padding:25px; background: #111; color: white;">
+            <h2 style="font-size: 1.8rem; margin: 0 0 5px 0; text-transform: uppercase;">${a.nome}</h2>
+            <p style="color: #888; margin: 0; font-weight: bold; font-size: 1rem;">${a.marca}</p>
+            
+            ${a.isVGT ? `<p style="color: #e10600; font-weight: 900; text-transform: uppercase; margin: 15px 0 5px 0; font-size: 0.85rem; letter-spacing: 1px;">Vision Gran Turismo</p>` : ''}
+            
+            ${g}
+            
+            ${a.titolo ? `<h4 style="color: #ffffff; margin-top: 25px; margin-bottom: 10px; font-size: 1.1rem; font-weight: 500; line-height: 1.4; border-left: 3px solid #e10600; padding-left: 15px;">${a.titolo}</h4>` : ''}
+            
+            <p style="line-height: 1.6; color: #ccc; margin-top: 15px; font-size: 0.95rem;">${a.descrizione || 'Dati tecnici non ancora disponibili.'}</p>
+            
+            <div style="margin-top:25px; display:flex;">
+                ${link1} ${link2}
+            </div>
+        </div>`;
+        
     m.style.display = "block";
     document.querySelector(".close-button").onclick = () => m.style.display = "none";
 }
