@@ -324,7 +324,10 @@
         "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car1907",
         "titolo": "La prima auto sportiva costruita dalla casa motociclistica KTM.",
         "immagine": "img/Austria/KTM X-BOW R '12.jpg",
-        "descrizione": "La X-BOW è la prima auto sportiva sviluppata dalla casa austriaca KTM, specializzata in motocicli. Il design dell'auto, il cui nome sta per \"Crossbow\" (balestra), riprende la forma dell'arma omonima. La filosofia di progettazione di questa biposto ha portato all'eliminazione di tutte le parti superflue, compresi portiere e finestrini. L'auto è estremamente manovrabile e in grado di reggere 1,5 g in curva."
+        "descrizione": "La X-BOW è la prima auto sportiva sviluppata dalla casa austriaca KTM, specializzata in motocicli. Il design dell'auto, il cui nome sta per \"Crossbow\" (balestra), riprende la forma dell'arma omonima. La filosofia di progettazione di questa biposto ha portato all'eliminazione di tutte le parti superflue, compresi portiere e finestrini. L'auto è estremamente manovrabile e in grado di reggere 1,5 g in curva.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
       },
       {
         "id": "xiaomi-su7-ultra-'25",
@@ -345,6 +348,9 @@
         "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3599",
         "titolo": "La soluzione di mobilità suprema del gigante degli smartphone.",
         "immagine": "img/Cina/Xiaomi SU7 Ultra '25.jpg",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "descrizione": "La Xiaomi SU7 Ultra è una versione a prestazioni estreme della berlina sportiva SU7, l'auto di debutto di Xiaomi, azienda che produce dispositivi smart. Il sistema a trazione integrale, che sfrutta 3 motori elettrici disposti sull'asse anteriore e su quello posteriore, vanta una potenza totale di 1.548 CV. I motori \"V8\" situati sull'asse posteriore sono i più potenti tra quelli montati sulle auto di serie e capaci di ruotare a una velocità massima di 27.200 G/min. Inoltre, l'incredibile sviluppo aerodinamico permette all'auto di generare fino a 285 kg di deportanza."
       },
       {
@@ -366,6 +372,9 @@
         "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3500",
         "titolo": "Una berlina sportiva di Genesis, con tutte e quattro le ruote alimentate da un motore V6 biturbo.",
         "immagine": "img/Corea del Sud/Genesis G70 3.3T AWD Prestige Package '22.jpg",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "descrizione": "La berlina sportiva G70 di Genesis è stata introdotta nel 2017 come modello base del marchio. Era disponibile con tre diversi motori: V6 biturbo da 3,3 litri capace di erogare 370 CV, turbo a benzina da 2 litri e turbodiesel da 2,2 litri. È stato pubblicato un modello rinnovato nel 2020, con elementi di design tratti dai modelli di lusso. L'auto si è fatta notare anche per il lancio di un modello Shooting Brake esclusivo per l'Europa nel 2021."
       },
       {
@@ -387,6 +396,9 @@
         "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3585",
         "titolo": "Questa ELANTRA, utilizzabile in pista, è opera del marchio \"N\".",
         "immagine": "img/Corea del Sud/Hyundai ELANTRA N '23.jpg",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "descrizione": "La ELANTRA N, presentata come modello a prestazioni elevate della ELANTRA di settima generazione, è stata sviluppata per incarnare la filosofia del marchio N: \"divertimento in curva\". Dotata di motore turbo da 2 litri in grado di erogare 280 CV di potenza e 392,0 Nm di coppia, accelera da 0 a 100 km/h in soli 5,3 secondi nonostante la trazione anteriore. L'auto è disponibile nelle varianti con cambio manuale a 6 marce e DCT a 8 marce. Può contare su ammortizzatori a controllo elettronico, sistema eLSD e sistema frenante ad alte prestazioni."
       },
       {
@@ -408,6 +420,9 @@
         "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3590",
         "titolo": "Questa Elantra da circuito è stata progettata meticolosamente per conquistare la vittoria.",
         "immagine": "img/Corea del Sud/Hyundai ELANTRA N TC '24.jpg",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "descrizione": "La Hyundai ELANTRA N TC è un modello speciale, costruito per competere. Basato sulla ELANTRA N, capace di accelerare da 0 a 100 km/h in soli 5,3 secondi nonostante la configurazione a trazione anteriore, il modello TC presenta una speciale dotazione conforme ai regolamenti delle gare turismo. L'ampia carrozzeria è dotata di uno scalino in fibra di carbonio e di un grande alettone posteriore, che migliorano notevolmente la stabilità in curva. Inoltre, questo modello è dotato di un cambio sequenziale a 6 marce e di sistemi di frenata e di raffreddamento rinnovati per soddisfare i requisiti delle gare di durata."
       },
       {
@@ -429,7 +444,11 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"3'342 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"Una berlina sportiva di Genesis, con tutte e quattro le ruote alimentate da un motore V6 biturbo."
+        
       },
       {
         "id": "hyundai-genesis-coupe-3.8-'13",
@@ -450,6 +469,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"3'778 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Una coupé sportiva a prestazioni elevate, con componenti sviluppate appositamente per la guida in pista."
       },
       {
@@ -471,6 +493,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"/ cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Un coupé sportivo a prestazioni elevate con componenti sviluppati per la guida su circuito."
       },
       {
@@ -492,6 +517,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"/ cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"Un coupé sportivo a prestazioni elevate con componenti sviluppati per la guida su circuito."
       },
       {
@@ -513,6 +541,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.B",
+        "isVGT": false,
         "titolo":"Un coupé sportivo a prestazioni elevate con componenti sviluppati per la guida su circuito."
       },
       {
@@ -534,6 +565,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"3'342 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Un'auto Gr.3 che combina lusso e prestazioni competitive."
       },
       {
@@ -555,6 +589,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "https://www.gran-turismo.com/it/vgt/genesis_berlinetta/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Un coupé sportivo che incarna l'eleganza atletica rincorsa da Genesis."
       },
       {
@@ -576,6 +613,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "https://www.gran-turismo.com/it/vgt/genesis_racer/",
+        "categoria": "Gr.1",
+        "isVGT": true,
         "titolo":"La versione da corsa della Gran Berlinetta, migliorata grazie a parti aerodinamiche."
       },
       {
@@ -597,6 +637,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "https://www.gran-turismo.com/it/vgt/hyundai/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Un modello estremo che rappresenta la passione e il futuro del marchio Hyundai \"N\"."
       },
       {
@@ -618,6 +661,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "https://www.gran-turismo.com/it/vgt/hyundai/",
+        "categoria": "Gr.1",
+        "isVGT": true,
         "titolo":"Un modello estremo che rappresenta la passione e il futuro del marchio Hyundai \"N\"."
       },
       {
@@ -639,6 +685,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'auto formidabile, che sfida ogni preconcetto sui veicoli completamente elettrici."
       },
       {
@@ -660,6 +709,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"1'800 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'auto sportiva leggerissima, capolavoro del rinato marchio Alpine, che abbina eleganza e prestazioni."
       },
             {
@@ -681,6 +733,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"7'993 cc",
         "tipo_motore":"16 cilindri a W (W16)",
+        "link2": "https://www.gran-turismo.com/it/vgt/bugatti/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Questa Vision Gran Turismo, omaggio alla Type 57 Tank, rappresenta la gloriosa storia Bugatti."
       },
       {
@@ -702,6 +757,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'905 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La versatile Gran Turismo di Citroën dal look nuovo e moderno."
       },
       {
@@ -723,6 +781,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'598 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un popolare modello speciale, lodato non solo per le specifiche ma anche per la sua unicità e qualità."
       },
       {
@@ -744,6 +805,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'199 cc",
         "tipo_motore":"3 cilindri in linea (I3)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Questo SUV compatto è caratterizzato da tantissimi elementi stilistici tipici di Peugeot."
       },
       {
@@ -765,6 +829,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'905 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un capolavoro francese fra le sportive compatte, diventato una leggenda del rally."
       },
       {
@@ -786,6 +853,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"1'775 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.B",
+        "isVGT": false,
         "titolo":"Il mostro a motore centrale 4WD che ha dominato nel Gruppo B."
       },
       {
@@ -807,6 +877,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'598 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Leggera, piccola, briosa e veloce. Una compatta sportiva chic e realistica."
       },
       {
@@ -828,6 +901,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"5'500 cc",
         "tipo_motore":"12 cilindri a V (V12)",
+        "link2": "",
+        "categoria": "Gr.1",
+        "isVGT": false,
         "titolo":"La Peugeot LMP che ha dominato la parte alta della classifica alla Le Mans del 2010."
       },
       {
@@ -849,6 +925,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"1'565 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Il modello più estremo della Alpine, con trazione e motore ultra-leggero posteriori."
       },
       {
@@ -870,6 +949,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"2'996 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"Un modello atipico di Alpine, un'auto con motore V8 da 3 litri progettata per Le Mans."
       },
       {
@@ -891,6 +973,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"4'494 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "https://www.gran-turismo.com/it/vgt/alpine/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Un'auto splendida, che racchiude dentro di sé la tradizione e il futuro di Alpine."
       },
       {
@@ -912,6 +997,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"4'200 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "https://www.gran-turismo.com/it/vgt/alpine/",
+        "categoria": "Gr.1",
+        "isVGT": true,
         "titolo":"Un'auto splendida, che racchiude dentro di sé la tradizione e il futuro di Alpine."
       },
       {
@@ -933,6 +1021,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"4'494 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "https://www.gran-turismo.com/it/vgt/alpine/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Un'auto splendida, che racchiude dentro di sé la tradizione e il futuro di Alpine."
       },
       {
@@ -954,6 +1045,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"2'946 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'esclusiva coupé che sfida i confini del design a forma singola."
       },
       {
@@ -975,6 +1069,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "https://www.gran-turismo.com/it/vgt/bugatti/",
+        "categoria": "Gr.1",
+        "isVGT": true,
         "titolo":"Un'auto da sogno, creata per essere l'esempio definitivo dei modelli da corsa nonché una vera Bugatti."
       },
       {
@@ -996,6 +1093,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"7'993 cc",
         "tipo_motore":"16 cilindri a W (W16)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"L'erede della potentissima Veyron."
       },
       {
@@ -1017,6 +1117,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'618 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Questa velocissima Clio ha stabilito il record di velocità tra le hatchback compatte."
       },
       {
@@ -1038,6 +1141,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'618 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Questa Clio sportiva è stata elaborata da Renault Sport per ottenere le prestazioni più elevate possibili in pista."
       },
       {
@@ -1059,6 +1165,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"2'946 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Sviluppata da TWR, una vettura estrema con motore centrale da 3 litri."
       },
       {
@@ -1080,6 +1189,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"2'175 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Una visione storica del futuro dalla Francia."
       },
       {
@@ -1101,6 +1213,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'500 cc",
         "tipo_motore":"10 cilindri a V (V10)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"La monovolume ribelle di Renault, equipaggiata con un motore da Formula 1."
       },
       {
@@ -1122,6 +1237,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"Un prototipo per il mondo virtuale, sviluppato in collaborazione con Citroën."
       },
       {
@@ -1143,6 +1261,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"/ cc",
         "tipo_motore":"/",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Un prototipo per il mondo virtuale, sviluppato in collaborazione con Citroën."
       },
       {
@@ -1164,6 +1285,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"/ cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La concept da sogno diventa una stradale: si tratta di una sportiva con motore V8 centrale."
       },
       {
@@ -1185,6 +1309,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'389 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un popolare veicolo multispazio per il tempo libero, nato come modello commerciale."
       },
       {
@@ -1206,6 +1333,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "https://www.gran-turismo.com/it/vgt/peugeot_l500r/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Questa Vision Gran Turismo è nata come omaggio alla leggendaria L45 da corsa."
       },
       {
@@ -1227,6 +1357,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/ cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "https://www.gran-turismo.com/it/vgt/peugeot_l750r/",
+        "categoria": "Gr.1",
+        "isVGT": true,
         "titolo":"Questa Vision Gran Turismo è nata come omaggio alla leggendaria L45 da corsa."
       },
       {
@@ -1248,6 +1381,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'998 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"L'auto in edizione limitata che ha stabilito il record sul giro per le auto di serie a trazione anteriore sul Nürburgring."
       },
       {
@@ -1269,6 +1405,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'998 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"L'edizione limitata della vettura che ha stabilito il giro record sul Nürburgring per le auto a trazione anteriore prodotte in massa."
       },
       {
@@ -1290,6 +1429,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'998 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.x",
+        "isVGT": false,
         "titolo":"Una Mégane RS Trophy in versione safety car per gestire il circuito."
       },
       {
@@ -1311,6 +1453,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'498 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"La Mégane Trophy, con il suo look aggressivo accentuato dalle porte ad ala di gabbiano."
       },
       {
@@ -1332,6 +1477,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"3'200 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "https://www.gran-turismo.com/it/vgt/peugeot/",
+        "categoria": "Gr.X",
+        "isVGT": true,
         "titolo":"Scopri la sensazione del controllo totale, a bordo di una vettura che genera un'enorme deportanza grazie ai pannelli della carrozzeria."
       },
       {
@@ -1353,6 +1501,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'200 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "https://www.gran-turismo.com/it/vgt/peugeot/",
+        "categoria": "Gr.3",
+        "isVGT": true,
         "titolo":"Scopri una risposta assolutamente pura in un'auto che genera una potente deportanza direttamente dai pannelli della sua carrozzeria."
       },
       {
@@ -1374,6 +1525,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'799 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"La R.S.01, pronta a dimostrare il suo valore in gara."
       },
       {
@@ -1395,6 +1549,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'799 cc",
         "tipo_motore":"6 cilindri a V (V6)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Un modello GT della \"World Series by Renault\", rinato con elaborazione NISMO."
       },
       {
@@ -1416,6 +1573,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'108 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La prima hatchback ha ottenuto un grande successo grazie a un design funzionale."
       },
       {
@@ -1437,6 +1597,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"1'397 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Modifiche estreme per una compatta a trazione anteriore: il mostro a motore centrale nato da un'utilitaria."
       },
       {
@@ -1458,6 +1621,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"1'255 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"Ancora popolare a oltre mezzo secolo dalla nascita, è un'icona francese degli anni '60."
       },
       {
@@ -1479,6 +1645,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'598 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'auto unica, con la parte posteriore del tettuccio a doppia bolla"
       },
       {
@@ -1500,6 +1669,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"/",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Una versione Gr.3 da gara del coupé compatto Peugeot RCZ."
       },
       {
@@ -1521,6 +1693,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"/",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Una variante Gr.3 da strada del coupé compatto Peugeot RCZ."
       },
       {
@@ -1542,6 +1717,9 @@
         "trasmissione":"Motore anteriore Trazione anteriore (FF)",
         "cilindrata":"1'598 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"Una variante Gr.4 da gara del coupé compatto Peugeot RCZ."
       },
       {
@@ -1563,6 +1741,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"/",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.B",
+        "isVGT": false,
         "titolo":"Una versione elaborata Gr.B da rally del coupé compatto Peugeot RCZ."
       },
       {
@@ -1584,6 +1765,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"7'993 cc",
         "tipo_motore":"16 cilindri a W (W16)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'auto mostruosamente incredibile che, grazie ad una chiave speciale, è capace di superare la velocità di 375 km orari."
       },
       {
@@ -1605,6 +1789,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"7'993 cc",
         "tipo_motore":"16 cilindri a W (W16)",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false,
         "titolo":"Un'auto mostruosamente incredibile che, grazie ad una chiave speciale, è capace di superare la velocità di 375 km orari."
       },
       {
@@ -1626,6 +1813,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"2'463 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"L'evoluzione finale della 190 E, nata dalle gare Touring."
       },
       {
@@ -1647,6 +1837,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"2'986 cc",
         "tipo_motore":"6 cilindri in linea (I6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Modello leggero del coupé sportivo 3.0 CS, privata di tutti gli equipaggiamenti in eccesso per massimizzare le prestazioni in pista."
       },
       {
@@ -1668,6 +1861,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"3'153 cc",
         "tipo_motore":"6 cilindri in linea (I6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Variante leggera della 3.0 CS, sviluppata per competere nelle gare Turismo."
       },
       {
@@ -1689,6 +1885,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"6'835 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"Vincitrice nella sua categoria alla 24 Ore di Spa del 1971. L'auto leggendaria che ha reso famosa AMG."
       },
       {
@@ -1710,6 +1909,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"2'996 cc",
         "tipo_motore":"6 cilindri in linea (I6)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"L'auto che ha portato a Mercedes-Benz la prima vittoria nella 24 Ore di Le Mans."
       },
       {
@@ -1731,6 +1933,9 @@
         "trasmissione":"Motore anteriore Trazione posteriore (FR)",
         "cilindrata":"2'996 cc",
         "tipo_motore":"6 cilindri in linea (I6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La progenitrice di tutte le sportive moderne, dalle ali a gabbiano e in anticipo sui tempi."
       },
       {
@@ -1752,6 +1957,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"1'498 cc",
         "tipo_motore":"4 cilindri piatti (B4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La 356A, modello parzialmente da competizione che ha reso celebre Porsche."
       },
       {
@@ -1773,6 +1981,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"1'498 cc",
         "tipo_motore":"4 cilindri piatti (B4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Lo storico modello con cui Porsche si è imposta come casa costruttrice di auto sportive."
       },
       {
@@ -1794,6 +2005,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"2'687 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un debutto nella storia della Porsche 911: la sfuggente Rennsport."
       },
       {
@@ -1815,7 +2029,34 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'600 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La cilindrata è stata portata a 3,6 litri. Questo modello sportivo è una versione più leggera della 911 Carrera 2 di terza generazione."
+      },
+      {
+        "id": "porsche-911-carrera-rs-(993)-'95",
+        "gioco": "gt7",
+        "nome": "Porsche 911 Carrera RS (993) '95",
+        "marca": "Porsche",
+        "paese": "Germania",
+        "anno": "1995",
+        "prezzo": "215'200 Cr.",
+        "acquisto": "Auto usate",
+        "pp": "530,52 PP",
+        "peso": "1'270 Kg - 2'800 Lb",
+        "cv": "300 Cv - 354,7 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "link2": "",
+        "immagine": "img/Germania/Porsche 911 Carrera RS (993) '95.jpg",
+        "descrizione": "La Porsche 911 è entrata nella sua quarta generazione nel 1993, con la type 993. Oltre all'estetica, ne sono state migliorate le sospensioni per fornire una maggiore maneggevolezza. La variante più potente era la Carrera RS, introdotta nel 1995, dotata di una carrozzeria più rigida e leggera. Il motore, un'unità da 3,8 litri a 6 cilindri contrapposti capace di 300 CV, è stato l'ultimo tipo utilizzato su una 993. Ne era disponibile anche la variante Carrera RS Club Sport da circuito.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore posteriore Trazione posteriore (RR)",
+        "cilindrata":"3'746 cc",
+        "tipo_motore":"6 cilindri piatti (B6)",
+        "titolo":"Motore da 3,8 litri a 6 cilindri contrapposti in grado di erogare 300 CV. Il modello più potente della 993, l'ultima Porsche con raffreddamento ad aria.",
+        "categoria": "Gr.N",
+        "isVGT": false
       },
       {
         "id": "porsche-911-carrera-rs-club-sport-(993)-'95",
@@ -1836,6 +2077,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'746 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Motore da 3,8 litri a 6 cilindri contrapposti in grado di erogare 300 CV. Il modello più potente della 993, l'ultima Porsche con raffreddamento ad aria."
       },
       {
@@ -1857,6 +2101,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"3'164 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Una versione da strada della 911 GT1, progettata da Porsche per puntare alla vittoria nelle competizioni GT."
       },
       {
@@ -1878,6 +2125,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'600 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Il primo modello GT3 della 911 fu introdotto con la Type 996. Il modello si è dimostrato molto popolare, con 1.889 esemplari venduti."
       },
       {
@@ -1899,6 +2149,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'797 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Questa variante GT3 della Type 997, introdotta nel 2006, monta ammortizzatori regolabili."
       },
       {
@@ -1920,6 +2173,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"4'194 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Un'auto da corsa pura del catalogo 911 di ottava generazione."
       },
       {
@@ -1941,6 +2197,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'996 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La 991 più evoluta, ricreata partendo da zero."
       },
       {
@@ -1962,6 +2221,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'996 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Una vettura stradale dalle grandi prestazioni piena di funzionalità da auto da corsa."
       },
       {
@@ -1983,6 +2245,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"4'000 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false,
         "titolo":"Prima 911 a montare un motore centrale. Questo modello è un'auto progettata per competere, diversa dal modello di serie."
       },
       {
@@ -2004,6 +2269,9 @@
         "trasmissione":"Motore posteriore Trazione posteriore (RR)",
         "cilindrata":"3'299 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"L'ammiraglia della gamma 911 vanta una carrozzeria aggressiva e motore turbo."
       },
       {
@@ -2025,6 +2293,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"3'745 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La variante di punta della 911 di ottava generazione"
       },
       {
@@ -2046,6 +2317,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"5'000 cc",
         "tipo_motore":"8 cilindri piatti (B8)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"Questa hypercar estrema è una rivisitazione moderna della classica 917, uno dei modelli più illustri nella storia di Porsche."
       },
       {
@@ -2067,6 +2341,9 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"4'907 cc",
         "tipo_motore":"12 cilindri piatti (B12)",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false,
         "titolo":"Il prototipo da corsa che ha portato a Porsche la sua prima vittoria nella 24 Ore di Le Mans."
       },
       {
@@ -2088,6 +2365,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"4'593 cc",
         "tipo_motore":"8 cilindri a V (V8)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Questa super sportiva è una reinterpretazione della gloriosa Carrera GT in veste ibrida plug-in."
       },
       {
@@ -2109,6 +2389,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"2'000 cc",
         "tipo_motore":"4 cilindri a V (V4)",
+        "link2": "",
+        "categoria": "Gr.1",
+        "isVGT": false,
         "titolo":"Il prototipo sportivo ibrido vincitore in occasioni consecutive a Le Mans."
       },
       {
@@ -2130,6 +2413,9 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"2'850 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"Un'auto a trazione integrale che ha fatto la storia dell'automobilismo."
       },
       {
@@ -2151,13 +2437,16 @@
         "trasmissione":"Motore centrale Trazione posteriore (MR)",
         "cilindrata":"2'649 cc",
         "tipo_motore":"6 cilindri piatti (B6)",
+        "link2": "",
+        "categoria": "Gr.1",
+        "isVGT": false,
         "titolo":"Le auto del Gruppo C che hanno portato a Porsche diverse vittorie nelle gare di durata."
       },
       {
         "id": "mercedes-benz-a-45-amg-4matic-'13",
         "gioco": "gt7",
         "nome": "Mercedes-Benz A 45 AMG 4MATIC '13",
-        "marca": "Mercedes-Benz",
+        "marca": "AMG",
         "paese": "Germania",
         "anno": "2013",
         "prezzo": "64'000 Cr.",
@@ -2172,6 +2461,515 @@
         "trasmissione":"Trazione integrale (4WD)",
         "cilindrata":"1'991 cc",
         "tipo_motore":"4 cilindri in linea (I4)",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false,
         "titolo":"La compatta più avanzata, basata sulla Classe A di terza generazione."
+      },
+      {
+        "id": "audi-vision-gran-turismo",
+        "gioco": "gt7",
+        "nome": "Audi Vision Gran Turismo",
+        "marca": "Audi",
+        "paese": "Germania",
+        "anno": "2018",
+        "prezzo": "1'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "868,99 PP",
+        "peso": "1'250 Kg - 2'756 Lb",
+        "cv": "746 Cv - 699,7 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3314",
+        "immagine": "img/Germania/Audi Vision Gran Turismo.jpg",
+        "descrizione": "Una Vision Gran Turismo creata da Audi Design. È stata concepita nelle versioni ibrida ed elettrica. Sulla prima, le ruote posteriori sono spinte da un motore turbo V6 da 3,4 litri e quelle anteriori da un'unità motore/generatore elettrica, che complessivamente arriva a erogare ben 950 kW (1.292 CV). L'aspetto è basato sulla classica auto da gara Audi 90 IMSA GTO.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Trazione integrale (4WD)",
+        "cilindrata":"3'400 cc",
+        "tipo_motore":"6 cilindri a V (V6)",
+        "titolo":"Questa Vision Gran Turismo, che rappresenta il futuro di Audi, si ispira ai modelli IMSA della casa.",
+        "link2": "https://www.gran-turismo.com/it/vgt/audi/",
+        "categoria": "Gr.1",
+        "isVGT": true
+      },
+      {
+        "id": "audi-e-tron-vision-gran-turismo",
+        "gioco": "gt7",
+        "nome": "Audi e-tron Vision Gran Turismo",
+        "marca": "Audi",
+        "paese": "Germania",
+        "anno": "2018",
+        "prezzo": "1'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "853,42 PP",
+        "peso": "1'450 Kg - 3'197 Lb",
+        "cv": "815 Cv - / Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3351",
+        "immagine": "img/Germania/Audi e-tron Vision Gran Turismo.jpg",
+        "descrizione": "La Vision Gran Turismo elettrica di Audi Design. Su tutto il veicolo sono chiaramente visibili elementi recuperati dalla 90 IMSA GTO, leggendario modello da gara di Audi. L'auto dispone di un sistema di trazione integrale attuato da 3 motori elettrici, 1 nell'avantreno e 2 nel retrotreno, per una potenza massima erogata di 600 kW (815 CV). Audi Sport ha costruito una e-tron pienamente funzionante, che ha sfoggiato un potenziale soverchiante sui circuiti di tutto il mondo.",
+        "aspirazione":"Veicolo elettrico",
+        "trasmissione":"Trazione integrale (4WD)",
+        "cilindrata":"/",
+        "tipo_motore":"/",
+        "titolo":"Questa Vision Gran Turismo è un'emozionante incarnazione dell'iniziativa di Audi nel campo della mobilità elettrica.",
+        "link2": "https://www.gran-turismo.com/it/vgt/audi/",
+        "categoria": "Gr.X",
+        "isVGT": true
+      },
+      {
+        "id": "bmw-vision-gran-turismo",
+        "gioco": "gt7",
+        "nome": "BMW Vision Gran Turismo",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "2014",
+        "prezzo": "1'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "719,18 PP",
+        "peso": "1'180 Kg - 2'601 Lb",
+        "cv": "549 Cv - 680,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car2087",
+        "immagine": "img/Germania/BMW Vision Gran Turismo.jpg",
+        "descrizione": "Una moderna auto da corsa su strada progettata da BMW. Gli esterni sono stati concepiti per trasmettere una notevole sensazione di velocità anche ad auto ferma. Il motore, una potente unità da 3 litri e sei cilindri in linea, eroga 404 kW (549 CV)/676,2 Nm. Oltre a un peso di appena 1.180 kg, l'auto gode anche di una distribuzione del peso perfetta tra avantreno e retrotreno. La Vision Gran Turismo è un'eccezionale amalgama tra la storia corsistica e le tecnologie più avanzate di BMW.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"3'000 cc",
+        "tipo_motore":"6 cilindri in linea (I6)",
+        "titolo":"La straordinaria auto sportiva stradale che riprende la tradizione delle vetture touring degli anni 70.",
+        "link2": "https://www.gran-turismo.com/it/vgt/bmw/",
+        "categoria": "Gr.X",
+        "isVGT": true
+      },
+      {
+        "id": "volkswagen-beetle-gr.3",
+        "gioco": "gt7",
+        "nome": "Volkswagen Beetle Gr.3",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "2017",
+        "prezzo": "450'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "742,41 PP",
+        "peso": "1'200 Kg - 2'646 Lb",
+        "cv": "600 Cv - 592,2 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3305",
+        "immagine": "img/Germania/Volkswagen Beetle Gr.3.jpg",
+        "descrizione": "Il Maggiolino Gr.3 è una versione da corsa della celebre auto compatta di Volkswagen, modificata in base al regolamento del Gruppo 3. Il grazioso modello di base è stato trasformato con decisione in un'auto da corsa di prima classe, con modifiche come la sostituzione della trazione anteriore con una posteriore e l'abbassamento del tetto per ridurre l'area frontale.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"/",
+        "tipo_motore":"4 cilindri in linea (I4)",
+        "titolo":"Questo Beetle da corsa Gr.3 è su un livello completamente diverso rispetto all'adorabile versione stradale.",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false
+      },
+      {
+        "id": "mercedes-benz-clk-lm-'98",
+        "gioco": "gt7",
+        "nome": "Mercedes-Benz CLK-LM '98",
+        "marca": "Mercedes-Benz",
+        "paese": "Germania",
+        "anno": "1998",
+        "prezzo": "8'500'000 Cr.",
+        "acquisto": "Auto Leggendarie",
+        "pp": "795,73 PP",
+        "peso": "940 Kg - 2'072 Lb",
+        "cv": "608 Cv - 539,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3397",
+        "immagine": "img/Germania/Mercedes-Benz CLK-LM '98.jpg",
+        "descrizione": "Per poter gareggiare nel FIA GT Championship iniziato nel 1997, Mercedes-Benz e AMG hanno sviluppato la CLK-GTR in appena 128 giorni. L'auto, dotata di motore V12, ha vinto sia il titolo piloti sia il titolo costruttori. L'evoluzione CLK-LM è stata introdotta l'anno successivo. Ha debuttato alla 24 Ore di Le Mans e vinto tutte e 10 le tappe del FIA GT Championship, conquistando il titolo stagionale.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"/",
+        "tipo_motore":"8 cilindri a V (V8)",
+        "titolo":"Sostituendo il pesante V12 con un V8, quest'auto da corsa è riuscita a dominare le gare FIA GT.",
+        "link2": "",
+        "categoria": "Gr.2",
+        "isVGT": false
+      },
+      {
+        "id": "ruf-ctr3-'07",
+        "gioco": "gt7",
+        "nome": "RUF CTR3 '07",
+        "marca": "RUF",
+        "paese": "Germania",
+        "anno": "2007",
+        "prezzo": "900'000 Cr. (nuovo) o 774'000 Cr. (usato)",
+        "acquisto": "Brand Central o Auto usate",
+        "pp": "667,19 PP",
+        "peso": "1'400 Kg - 3'086 Lb",
+        "cv": "700 Cv - 890,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3398",
+        "immagine": "img/Germania/RUF CTR3 '07.jpg",
+        "descrizione": "La RUF CTR3 del 2007 è l'erede delle CTR e CTR2. Mentre i modelli precedenti erano basati sulle Porsche 930 e 993 Turbo, la CTR3 è stata progettata da zero da RUF. L'auto monta un motore biturbo centrale-anteriore con intercooler da 3,8 litri a 6 cilindri contrapposti. Può raggiungere i 380 km/h e accelera da 0 a 100 km/h in 3,2 secondi.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"3'746 cc",
+        "tipo_motore":"6 cilindri piatti (B6)",
+        "titolo":"La CTR di terza generazione vanta diversi componenti originali sviluppati da Ruf, come il motore montato centralmente.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "posche-carrera-gt-'04",
+        "gioco": "gt7",
+        "nome": "Porsche Carrera GT '04",
+        "marca": "Porsche",
+        "paese": "Germania",
+        "anno": "2004",
+        "prezzo": "2'300'000 Cr.",
+        "acquisto": "Brand Central (invito necessario)",
+        "pp": "621,04 PP",
+        "peso": "1'380 Kg - 3'042 Lb",
+        "cv": "612 Cv - 589,9 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3393",
+        "immagine": "img/Germania/Porsche Carrera GT '04.jpg",
+        "descrizione": "La Porsche Carrera GT è una supercar sportiva a motore centrale prodotta dal 2003 al 2006 in 1.270 unità. Il telaio è basato su una monoscocca in fibra di carbonio leggera ma rigida, con sottotelai in fibra di carbonio ad alloggiare il motore e le sospensioni posteriori. Il motore, basato su un propulsore da gara, è un V10 da 5,7 litri ad aspirazione naturale capace di erogare 612 CV. Completa il sistema un cambio manuale a 6 marce.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"5'733 cc",
+        "tipo_motore":"10 cilindri a V (V10)",
+        "titolo":"Questa supercar a motore centrale è stata in produzione dal 2003 al 2006, con un totale di soli 1.270 esemplari prodotti.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "porsche-carrera-gts-(904)-'64",
+        "gioco": "gt7",
+        "nome": "Porsche Carrera GTS (904) '64",
+        "marca": "Porsche",
+        "paese": "Germania",
+        "anno": "1964",
+        "prezzo": "2'200'000 Cr.",
+        "acquisto": "Auto Leggendarie",
+        "pp": "508,18 PP",
+        "peso": "650 Kg - 1'433 Lb",
+        "cv": "182 Cv - 196,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3490",
+        "immagine": "img/Germania/Porsche Carrera GTS (904) '64.jpg",
+        "descrizione": "Porsche ha sviluppato la Carrera GTS nel 1963 in base al regolamento del Campionato del mondo sportprototipi dell'epoca. Per raggiungere le 100 unità necessarie all'omologazione, l'auto è stata sviluppata con telaio a longheroni e carrozzeria leggera in fibra di vetro. Le prestazioni eccellenti le hanno consentito di vincere molte gare importanti a partire dalla Targa Florio, risultati che l'hanno resa la spina dorsale dello schieramento Porsche GT degli anni '60.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"1'966 cc",
+        "tipo_motore":"4 cilindri piatti (B4)",
+        "titolo":"Un capolavoro che ha dato grande valore agli sforzi di Porsche in ambito GT negli anni 60.",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false
+      },
+      {
+        "id": "porsche-cayman-gt4-'16",
+        "gioco": "gt7",
+        "nome": "Porsche Cayman GT4 '16",
+        "marca": "Porsche",
+        "paese": "Germania",
+        "anno": "2016",
+        "prezzo": "130'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "578,04 PP",
+        "peso": "1'340 Kg - 2'954 Lb",
+        "cv": "385 Cv - 420,4 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3488",
+        "immagine": "img/Germania/Porsche Cayman GT4 '16.jpg",
+        "descrizione": "La Cayman GT4 è un modello da competizione, aggiunto nel 2015 alla gamma Porsche Cayman. Il motore è basato sul modello da 3,8 litri a 6 cilindri contrapposti della 911 Carrera S, collegato a un cambio manuale a 6 marce. Quest'unità eroga 385 CV. Oltre a essere più potente rispetto alla 911 Carrera di base, monta anche freni e sospensioni della 991 modello 911 GT3. Gabbia metallica e cinture di sicurezza a 6 punti erano disponibili come optional.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"3'800 cc",
+        "tipo_motore":"6 cilindri piatti (B6)",
+        "titolo":"Una Cayman progettata per competere, dotata dell'anima competitiva della 911.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "porsche-cayman-gt4-clubsport-'16",
+        "gioco": "gt7",
+        "nome": "Porsche Cayman GT4 Clubsport '16",
+        "marca": "Porsche",
+        "paese": "Germania",
+        "anno": "2016",
+        "prezzo": "350'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "643,52 PP",
+        "peso": "1'300 Kg - 2'866 Lb",
+        "cv": "385 Cv - 420,4 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3310",
+        "immagine": "img/Germania/Porsche Cayman GT4 Clubsport '16.jpg",
+        "descrizione": "Un'auto puramente da corsa, introdotta appositamente per la versione GT4 della Cayman destinata alle gare automobilistiche. Utilizza lo stesso motore a 6 cilindri contrapposti da 3,8 litri del modello GT4, capace di 385 CV, ma tutto il resto è stato modificato per il successo in ambito agonistico, a partire dalla rimozione di ogni comfort e dall'utilizzo di parti della 911 GT3 Cup.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore centrale Trazione posteriore (MR)",
+        "cilindrata":"3'800 cc",
+        "tipo_motore":"6 cilindri piatti (B6)",
+        "titolo":"Il modello più potente della gamma Cayman, nella sua sesta generazione con motore a 6 cilindri contrapposti ad aspirazione naturale.",
+        "link2": "",
+        "categoria": "Gr.4",
+        "isVGT": false
+      },
+      {
+        "id": "volkswagen-gti-roadster-vision-gran-turismo",
+        "gioco": "gt7",
+        "nome": "Volkswagen GTI Roadster Vision Gran Turismo",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "2014",
+        "prezzo": "1'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "702,61 PP",
+        "peso": "1'200 Kg - 2'646 Lb",
+        "cv": "559 Cv - 665,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car2098",
+        "link2": "https://www.gran-turismo.com/it/vgt/volkswagen_rs/",
+        "immagine": "img/Germania/Volkswagen GTI Roadster Vision Gran Turismo.jpg",
+        "descrizione": "La supercar \"GTI Roadster Vision Gran Turismo\" ha ereditato il DNA della Volkswagen \"GTI\". Il cuore dell'auto è un motore TSI VR6 biturbo da 3 litri, che eroga 510 CV/656,6 Nm. La potenza viene trasmessa a tutte le ruote tramite un cambio a doppia frizione e 7 rapporti, generando livelli imbattibili di trazione e accelerazione.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Trazione integrale (4WD)",
+        "cilindrata":"/",
+        "tipo_motore":"6 cilindri a VR (VR6)",
+        "titolo":"Assapora la sua straordinaria accelerazione. Una supercar con il DNA di una \"GTI\"",
+        "categoria": "Gr.X",
+        "isVGT": true
+      },
+      {
+        "id": "volkswagen-gti-supersport-vision-gran-turismo",
+        "gioco": "gt7",
+        "nome": "Volkswagen GTI Supersport Vision Gran Turismo",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "2015",
+        "prezzo": "1'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "704,76 PP",
+        "peso": "1'200 Kg - 2'646 Lb",
+        "cv": "559 Cv - 665,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car2124",
+        "immagine": "img/Germania/Volkswagen GTI Supersport Vision Gran Turismo.jpg",
+        "descrizione": "La \"GTI Supersport Vision Gran Turismo\" recupera il DNA delle leggendarie Volkswagen GTI per creare una supercar rifinita dal punto di vista tecnico ed estetico. La carrozzeria, che rievoca l'iconica Golf, ospita un motore VR6 TSI capace di 510 CV. Il baricentro, ribassato grazie all'utilizzo di parti leggere, conferisce all'auto una manovrabilità di livello superiore.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Trazione integrale (4WD)",
+        "cilindrata":"/",
+        "tipo_motore":"6 cilindri a VR (VR6)",
+        "titolo":"Prestazioni e aspetto da supersportiva. Oltre i limiti della GTI.",
+        "link2": "https://www.gran-turismo.com/it/vgt/volkswagen_ss/",
+        "categoria": "Gr.X",
+        "isVGT": true
+      },
+      {
+        "id": "volkswagen-golf-i-gti-'83",
+        "gioco": "gt7",
+        "nome": "Volkswagen Golf I GTI '83",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "1983",
+        "prezzo": "49'100 Cr.",
+        "acquisto": "Auto usate",
+        "pp": "371,47 PP",
+        "peso": "890 Kg - 1'962 Lb",
+        "cv": "112 Cv - 149,9 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3403",
+        "immagine": "img/Germania/Volkswagen Golf I GTI '83.jpg",
+        "descrizione": "La Volkswagen Golf è stata commercializzata nel 1974 e ha riscosso grande popolarità come veicolo precursore dell'auto compatta. Il modello sportivo \"GTI\" è stato dotato di un motore SOHC da 1,6 litri e 4 cilindri in linea, con iniettori Bosch capaci di produrre 110 CV. La GTI combinava prestazioni elevate e praticità, riscrivendo le regole della guida sportiva.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione anteriore (FF)",
+        "cilindrata":"1'781 cc",
+        "tipo_motore":"4 cilindri in linea (I4)",
+        "titolo":"La capostipite di tutte le hatchback bilancia la praticità e il piacere della guida.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "volkswagen-golf-vii-gti-'14",
+        "gioco": "gt7",
+        "nome": "Volkswagen Golf VII GTI '14",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "2014",
+        "prezzo": "38'330 Cr.",
+        "acquisto": "Auto usate",
+        "pp": "464,61 PP",
+        "peso": "1'390 Kg - 3'064 Lb",
+        "cv": "220 Cv - 349,8 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car2141",
+        "immagine": "img/Germania/Volkswagen Golf VII GTI '14.jpg",
+        "descrizione": "La Volkswagen Golf di settima generazione, presentata nel 2012, era basata su una nuova piattaforma che ha permesso l'introduzione di diversi miglioramenti. La manovrabilità è migliorata grazie all'uso dell'XDS, un sistema di blocco del differenziale a controllo elettronico dal funzionamento simile al sistema LSD. Altre migliorie comprendono il controllo adattivo del telaio \"DCC\" e sterzo progressivo. Oltre che rendere l'auto più stabile, queste modifiche le consentono di percorrere le curve a velocità molto più elevate.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Motore anteriore Trazione anteriore (FF)",
+        "cilindrata":"1'984 cc",
+        "tipo_motore":"4 cilindri in linea (I4)",
+        "titolo":"La versione GTI della Golf di sesta generazione migliora la maneggevolezza della gamma.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "volkswagen-id.r-'19",
+        "gioco": "gt7",
+        "nome": "Volkswagen ID.R '19",
+        "marca": "Volkswagen",
+        "paese": "Germania",
+        "anno": "2019",
+        "prezzo": "2'000'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "856,72 PP",
+        "peso": "1'030 Kg - 2'271 Lb",
+        "cv": "680 Cv - / Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3511",
+        "immagine": "img/Germania/Volkswagen ID.R '19.jpg",
+        "descrizione": "Il prototipo da gara di Volkswagen è un modello per la riduzione di emissioni di carbonio. La carrozzeria in fibra di carbonio è dotata di ampi alettoni sul fronte e sul retro dell'auto e propone due motori elettrici sugli assi anteriore e posteriore. Ha ottenuto anche grandi risultati, con tempi incredibili a Pikes Peak, Nürburgring Nordschleife e Goodwood.",
+        "aspirazione":"Veicolo elettrico",
+        "trasmissione":"Trazione integrale (4WD)",
+        "cilindrata":"/",
+        "tipo_motore":"/",
+        "titolo":"Il prototipo elettrico che ha infranto record di velocità in tutto il mondo.",
+        "link2": "",
+        "categoria": "Gr.X",
+        "isVGT": false
+      },
+      {
+        "id": "bmw-m2-competion-'18",
+        "gioco": "gt7",
+        "nome": "BMW M2 Competition '18",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "2018",
+        "prezzo": "91'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "552,38 PP",
+        "peso": "1'575 Kg - 3'472 Lb",
+        "cv": "411 Cv - 549,7 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3483",
+        "immagine": "img/Germania/BMW M2 Competition '18.jpg",
+        "descrizione": "Questa belva inserisce il motore S55 biturbo a sei cilindri da 3 litri della M3/M4 nella carrozzeria coupé della 2 Series. L'estensione dei parafanghi suggerisce la sua potenza, ma un breve sprint è sufficiente per scatenarla appieno, con l'attivazione dei turbocompressori. Le sospensioni sfruttano componenti in alluminio per ridurre il peso non sospeso. Il differenziale M attivo che gestisce la coppia consente all'auto di eseguire curve perfette a qualsiasi velocità.",
+        "aspirazione":"Turbocompressore (TC)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"2'979 cc",
+        "tipo_motore":"6 cilindri in linea (I6)",
+        "titolo":"Una A/P senza compromessi, che sotto la carrozzeria compatta nasconde la potenza di un demone.",
+        "link2": "",
+        "categoria": "gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "bmw-m3-coupé-'03",
+        "gioco": "gt7",
+        "nome": "BMW M3 Coupé '03",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "2003",
+        "prezzo": "84'000 Cr. (nuovo) o meno (usato)",
+        "acquisto": "Brand Central o Auto usate",
+        "pp": "524,20 PP",
+        "peso": "1'560 Kg - 3'439 Lb",
+        "cv": "344 Cv - 364,5 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "immagine": "img/Germania/BMW M3 Coupé '03.jpg",
+        "descrizione": "La terza M3 è stata commercializzata per la E46 Serie 3. Il motore S54 a sei cilindri da 3,2 litri produce oltre 100 CV per litro, arrivando a un massimo di 343 CV a 7.900 G/min. Nel 2003 è stato presentato il modello CSL ad alte prestazioni. Oltre al tetto, sostituito con componenti in fibra di carbonio per ridurre il peso, anche il motore è stato elaborato per sviluppare 360 CV. Quest'auto ottenne grande successo nelle gare Gran Turismo e in altri eventi.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"3'246 cc",
+        "tipo_motore":"6 cilindri in linea (I6)",
+        "titolo":"Quest'auto sportiva, dotata di un motore BMW a elevato regime, è il modello di punta E46 Serie 3.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+
+      },
+      {
+        "id": "bmw-m3-coupé-'07",
+        "gioco": "gt7",
+        "nome": "BMW M3 Coupé '07",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "2007",
+        "prezzo": "93'000 Cr. (nuovo) o meno (usato)",
+        "acquisto": "Brand Central o Auto usate",
+        "pp": "545,74 PP",
+        "peso": "1'655 Kg - 3'649 Lb",
+        "cv": "421 Cv - 400,0 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "immagine": "img/Germania/BMW M3 Coupé '07.jpg",
+        "descrizione": "La M3 è una variante di diverse generazioni della Serie 3, promossa come modello dalle prestazioni elevate legato direttamente alla scena motoristica. La E92 abbina un cambio DCT a 7 marce con un motore V8 da 4 litri che eroga 420 CV. L'utilizzo di diverse soluzioni di alleggerimento ha permesso di raggiungere un peso di appena 1.630 kg. L'auto è in grado di accelerare da 0 a 100 km/h in 4,8 secondi.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"3'999 cc",
+        "tipo_motore":"8 cilindri a V (V8)",
+        "titolo":"M3 di quarta generazione, con motore V8 da 420 CV, basata sulla coupé Serie 3 E92.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "bmw-m3-'89",
+        "gioco": "gt7",
+        "nome": "BMW M3 '89",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "1989",
+        "prezzo": "100'000 Cr. o meno",
+        "acquisto": "Auto usate",
+        "pp": "461,07 PP",
+        "peso": "1'200 Kg - 2'646 Lb",
+        "cv": "215 Cv - 230,3 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "immagine": "img/Germania/BMW M3 '89.jpg",
+        "descrizione": "Questo modello omologato è stato sviluppato dal modello Serie 3 dell'epoca per competere nelle gare Gran Turismo. Sulla base della berlina a 2 porte, ha subito l'ampliamento della carreggiata e miglioramenti all'aerodinamica attraverso la regolazione dell'angolazione dell'alettone. A partire da un motore DOHC a 4 cilindri in linea da 2,3 litri, cambiamenti annuali hanno portato al modello finale: lo \"Sport Evolution\" da 2,5 litri.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"2'302 cc",
+        "tipo_motore":"4 cilindri in linea (I4)",
+        "titolo":"Un modello omologato vincitore nel campionato DTM. I parafanghi pronunciati ne lasciano presagire le prestazioni.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "bmw-m3-'97",
+        "gioco": "gt7",
+        "nome": "BMW M3 '97",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "1997",
+        "prezzo": "90'000 Cr. o meno",
+        "acquisto": "Auto usate",
+        "pp": "498,18 PP",
+        "peso": "1'460 Kg - 3'219",
+        "cv": "321 Cv - 349,8 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "immagine": "img/Germania/BMW M3 '97.jpg",
+        "descrizione": "Il secondo modello M3 è stato creato sulla base della E36 Serie 3. Mentre l'originale aveva tutti i crismi di un'auto da gara, questo modello venne progettato come un modello Gran Turismo. Oltre all'aggiunta di un motore a sei cilindri in linea, era disponibile in varie carrozzerie e versioni, tra cui una 2 porte, una 4 porte e una cabriolet. In origine dotato di un motore da 3 litri, nel 1995 venne montato un motore da 3,2 litri, insieme a un cambio manuale a 6 marce e a un sistema SMG a 2 pedali.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"3'201",
+        "tipo_motore":"6 cilindri in linea (I6)",
+        "titolo":"La M3 di seconda generazione con motore da 3,2 litri, che segna il passaggio da auto da corsa a Gran Turismo di lusso.",
+        "link2": "",
+        "categoria": "Gr.N",
+        "isVGT": false
+      },
+      {
+        "id": "bmw-m3-gt-'11",
+        "gioco": "gt7",
+        "nome": "BMW M3 GT '11",
+        "marca": "BMW",
+        "paese": "Germania",
+        "anno": "2011",
+        "prezzo": "600'000 Cr.",
+        "acquisto": "Brand Central",
+        "pp": "702,88 Nm",
+        "peso": "1'245 Kg - 2'745 Lb",
+        "cv": "508 Cv - 499,9 Nm",
+        "link": "https://www.gran-turismo.com/it/gt7/carlist/id/car3558",
+        "immagine": "img/Germania/BMW M3 GT '11.jpg",
+        "descrizione": "Questo modello GT è basato sulla potente M3, modificata per le competizioni automobilistiche. Molti pannelli della carrozzeria sono stati sostituiti con elementi in fibra di carbonio che ne hanno ridotto il peso fino a 1.245 kg. I parafanghi estesi hanno invece portato a un allargamento della carrozzeria di 110 mm. Nonostante il restrittore, il motore V8 da 4 litri è capace di erogare 500 CV.",
+        "aspirazione":"Aspirazione naturale (AN)",
+        "trasmissione":"Motore anteriore Trazione posteriore (FR)",
+        "cilindrata":"4'000 cc",
+        "tipo_motore":"8 cilindri a V (V8)",
+        "titolo":"La macchina da competizione M3, divenuta famosa nella 24 Ore del Nürburgring, nelle ALMS e nell'ILMC.",
+        "link2": "",
+        "categoria": "Gr.3",
+        "isVGT": false
       }
+    
 ]
