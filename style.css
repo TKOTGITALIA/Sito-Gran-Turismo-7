@@ -336,3 +336,58 @@ body.game-mfgt #sort-container { display: none !important; }
     color: var(--primary-red);
     margin-right: 5px;
 }
+.vgt-label {
+    color: #00d4ff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 10px;
+}
+
+.spec-item {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.spec-item strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.card-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.car-link {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    background: #e4000f;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.car-link.second-link {
+    background: #333;
+}
+
+.car-link:hover {
+    filter: brightness(1.2);
+}
