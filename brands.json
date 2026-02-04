@@ -102,6 +102,253 @@
     "sede": "Stoccarda, Germania",
     "fondazione": "1931",
     "fondatore": "Ferdinand Porsche"
-  }
+  },
+  "Abarth": {
+    "logo": "img/Brands/Abarth.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
 
+  "Afeela": {
+    "logo": "img/Brands/Afeela.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "Alfa Romeo": {
+    "logo": "img/Brands/Alfa Romeo.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "AMG": {
+    "logo": "img/Brands/AMG.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "Amuse": {
+    "logo": "img/Brands/Amuse.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "Aston Martin": {
+    "logo": "img/Brands/Aston Martin.png",
+    "slogan": "",
+    "paese": "Regno Unito",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Audi": {
+    "logo": "img/Brands/Audi.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "Autobianchi": {
+    "logo": "img/Brands/Autobianchi.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "BAC": {
+    "logo": "img/Brands/BAC.png",
+    "slogan": "",
+    "paese": "Regno unito",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+
+  "BVLGARI": {
+    "logo": "img/Brands/BVLGARI.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Chaparral": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Chevrolet": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Chris Holstrom Concepts": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Daihatsu": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "De Tomaso": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "DMC": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Dodge": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Eckert's Rod & Custom": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Ferrari": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "FIAT": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Ford": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Gran Turismo": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "GReddy": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Garage RCR": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Greening Auto Company": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Honda": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Infiniti": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Italdesign": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Jaguar": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Regno Unito",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  },
+  "Jeep": {
+    "logo": "img/Brands/.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "",
+    "fondazione": "",
+    "fondatore": ""
+  }
 }
