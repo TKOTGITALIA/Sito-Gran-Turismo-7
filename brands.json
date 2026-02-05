@@ -12,7 +12,7 @@
     "slogan": "",
     "paese": "Cina",
     "sede": "Pechino, Cina",
-    "fondazione": "6 aprile 2010",
+    "fondazione": "6 Aprile 2010",
     "fondatore": "Lei Jun"
   },
   "Genesis": {
@@ -28,7 +28,7 @@
     "slogan": "",
     "paese": "Corea del Sud",
     "sede": "Seul, Corea del Sud",
-    "fondazione": "29 dicembre 2967",
+    "fondazione": "29 Dicembre 2967",
     "fondatore": "Chung Ju-yung"
   },
   "Alpine": {
@@ -60,7 +60,7 @@
     "slogan": "",
     "paese": "Francia",
     "sede": "Parigi, Francia",
-    "fondazione": "1 giugno 2014",
+    "fondazione": "1 Giugno 2014",
     "fondatore": "/"
   },
   "Peugeot": {
@@ -76,7 +76,7 @@
     "slogan": "",
     "paese": "Francia",
     "sede": "Boulogne-Billancourt, Francia",
-    "fondazione": "25 febbrario 1898",
+    "fondazione": "25 Febbrario 1898",
     "fondatore": "Fernand Renault, Marcel Renault, Louis Renault"
   },
   "BMW": {
@@ -84,7 +84,7 @@
     "slogan": "",
     "paese": "Germania",
     "sede": "Monaco, Germania",
-    "fondazione": "7 marzo 1916",
+    "fondazione": "7 Marzo 1916",
     "fondatore": "Franz Josef Popp, Karl Rapp, Camillo Castiglioni"
   },
   "Mercedes-Benz": {
@@ -107,248 +107,504 @@
     "logo": "img/Brands/Abarth.png",
     "slogan": "",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Torino, Italia",
+    "fondazione": "31 Marzo 1949",
+    "fondatore": "Carlo Abarth"
   },
 
   "Afeela": {
     "logo": "img/Brands/Afeela.png",
     "slogan": "",
     "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Tokyo, Giappone",
+    "fondazione": "28 Settembre 2022",
+    "fondatore": "-"
   },
 
   "Alfa Romeo": {
     "logo": "img/Brands/Alfa Romeo.png",
-    "slogan": "",
+    "slogan": "La meccanica delle emozioni",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Milano, Italia",
+    "fondazione": "Gennaio 1910",
+    "fondatore": "Pierre Alexandre Darracq, Nicola Romeo"
   },
 
   "AMG": {
     "logo": "img/Brands/AMG.png",
     "slogan": "",
     "paese": "Germania",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Affalterbach, Germania",
+    "fondazione": "1967",
+    "fondatore": "Hans Werner Aufrecht, Erhard Melcher"
   },
 
   "Amuse": {
     "logo": "img/Brands/Amuse.png",
     "slogan": "",
     "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Kisarazu (Chiba), Giappone",
+    "fondazione": "1996",
+    "fondatore": "Hideki Tanabe"
   },
 
   "Aston Martin": {
     "logo": "img/Brands/Aston Martin.png",
-    "slogan": "",
+    "slogan": "Makers of the most exquisitely addictive performance sport cars",
     "paese": "Regno Unito",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Gaydon, Regno Unito",
+    "fondazione": "1913",
+    "fondatore": "Robert Bamford, Lionel Martin"
   },
   "Audi": {
     "logo": "img/Brands/Audi.png",
-    "slogan": "",
+    "slogan": "Vorsprung durch Technik",
     "paese": "Germania",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Ingolsladt, Germania",
+    "fondazione": "16 Luglio 1909",
+    "fondatore": "August Horch"
   },
 
   "Autobianchi": {
     "logo": "img/Brands/Autobianchi.png",
     "slogan": "",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Milano, Italia",
+    "fondazione": "11 Gennaio 1955",
+    "fondatore": "Giuseppe Bianchi, Ferruccio Quintavalle"
   },
 
   "BAC": {
     "logo": "img/Brands/BAC.png",
     "slogan": "",
     "paese": "Regno unito",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Liverpool, Regno Unito",
+    "fondazione": "4 Marzo 2009",
+    "fondatore": "Neill Briggs, Ian Briggs"
   },
 
   "BVLGARI": {
     "logo": "img/Brands/BVLGARI.png",
-    "slogan": "",
+    "slogan": "The Magnificent Roman High Jeweler, icon of contermporary Italian Art of Living.",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Roma, Italia",
+    "fondazione": "1884",
+    "fondatore": "Sotirio Bulgari"
   },
   "Chaparral": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Chaparral.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Midland (Texas), Stati Uniti",
+    "fondazione": "1962",
+    "fondatore": "Jim Hall, Hap Sharp"
   },
   "Chevrolet": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Chevrolet.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Detroit (Michigan) Stati Uniti",
+    "fondazione": "3 Novembre 1911",
+    "fondatore": "Louis Chevrolet, William C. Durant"
   },
   "Chris Holstrom Concepts": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Chris Holstrom Concepts.png",
+    "slogan": "Classic Style - Modern Performance",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Puyallup (Washington), Stati Uniti",
+    "fondazione": "2009",
+    "fondatore": "Chris Holstrom, Alex Holstrom, Alyssa Holstrom"
   },
   "Daihatsu": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Daihatsu.png",
+    "slogan": "Light you up",
     "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Osaka, Giappone",
+    "fondazione": "1 Marzo 1907",
+    "fondatore": "-"
   },
   "De Tomaso": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/De Tomaso.png",
     "slogan": "",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Modena, Italia",
+    "fondazione": "1959",
+    "fondatore": "Alejandro de Tomaso"
   },
   "DMC": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/DMC.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Detroit (Michigan), Stati Uniti",
+    "fondazione": "1975",
+    "fondatore": "John DeLorean"
   },
   "Dodge": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Dodge.png",
+    "slogan": "Domestic. Not Domesticated.",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Auburn Hills (Michigan), Stati Uniti",
+    "fondazione": "1914",
+    "fondatore": "John Francis Dodge, Horace Elgin Dodge"
   },
   "Eckert's Rod & Custom": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Eckert's Rod & Custom.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Molalla (Oregon), Stati Uniti",
+    "fondazione": "2004",
+    "fondatore": "David Eckert"
   },
   "Ferrari": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Ferrari.png",
+    "slogan": "The best car is the one we have yet to build.",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Maranello, Italia",
+    "fondazione": "1947",
+    "fondatore": "Enzo Ferrari"
   },
   "FIAT": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/FIAT.png",
     "slogan": "",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Torino, Italia",
+    "fondazione": "1899",
+    "fondatore": "Giovanni Agnelli"
   },
   "Ford": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Ford.png",
+    "slogan": "Go Further",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Dearborn (Michigan), Stati Uniti",
+    "fondazione": "16 Giugno 1903",
+    "fondatore": "Henry Ford"
   },
   "Gran Turismo": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Gran Turismo.png",
     "slogan": "",
     "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Tokyo, Giappone",
+    "fondazione": "23 Dicembre 1997",
+    "fondatore": "Kazunori Yamauchi"
   },
   "GReddy": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/GReddy.png",
     "slogan": "",
-    "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "paese": "Stati Uniti",
+    "sede": "Irvine (California), Stati Uniti",
+    "fondazione": "1994",
+    "fondatore": "-"
   },
   "Garage RCR": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Garage RCR.png",
+    "slogan": "It runs in the Family",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Tempe (Arizona), Stati Uniti",
+    "fondazione": "2020",
+    "fondatore": "Philip Robles, Jesse Robles"
   },
   "Greening Auto Company": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Greening Auto Company.png",
+    "slogan": "HOT ROD / PRODUZIONE A MACCHINA",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Cullman (Alabama), Stati Uniti",
+    "fondazione": "1994",
+    "fondatore": "Jesse Greening, Jeff Greening"
   },
   "Honda": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Honda.png",
+    "slogan": "The Power of Dreams",
     "paese": "Giappone",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Tokyo, Giappone",
+    "fondazione": "24 settembre 1948",
+    "fondatore": "Sōichirō Honda"
   },
   "Infiniti": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Infiniti.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Hong Kong, Repubblica Popolare Cinese",
+    "fondazione": "1989",
+    "fondatore": "-"
   },
   "Italdesign": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Italdesign.png",
     "slogan": "",
     "paese": "Italia",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Moncalieri (TO), Italia",
+    "fondazione": "13 Febbraio 1968",
+    "fondatore": "Giorgetto Giugiaro, Aldo Mantovani"
   },
   "Jaguar": {
-    "logo": "img/Brands/.png",
-    "slogan": "",
+    "logo": "img/Brands/Jaguar.png",
+    "slogan": "The Art of Performance",
     "paese": "Regno Unito",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Coventry, Regno Unito",
+    "fondazione": "1945",
+    "fondatore": "Sir William Lyons"
   },
   "Jeep": {
-    "logo": "img/Brands/.png",
+    "logo": "img/Brands/Jeep.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "",
-    "fondazione": "",
-    "fondatore": ""
+    "sede": "Toledo (Ohio), Stati Uniti",
+    "fondazione": "1941",
+    "fondatore": "-"
+  },
+  "Lamborghini": {
+    "logo": "img/Brands/Lamborghini.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "Sant'Agata Bolognese, Italia",
+    "fondazione": "1963",
+    "fondatore": "Ferruccio Lamborghini"
+  },
+  "Lancia": {
+    "logo": "img/Brands/Lancia.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "Torino, Italia",
+    "fondazione": "27 Novembre 1906",
+    "fondatore": "Vincenzo Lancia"
+  },
+  "Lexus": {
+    "logo": "img/Brands/Lexus.png",
+    "slogan": "EXPERIENCE AMAZING",
+    "paese": "Giappone",
+    "sede": "Aichi, Giappone",
+    "fondazione": "1989",
+    "fondatore": "-"
+  },
+  "Maserati": {
+    "logo": "img/Brands/Maserati.png",
+    "slogan": "Excellence through passion",
+    "paese": "Italia",
+    "sede": "Modena, Italia",
+    "fondazione": "1914",
+    "fondatore": "Alfieri Maserati"
+  },
+  "Mazda": {
+    "logo": "img/Brands/Mazda.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Hiroshima, Giappone",
+    "fondazione": "30 Gennaio 1920",
+    "fondatore": "Jujiro Matsuda"
+  },
+  "McLaren": {
+    "logo": "img/Brands/McLaren.png",
+    "slogan": "",
+    "paese": "Regno Unito",
+    "sede": "Woking, Regno Unito",
+    "fondazione": "Novembre 2010",
+    "fondatore": "Bruce McLaren"
+  },
+  "Mine's": {
+    "logo": "img/Brands/Mine's.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Yokosuka (Kanagawa), Giappone",
+    "fondazione": "1985",
+    "fondatore": "Michizo Niikura"
+  },
+  "Mini": {
+    "logo": "img/Brands/Mini.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Monaco, Germania",
+    "fondazione": "1959",
+    "fondatore": "Alec Issigonis (Ideatore della prima MINI)"
+  },
+  "Mitsubishi": {
+    "logo": "img/Brands/Mitsubishi.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Tokyo, Giappone",
+    "fondazione": "22 Aprile 1970",
+    "fondatore": "-"
+  },
+  "Nismo": {
+    "logo": "img/Brands/Nismo.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Chigasaki (Kanagawa), Giappone",
+    "fondazione": "17 Settembre 1984",
+    "fondatore": "-"
+  },
+  "Nissan": {
+    "logo": "img/Brands/Nissan.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Kanagawa, Giappone",
+    "fondazione": "26 Dicembre 1933",
+    "fondatore": "Yoshisuke Aikawa"
+  },
+  "Opel": {
+    "logo": "img/Brands/Opel.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Rüsselsheim am Main (Hesse), Germania",
+    "fondazione": "1862",
+    "fondatore": "Adam Opel"
+  },
+  "Pagani": {
+    "logo": "img/Brands/Pagani.png",
+    "slogan": "",
+    "paese": "Italia",
+    "sede": "San Cesario sul Panaro, Italia",
+    "fondazione": "1992",
+    "fondatore": "Horacio Pagani"
+  },
+  "Plymouth": {
+    "logo": "img/Brands/Plymouth.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "Auburn Hills (Michigan), Stati Uniti",
+    "fondazione": "7 Luglio 1928",
+    "fondatore": "Walter Chrysler"
+  },
+  "Polestar": {
+    "logo": "img/Brands/Polestar.png",
+    "slogan": "",
+    "paese": "Svezia",
+    "sede": "Göteborg, Svezia",
+    "fondazione": "1996",
+    "fondatore": "-"
+  },
+  "Pontiac": {
+    "logo": "img/Brands/Pontiac.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "Detroit (Michigan), Stati Uniti",
+    "fondazione": "1926",
+    "fondatore": "William C. Durant"
+  },
+  "Radical": {
+    "logo": "img/Brands/Radical.png",
+    "slogan": "",
+    "paese": "Regno Unito",
+    "sede": "Peterborough, Regno Unito",
+    "fondazione": "1997",
+    "fondatore": "-"
+  },
+  "Roadster Shop": {
+    "logo": "img/Brands/Roadster Shop.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "Mundelein (Illinois), Stati Uniti",
+    "fondazione": "2004",
+    "fondatore": "Jeremy Gerber, Phil Gerber"
+  },
+  "RE Amemiya": {
+    "logo": "img/Brands/RE Amemiya.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Chiba, Giappone",
+    "fondazione": "1974",
+    "fondatore": "Isami Amemiya"
+  },
+  "RUF": {
+    "logo": "img/Brands/RUF.png",
+    "slogan": "Driven by tradition",
+    "paese": "Germania",
+    "sede": "Pfaffenhausen, Germania",
+    "fondazione": "1939",
+    "fondatore": "Alois Ruf Sr. e Paula Ruf"
+  },
+  "Shelby": {
+    "logo": "img/Brands/Shelby.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "Enterprise (Nevada), Stati Uniti",
+    "fondazione": "17 Agosto 1962",
+    "fondatore": "Carroll Shelby"
+  },
+  "Subaru": {
+    "logo": "img/Brands/Subaru.png",
+    "slogan": "Confidence in Motion",
+    "paese": "Giappone",
+    "sede": "Tokyo, Giappone",
+    "fondazione": "15 Luglio 1953",
+    "fondatore": "-"
+  },
+  "Super Formula": {
+    "logo": "img/Brands/Super Formula.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Tokyo, Giappone",
+    "fondazione": "1995",
+    "fondatore": "Japan Race Promotion"
+  },
+  "Suzuki": {
+    "logo": "img/Brands/Suzuki.png",
+    "slogan": "Way of Life!",
+    "paese": "Giappone",
+    "sede": "Shizuoka, Giappone",
+    "fondazione": "Ottobre 1909",
+    "fondatore": "Michio Suzuki"
+  },
+  "Tesla": {
+    "logo": "img/Brands/Tesla.png",
+    "slogan": "",
+    "paese": "Stati Uniti",
+    "sede": "Austin (Texas), Stati Uniti",
+    "fondazione": "1 Luglio 2003",
+    "fondatore": "Elon Musk"
+  },
+  "Toyota": {
+    "logo": "img/Brands/Toyota.png",
+    "slogan": "",
+    "paese": "Giappone",
+    "sede": "Aichi, Giappone",
+    "fondazione": "28 Agosto 1937",
+    "fondatore": "Kiichirō Toyoda"
+  },
+  "TVR": {
+    "logo": "img/Brands/TVR.png",
+    "slogan": "",
+    "paese": "Regno Unito",
+    "sede": "Blackpool, Regno Unito",
+    "fondazione": "1947",
+    "fondatore": "Trevor Wilkinson"
+  },
+  "Volkswagen": {
+    "logo": "img/Brands/Volkswagen.png",
+    "slogan": "",
+    "paese": "Germania",
+    "sede": "Wolfsburg, Germania",
+    "fondazione": "28 Maggio 1937",
+    "fondatore": "Fronte teedesco del lavoro"
+  },
+  "Volvo": {
+    "logo": "img/Brands/Volvo.png",
+    "slogan": "",
+    "paese": "Svezia",
+    "sede": "Gōteborg, Svezia",
+    "fondazione": "1927",
+    "fondatore": "Assar Gabrielsson, Gustaf Larson"
+  },
+  "Wicked Fabrication": {
+    "logo": "img/Brands/Wicked Fabrication.png",
+    "slogan": "INNOVATIVE AUTOMOTIVE FABRICATION",
+    "paese": "Stati Uniti",
+    "sede": "Auburn (Washington), Stati Uniti",
+    "fondazione": "2002",
+    "fondatore": "Craig Wick"
+  },
+  "Zagato": {
+    "logo": "img/Brands/Zagato.png",
+    "slogan": "Collectibles since 1919",
+    "paese": "Italia",
+    "sede": "Milano, Italia",
+    "fondazione": "19 Aprile 1919",
+    "fondatore": "Ugo Zagato"
+  },
+  "Škoda": {
+    "logo": "img/Brands/Škoda.png",
+    "slogan": "We will help the world live smarter",
+    "paese": "Repubblica Ceca",
+    "sede": "Mladá Bolestav, Repubblica Ceca",
+    "fondazione": "1895",
+    "fondatore": "Václav Laurin, Václav Klement"
   }
 }
