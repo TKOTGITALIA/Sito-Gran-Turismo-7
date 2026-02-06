@@ -21,14 +21,14 @@
     "paese": "Corea del Sud",
     "sede": "Seul, Corea del Sud",
     "fondazione": "Novembre 2015",
-    "fondatore": "/"
+    "fondatore": "-"
   },
   "Hyundai": {
     "logo": "img/Brands/Hyundai.png",
     "slogan": "",
     "paese": "Corea del Sud",
     "sede": "Seul, Corea del Sud",
-    "fondazione": "29 Dicembre 2967",
+    "fondazione": "29 Dicembre 1967",
     "fondatore": "Chung Ju-yung"
   },
   "Alpine": {
@@ -61,7 +61,7 @@
     "paese": "Francia",
     "sede": "Parigi, Francia",
     "fondazione": "1 Giugno 2014",
-    "fondatore": "/"
+    "fondatore": "-"
   },
   "Peugeot": {
     "logo": "img/Brands/Peugeot.png",
@@ -76,7 +76,7 @@
     "slogan": "",
     "paese": "Francia",
     "sede": "Boulogne-Billancourt, Francia",
-    "fondazione": "25 Febbrario 1898",
+    "fondazione": "25 Febbraio 1898",
     "fondatore": "Fernand Renault, Marcel Renault, Louis Renault"
   },
   "BMW": {
@@ -160,7 +160,7 @@
     "logo": "img/Brands/Audi.png",
     "slogan": "Vorsprung durch Technik",
     "paese": "Germania",
-    "sede": "Ingolsladt, Germania",
+    "sede": "Ingolstadt, Germania",
     "fondazione": "16 Luglio 1909",
     "fondatore": "August Horch"
   },
@@ -177,7 +177,7 @@
   "BAC": {
     "logo": "img/Brands/BAC.png",
     "slogan": "",
-    "paese": "Regno unito",
+    "paese": "Regno Unito",
     "sede": "Liverpool, Regno Unito",
     "fondazione": "4 Marzo 2009",
     "fondatore": "Neill Briggs, Ian Briggs"
@@ -185,7 +185,7 @@
 
   "BVLGARI": {
     "logo": "img/Brands/BVLGARI.png",
-    "slogan": "The Magnificent Roman High Jeweler, icon of contermporary Italian Art of Living.",
+    "slogan": "The Magnificent Roman High Jeweler, icon of contemporary Italian Art of Living.",
     "paese": "Italia",
     "sede": "Roma, Italia",
     "fondazione": "1884",
@@ -203,7 +203,7 @@
     "logo": "img/Brands/Chevrolet.png",
     "slogan": "",
     "paese": "Stati Uniti",
-    "sede": "Detroit (Michigan) Stati Uniti",
+    "sede": "Detroit (Michigan), Stati Uniti",
     "fondazione": "3 Novembre 1911",
     "fondatore": "Louis Chevrolet, William C. Durant"
   },
@@ -274,7 +274,7 @@
   "Ford": {
     "logo": "img/Brands/Ford.png",
     "slogan": "Go Further",
-    "paese": "Italia",
+    "paese": "Stati Uniti",
     "sede": "Dearborn (Michigan), Stati Uniti",
     "fondazione": "16 Giugno 1903",
     "fondatore": "Henry Ford"
@@ -316,7 +316,7 @@
     "slogan": "The Power of Dreams",
     "paese": "Giappone",
     "sede": "Tokyo, Giappone",
-    "fondazione": "24 settembre 1948",
+    "fondazione": "24 Settembre 1948",
     "fondatore": "Sōichirō Honda"
   },
   "Infiniti": {
@@ -573,7 +573,7 @@
     "paese": "Germania",
     "sede": "Wolfsburg, Germania",
     "fondazione": "28 Maggio 1937",
-    "fondatore": "Fronte teedesco del lavoro"
+    "fondatore": "Fronte tedesco del lavoro"
   },
   "Volvo": {
     "logo": "img/Brands/Volvo.png",
@@ -603,7 +603,7 @@
     "logo": "img/Brands/Škoda.png",
     "slogan": "We will help the world live smarter",
     "paese": "Repubblica Ceca",
-    "sede": "Mladá Bolestav, Repubblica Ceca",
+    "sede": "Mladá Boleslav, Repubblica Ceca",
     "fondazione": "1895",
     "fondatore": "Václav Laurin, Václav Klement"
   }
