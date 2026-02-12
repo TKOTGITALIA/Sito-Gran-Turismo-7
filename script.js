@@ -510,7 +510,8 @@ function mostraDettagli(a) {
             
             ${a.titolo ? `<h4 style="color: #ffffff; margin-top: 25px; margin-bottom: 10px; font-size: 1.1rem; font-weight: 500; line-height: 1.4; border-left: 3px solid #e10600; padding-left: 15px;">${a.titolo}</h4>` : ''}
             
-            <p style="line-height: 1.6; color: #ccc; margin-top: 15px; font-size: 0.95rem;">${a.descrizione || 'Dati tecnici non ancora disponibili.'}</p>
+
+            ${a.descrizione ? `<p style="line-height: 1.6; color: #ccc; margin-top: 15px; font-size: 0.95rem;">${a.descrizione}</p>` : ''}
             
             <div style="margin-top:25px; display:flex;">
                 ${link1} ${link2}
@@ -749,44 +750,39 @@ function gestisciVisibilitaExtra() {
 
 function renderizzaExtra() {
     const main = document.querySelector('main');
+    const s = document.getElementById('searchBar').value.toLowerCase();
+    const sC = document.getElementById('sort-container');
+    if (sC) sC.style.display = "none";
+
     main.innerHTML = "";
 
-    const autoFiltrateExtra = autoExtra.filter(a => {
-        let passaGarage = true;
-        const posseduta = localStorage.getItem(`gt7-${a.id}`) === 'true';
-        if (filtroGarage === "possedute") passaGarage = posseduta;
-        if (filtroGarage === "mancanti") passaGarage = !posseduta;
-        return passaGarage;
+    let fil = autoExtra.filter(a => {
+        const isOwned = localStorage.getItem(`gt7-${a.id}`) === 'true';
+        const matchSearch = a.nome.toLowerCase().includes(s) || a.marca.toLowerCase().includes(s);
+        let matchGarage = true;
+        if (filtroGarage === "possedute") matchGarage = isOwned;
+        else if (filtroGarage === "mancanti") matchGarage = !isOwned;
+        return matchSearch && matchGarage;
     });
 
-    const gruppi = {
-        "Gioco base": autoFiltrateExtra.filter(a => a.acquisto === "Brand Central" || a.acquisto === "Auto Leggendarie"),
-        "Bonus Pre-ordine": autoFiltrateExtra.filter(a => a.acquisto.toLowerCase().includes("bonus pre-ordine")),
-        "Power Pack": autoFiltrateExtra.filter(a => a.acquisto.toLowerCase().includes("power pack"))
-    };
-
-    Object.entries(gruppi).forEach(([nomeGruppo, listaAuto]) => {
-        if (listaAuto.length === 0) return;
-
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'category-header';
-        headerDiv.innerHTML = `<h2 class="country-title">${nomeGruppo}</h2>`;
-        main.appendChild(headerDiv);
-
-        const grid = document.createElement('div');
-        grid.className = 'car-grid';
-        listaAuto.forEach(a => {
-            a.gioco = "gt7";
-            grid.appendChild(creaCard(a));
+    if (fil.length === 0) {
+        main.innerHTML = `<p style="text-align:center; color:gray; margin-top:50px;">Nessuna auto trovata.</p>`;
+    } else {
+        let groups = {};
+        fil.forEach(a => {
+            const cat = a.categoria || "Altro";
+            if (!groups[cat]) groups[cat] = [];
+            groups[cat].push(a);
         });
-        main.appendChild(grid);
-    });
 
-    const possedute = autoExtra.filter(a => localStorage.getItem(`gt7-${a.id}`) === 'true').length;
-    const perc = autoExtra.length > 0 ? (possedute / autoExtra.length * 100) : 0;
-    
-    document.getElementById('owned-count').innerText = possedute;
-    document.getElementById('total-count').innerText = autoExtra.length;
-    document.getElementById('progress-bar').style.width = perc + "%";
-    document.getElementById('completion-perc').innerText = Math.round(perc) + "%";
+        Object.keys(groups).sort().forEach(k => {
+            renderHeader(k, groups[k], main);
+            const g = document.createElement('div');
+            g.className = 'car-grid';
+            groups[k].sort((a, b) => a.marca.localeCompare(b.marca) || a.nome.localeCompare(b.nome))
+                     .forEach(a => g.appendChild(creaCard(a)));
+            main.appendChild(g);
+        });
+    }
+    aggiornaContatore();
 }
