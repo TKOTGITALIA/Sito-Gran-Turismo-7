@@ -1870,7 +1870,7 @@
         "id": "mercedes-benz-300-sel-6.8-amg-'71",
         "gioco": "gt7",
         "nome": "Mercedes-Benz 300 SEL 6.8 AMG '71",
-        "marca": "Mercedes-Benz",
+        "marca": "AMG",
         "paese": "Germania",
         "anno": "1971",
         "prezzo": "700'000",
@@ -4316,4 +4316,5 @@
         "isVGT": false
       }
 ]
+
 
