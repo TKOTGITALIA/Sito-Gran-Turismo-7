@@ -149,7 +149,26 @@
     "trasmissione": "Motore Anteriore Trazione Posteriore (FR)",
     "cilindrata": "/",
     "tipo_motore": "4 rotori Wankel",
-    "categoria": "Bonus pre-ordine"
+    "categoria": "Gioco base"
+  },
+  {
+    "id": "gran-turismo-red-bull-x2019-competition-25th-anniversary",
+    "gioco": "gt7",
+    "nome": "Gran Turismo Red Bull X2019 Competition 25th Anniversary",
+    "marca": "Gran Turismo",
+    "paese": "Giappone",
+    "anno": "2019",
+    "prezzo": "0",
+    "acquisto": "Celebrazione del 25° Anniversario del gioco",
+    "pp": "966,31 PP",
+    "peso": "650 Kg - 1'433 Lb",
+    "cv": "816 Cv - 329,7 nm",
+    "immagine": "img/Altre auto/Gran Turismo Red Bull X2019 Competition 25th Anniversary.jpg",
+    "aspirazione": "Aspirazione Naturale (AN)",
+    "trasmissione": "Motore Centrale Trazione Posteriore (MR)",
+    "cilindrata": "/",
+    "tipo_motore": "12 cilindri a V (V12)",
+    "categoria": "Gioco base"
   }
-
 ]
+
