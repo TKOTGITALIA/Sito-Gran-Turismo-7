@@ -430,3 +430,26 @@ body.game-mfgt #sort-container { display: none !important; }
         margin-top: 15px !important;
     }
 }
+.sort-btn.special-btn {
+    padding: 12px 30px;
+    background: #2a2e33;
+    border: 1.5px solid rgba(225, 6, 0, 0.4);
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    width: 300px;
+    text-align: center;
+}
+
+.sort-btn.special-btn:hover {
+    border-color: var(--primary-red);
+    background: rgba(225, 6, 0, 0.1);
+}
+
+.nascondi-tasto {
+    display: none !important;
+}
