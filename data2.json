@@ -49,7 +49,7 @@
     "pp": "? PP",
     "peso": "935 Kg - 2'061 Lb",
     "cv": "?",
-    "immagine": "img/Altre Auto/Nissan Skyline GT-R GP-Tuned (KPGC10).jpg",
+    "immagine": "img/Altre auto/Nissan Skyline GT-R GP-Tuned (KPGC10).jpg",
     "aspirazione": "Aspirazione Naturale (AN)",
     "trasmissione": "Motore Anteriore Trazione Posteriore (FR)",
     "cilindrata": "?",
@@ -151,4 +151,5 @@
     "tipo_motore": "4 rotori Wankel",
     "categoria": "Bonus pre-ordine"
   }
+
 ]
