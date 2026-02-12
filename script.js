@@ -251,6 +251,9 @@ function renderizzaAuto() {
         return;
     }
 
+    if (document.querySelector('.search-wrapper')) document.querySelector('.search-wrapper').style.display = "block";
+    if (document.querySelector('.filter-container')) document.querySelector('.filter-container').style.display = "flex"; 
+
     main.innerHTML = "";
 
     let fil = tutteLeAuto.filter(a => {
@@ -578,30 +581,54 @@ document.querySelectorAll('.game-btn').forEach(b => {
     };
 });
 
+document.getElementById('btn-tutte-le-auto').style.setProperty('display', 'none', 'important');
+
 document.querySelectorAll('.sort-btn').forEach(b => {
     b.addEventListener('click', (e) => {
         const tastoCliccato = e.target.closest('.sort-btn');
         
         if (tastoCliccato && tastoCliccato.closest('#sort-container')) {
+            
             if (tastoCliccato.id === 'btn-altre-auto') {
-                attivaExtra(tastoCliccato);
+                giocoAttivo = "extra";
+                document.getElementById('btn-altre-auto').style.setProperty('display', 'none', 'important');
+                document.getElementById('btn-tutte-le-auto').style.setProperty('display', 'inline-block', 'important');
+                renderizzaExtra();
                 return;
             }
 
-            if (giocoAttivo === "extra") {
-                giocoAttivo = "gt7";
-                const btnExtra = document.getElementById('btn-altre-auto');
-                if (btnExtra) btnExtra.innerText = "Altre Auto";
-                
-                document.querySelector('.search-container').style.display = "block";
-                document.getElementById('filter-container').style.display = "flex";
-                document.querySelectorAll('#sort-container .sort-btn').forEach(sb => sb.style.display = "inline-block");
-            }
+            if (tastoCliccato.id === 'btn-tutte-le-auto') {
+    giocoAttivo = "gt7";
+    sortAttivo = "default";
+
+    document.getElementById('btn-tutte-le-auto').style.setProperty('display', 'none', 'important');
+    document.getElementById('btn-altre-auto').style.setProperty('display', 'inline-block', 'important');
+
+    const filterContainer = document.getElementById('filter-container');
+    const searchWrapper = document.querySelector('.search-wrapper') || document.querySelector('.search-container');
+    const sortContainer = document.getElementById('sort-container');
+
+    if (filterContainer) filterContainer.style.display = "flex";
+    if (searchWrapper) searchWrapper.style.display = "block";
+
+    document.querySelectorAll('#sort-container .sort-btn').forEach(sb => {
+        if (sb.id !== 'btn-tutte-le-auto') {
+            sb.style.setProperty('display', 'inline-block', 'important');
+            sb.classList.remove('active');
+        }
+    });
+
+    const btnDefault = document.querySelector('[data-sort="default"]');
+    if (btnDefault) btnDefault.classList.add('active');
+
+    renderizzaAuto();
+    return;
+}
 
             document.querySelectorAll('#sort-container .sort-btn').forEach(x => x.classList.remove('active'));
             tastoCliccato.classList.add('active');
             
-            sortAttivo = tastoCliccato.dataset.sort;
+            sortAttivo = tastoCliccato.dataset.sort || "default";
             renderizzaAuto();
         }
     });
@@ -752,7 +779,26 @@ function renderizzaExtra() {
     const main = document.querySelector('main');
     const s = document.getElementById('searchBar').value.toLowerCase();
     const sC = document.getElementById('sort-container');
-    if (sC) sC.style.display = "none";
+
+    const searchBar = document.getElementById('searchBar');
+    const filterCountry = document.getElementById('filter-country');
+    const filterBrand = document.getElementById('filter-brand');
+    const btnRipristina = document.querySelector('button[onclick="ripristinaFiltri()"]') || document.getElementById('btn-reset');
+
+    if (searchBar && searchBar.parentElement) searchBar.parentElement.style.display = "none";
+    if (filterCountry && filterCountry.parentElement) filterCountry.parentElement.style.display = "none";
+
+
+    if (sC) {
+        sC.style.display = "flex"; 
+        sC.querySelectorAll('.sort-btn').forEach(btn => {
+            if (btn.id === 'btn-tutte-le-auto') {
+                btn.style.setProperty('display', 'inline-block', 'important');
+            } else {
+                btn.style.setProperty('display', 'none', 'important');
+            }
+        });
+    }
 
     main.innerHTML = "";
 
