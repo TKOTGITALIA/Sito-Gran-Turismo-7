@@ -65,21 +65,6 @@ header h1 { margin: 0; margin-bottom: 0; font-size: 2.5rem; letter-spacing: 2px;
 
 #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary-red), #ff4d4d); transition: width 0.5s ease; }
 
-#sort-container {
-    display: flex; justify-content: center; align-items: center; gap: 10px;
-    padding: 20px 0; background: transparent; overflow-x: auto; white-space: nowrap;
-    scrollbar-width: none; margin-bottom: 20px;
-}
-
-#sort-container::-webkit-scrollbar { display: none; }
-
-.sort-btn {
-    padding: 10px 20px; background: #2a2e33; border: none; color: #ffffff;
-    border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold;
-    text-transform: uppercase; transition: all 0.2s ease; flex-shrink: 0;
-    pointer-events: auto !important;
-}
-
 .sort-btn:hover { background: #3a3f44; }
 
 .sort-btn.active {
@@ -390,4 +375,58 @@ body.game-mfgt #sort-container { display: none !important; }
 
 .car-link:hover {
     filter: brightness(1.2);
+}
+
+#sort-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 10px;
+    background: transparent;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.sort-btn {
+    padding: 10px 20px;
+    background: #2a2e33;
+    border: none;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+#btn-altre-auto {
+    display: none;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 250px;
+    margin: 20px auto 0 auto !important;
+    background-color: var(--accent-gray) !important;
+    color: white !important;
+    border: 1px solid var(--primary-red) !important;
+    order: 10;
+    text-align: center;
+}
+
+#btn-altre-auto:hover {
+    background-color: var(--primary-red) !important;
+    box-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .sort-btn {
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+    #btn-altre-auto {
+        flex: 0 0 100%;
+        margin-top: 15px !important;
+    }
 }
