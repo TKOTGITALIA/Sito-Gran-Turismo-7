@@ -1,4 +1,5 @@
 let tutteLeAuto = [];
+let autoExtra = [];
 let infoMarchi = {};
 let giocoAttivo = "gt7";
 let utenteCorrente = null;
@@ -15,11 +16,11 @@ const parseVal = s => {
 const mapTrasmissione = t => {
     if (!t) return "Altro";
     const s = t.toLowerCase();
-    if (s.includes("4wd") || s.includes("integrale") || s.includes("awd")) return "4WD";
-    if (s.includes("mr") || (s.includes("centrale") && s.includes("posteriore"))) return "MR";
-    if (s.includes("rr") || (s.includes("motore posteriore") && s.includes("trazione posteriore"))) return "RR";
-    if (s.includes("ff") || (s.includes("motore anteriore") && s.includes("trazione anteriore"))) return "FF";
-    if (s.includes("fr") || (s.includes("motore anteriore") && s.includes("trazione posteriore"))) return "FR";
+    if (s.includes("ff") || (s.includes("motore anteriore") && s.includes("trazione anteriore"))) return "Motore Anteriore Trazione Anteriore";
+        if (s.includes("fr") || (s.includes("motore anteriore") && s.includes("trazione posteriore"))) return "Motore Anteriore Trazione Posteriore";
+    if (s.includes("mr") || (s.includes("centrale") && s.includes("posteriore"))) return "Motore Centrale Trazione Posteriore";
+    if (s.includes("rr") || (s.includes("motore posteriore") && s.includes("trazione posteriore"))) return "Motore Posteriore Trazione Posteriore";
+    if (s.includes("4wd") || s.includes("integrale") || s.includes("awd")) return "Trazione integrale";
     return "Altro";
 };
 
@@ -207,14 +208,19 @@ async function scaricaPDF(tipo) {
 
 async function caricaDati() {
     try {
-        const [resAuto, resBrands] = await Promise.all([
+        const [resAuto, resBrands, resExtra] = await Promise.all([
             fetch('data.json?v=' + new Date().getTime()),
-            fetch('brands.json?v=' + new Date().getTime())
+            fetch('brands.json?v=' + new Date().getTime()),
+            fetch('data2.json?v=' + new Date().getTime())
         ]);
+        
         tutteLeAuto = await resAuto.json();
         infoMarchi = await resBrands.json();
+        autoExtra = await resExtra.json();
+
         popolaFiltri();
         renderizzaAuto();
+        gestisciVisibilitaExtra();
     } catch(e) { 
         console.error(e); 
     }
@@ -239,6 +245,12 @@ function renderizzaAuto() {
     const pF = document.getElementById('filter-country').value;
     const mF = document.getElementById('filter-brand').value;
     const sC = document.getElementById('sort-container');
+
+    if (giocoAttivo === "extra") {
+        renderizzaExtra();
+        return;
+    }
+
     main.innerHTML = "";
 
     let fil = tutteLeAuto.filter(a => {
@@ -295,7 +307,7 @@ function renderizzaAuto() {
         }
 
         let groups = {};
-        const ordineTrasmissioni = ["FF", "FR", "MR", "RR", "Altro", "4WD"];
+        const ordineTrasmissioni = ["Motore Anteriore Trazione Anteriore", "Motore Anteriore Trazione Posteriore", "Motore Centrale Trazione Posteriore", "Motore Posteriore Trazione Posteriore", "Trazione integrale", "Altro"];
         const ordineAspirazioni = ["Aspirazione Naturale", "Turbocompressore", "Compressore Volumetrico", "Turbo + Compressore", "Elettrico"];
 
         const addToGroup = (key, item) => {
@@ -466,13 +478,11 @@ function mostraDettagli(a) {
     const m = document.getElementById("carModal");
     const b = document.getElementById("modal-body");
     
-    // Lista campi per GT7
     const campiGT7 = ['categoria', 'anno', 'pp', 'aspirazione', 'trasmissione', 'cilindrata', 'tipo_motore', 'cv', 'peso', 'prezzo', 'acquisto'];
     const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] : campiGT7;
     
     const lbl = {categoria: 'Categoria', pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità'};
     
-    // Griglia informazioni in stile tabella
     let g = '<div class="specs-list" style="margin-top: 15px; border-top: 1px solid #333;">';
     s.forEach(x => {
         if (a[x]) {
@@ -485,7 +495,6 @@ function mostraDettagli(a) {
     });
     g += '</div>';
 
-    // Link rossi
     const link1 = a.link ? `<a href="${a.link}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; font-size:0.9rem;">Sito Ufficiale</a>` : '';
     const link2 = a.link2 ? `<a href="${a.link2}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; margin-left:10px; font-size:0.9rem;">Pagina Ufficiale</a>` : '';
 
@@ -513,11 +522,17 @@ function mostraDettagli(a) {
 }
 
 function aggiornaContatore() {
-    const l = tutteLeAuto.filter(a => a.gioco === giocoAttivo);
-    const o = l.filter(a => localStorage.getItem(`${a.gioco}-${a.id}`) === 'true').length;
-    const p = l.length ? Math.round((o/l.length)*100) : 0;
+    const listaRiferimento = (giocoAttivo === "extra") ? autoExtra : tutteLeAuto.filter(a => a.gioco === giocoAttivo);
+    
+    const o = listaRiferimento.filter(a => {
+        const prefisso = (giocoAttivo === "extra") ? "gt7" : a.gioco;
+        return localStorage.getItem(`${prefisso}-${a.id}`) === 'true';
+    }).length;
+
+    const p = listaRiferimento.length ? Math.round((o / listaRiferimento.length) * 100) : 0;
+
     document.getElementById('owned-count').innerText = o;
-    document.getElementById('total-count').innerText = l.length;
+    document.getElementById('total-count').innerText = listaRiferimento.length;
     document.getElementById('progress-bar').style.width = p + "%";
     document.getElementById('completion-perc').innerText = p + "%";
 }
@@ -558,15 +573,34 @@ document.querySelectorAll('.game-btn').forEach(b => {
         document.getElementById('filter-container').style.display = giocoAttivo === "mfgt" ? "none" : "flex";
         popolaFiltri();
         renderizzaAuto();
+        gestisciVisibilitaExtra();
     };
 });
 
 document.querySelectorAll('.sort-btn').forEach(b => {
     b.addEventListener('click', (e) => {
-        if (e.target.closest('#sort-container')) {
+        const tastoCliccato = e.target.closest('.sort-btn');
+        
+        if (tastoCliccato && tastoCliccato.closest('#sort-container')) {
+            if (tastoCliccato.id === 'btn-altre-auto') {
+                attivaExtra(tastoCliccato);
+                return;
+            }
+
+            if (giocoAttivo === "extra") {
+                giocoAttivo = "gt7";
+                const btnExtra = document.getElementById('btn-altre-auto');
+                if (btnExtra) btnExtra.innerText = "Altre Auto";
+                
+                document.querySelector('.search-container').style.display = "block";
+                document.getElementById('filter-container').style.display = "flex";
+                document.querySelectorAll('#sort-container .sort-btn').forEach(sb => sb.style.display = "inline-block");
+            }
+
             document.querySelectorAll('#sort-container .sort-btn').forEach(x => x.classList.remove('active'));
-            e.target.classList.add('active');
-            sortAttivo = e.target.dataset.sort;
+            tastoCliccato.classList.add('active');
+            
+            sortAttivo = tastoCliccato.dataset.sort;
             renderizzaAuto();
         }
     });
@@ -641,4 +675,118 @@ function mostraInfoBrand(nomeBrand) {
     modal.style.display = "block";
     const closeBtn = document.querySelector(".close-brand-button");
     closeBtn.onclick = () => modal.style.display = "none";
+}
+
+function aggiornaVisibilitaTastoExtra() {
+    const btnExtra = document.getElementById('btn-altre-auto');
+    if (giocoAttivo === 'gt7') {
+        btnExtra.style.display = 'inline-block';
+    } else {
+        btnExtra.style.display = 'none';
+    }
+}
+
+function attivaExtra(btn) {
+    const searchContainer = document.querySelector('.search-container');
+    const filterContainer = document.getElementById('filter-container');
+    const sortButtons = document.querySelectorAll('#sort-container .sort-btn:not(#btn-altre-auto)');
+
+    if (giocoAttivo !== "extra") {
+        document.querySelectorAll('#sort-container .sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        btn.innerText = "Tutte le auto";
+        
+        giocoAttivo = "extra";
+
+        if (searchContainer) searchContainer.style.display = "none";
+        if (filterContainer) filterContainer.style.display = "none";
+        sortButtons.forEach(b => b.style.display = "none");
+
+        renderizzaExtra();
+    } else {
+        giocoAttivo = "gt7";
+        btn.innerText = "Altre Auto";
+        
+        if (searchContainer) searchContainer.style.display = "block";
+        if (filterContainer) filterContainer.style.display = "flex";
+        sortButtons.forEach(b => b.style.display = "inline-block");
+
+        document.querySelectorAll('#sort-container .sort-btn').forEach(b => b.classList.remove('active'));
+        const btnDefault = document.querySelector('[data-sort="default"]');
+        if (btnDefault) btnDefault.classList.add('active');
+        
+        sortAttivo = "default";
+        renderizzaAuto();
+    }
+}
+
+function gestisciVisibilitaExtra() {
+    const btnExtra = document.getElementById('btn-altre-auto');
+    const searchContainer = document.querySelector('.search-container');
+    const filterContainer = document.getElementById('filter-container');
+    const sortButtons = document.querySelectorAll('#sort-container .sort-btn:not(#btn-altre-auto)');
+
+    if (!btnExtra) return;
+    
+    if (giocoAttivo === "gt7") {
+        btnExtra.style.display = "inline-block";
+        btnExtra.innerText = "Altre Auto";
+        if (searchContainer) searchContainer.style.display = "block";
+        if (filterContainer) filterContainer.style.display = "flex";
+        sortButtons.forEach(b => b.style.display = "inline-block");
+    } else if (giocoAttivo === "mfgt") {
+        btnExtra.style.display = "none";
+        if (filterContainer) filterContainer.style.display = "none";
+        if (searchContainer) searchContainer.style.display = "none";
+        sortButtons.forEach(b => b.style.display = "inline-block");
+    } else if (giocoAttivo === "extra") {
+        btnExtra.style.display = "inline-block";
+        if (searchContainer) searchContainer.style.display = "none";
+        if (filterContainer) filterContainer.style.display = "none";
+        sortButtons.forEach(b => b.style.display = "none");
+    }
+}
+
+function renderizzaExtra() {
+    const main = document.querySelector('main');
+    main.innerHTML = "";
+
+    const autoFiltrateExtra = autoExtra.filter(a => {
+        let passaGarage = true;
+        const posseduta = localStorage.getItem(`gt7-${a.id}`) === 'true';
+        if (filtroGarage === "possedute") passaGarage = posseduta;
+        if (filtroGarage === "mancanti") passaGarage = !posseduta;
+        return passaGarage;
+    });
+
+    const gruppi = {
+        "Gioco base": autoFiltrateExtra.filter(a => a.acquisto === "Brand Central" || a.acquisto === "Auto Leggendarie"),
+        "Bonus Pre-ordine": autoFiltrateExtra.filter(a => a.acquisto.toLowerCase().includes("bonus pre-ordine")),
+        "Power Pack": autoFiltrateExtra.filter(a => a.acquisto.toLowerCase().includes("power pack"))
+    };
+
+    Object.entries(gruppi).forEach(([nomeGruppo, listaAuto]) => {
+        if (listaAuto.length === 0) return;
+
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'category-header';
+        headerDiv.innerHTML = `<h2 class="country-title">${nomeGruppo}</h2>`;
+        main.appendChild(headerDiv);
+
+        const grid = document.createElement('div');
+        grid.className = 'car-grid';
+        listaAuto.forEach(a => {
+            a.gioco = "gt7";
+            grid.appendChild(creaCard(a));
+        });
+        main.appendChild(grid);
+    });
+
+    const possedute = autoExtra.filter(a => localStorage.getItem(`gt7-${a.id}`) === 'true').length;
+    const perc = autoExtra.length > 0 ? (possedute / autoExtra.length * 100) : 0;
+    
+    document.getElementById('owned-count').innerText = possedute;
+    document.getElementById('total-count').innerText = autoExtra.length;
+    document.getElementById('progress-bar').style.width = perc + "%";
+    document.getElementById('completion-perc').innerText = Math.round(perc) + "%";
 }
