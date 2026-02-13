@@ -311,7 +311,7 @@ function renderizzaAuto() {
 
         let groups = {};
         const ordineTrasmissioni = ["Motore Anteriore Trazione Anteriore", "Motore Anteriore Trazione Posteriore", "Motore Centrale Trazione Posteriore", "Motore Posteriore Trazione Posteriore", "Trazione integrale", "Altro"];
-        const ordineAspirazioni = ["Aspirazione Naturale", "Turbocompressore", "Compressore Volumetrico", "Turbo + Compressore", "Elettrico"];
+        const ordineAspirazioni = ["Aspirazione Naturale", "Turbocompressore", "Compressore Volumetrico", "Turbo + Compressore", "Elettrico", "Altro"];
 
         const addToGroup = (key, item) => {
             if(!groups[key]) groups[key] = [];
@@ -375,15 +375,19 @@ function renderizzaAuto() {
         }
 
         const keys = Object.keys(groups).sort((a, b) => {
-            if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
-            if (sortAttivo === "aspirazione") return ordineAspirazioni.indexOf(a) - ordineAspirazioni.indexOf(b);
-            if (sortAttivo === "anno") {
-                if (a === "Altro") return 1; if (b === "Altro") return -1;
-                return parseInt(a) - parseInt(b);
-            }
-            if (a === "Altro") return 1; if (b === "Altro") return -1;
-            return a.localeCompare(b);
-        });
+    if (sortAttivo === "trasmissione") return ordineTrasmissioni.indexOf(a) - ordineTrasmissioni.indexOf(b);
+    if (sortAttivo === "aspirazione") return ordineAspirazioni.indexOf(a) - ordineAspirazioni.indexOf(b);
+    
+    if (sortAttivo === "anno") {
+        if (a === "Altro") return 1; 
+        if (b === "Altro") return -1;
+        return parseInt(a) - parseInt(b);
+    }
+    
+    if (a === "Altro") return 1; 
+    if (b === "Altro") return -1;
+    return a.localeCompare(b);
+});
 
         keys.forEach(k => {
             if (sortAttivo === "default") {
