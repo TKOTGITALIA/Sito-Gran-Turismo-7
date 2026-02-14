@@ -207,6 +207,7 @@ async function scaricaPDF(tipo) {
 }
 
 async function caricaDati() {
+    const loader = document.getElementById('loading-overlay');
     try {
         const [resAuto, resBrands, resExtra] = await Promise.all([
             fetch('data.json?v=' + new Date().getTime()),
@@ -227,8 +228,19 @@ async function caricaDati() {
         popolaFiltri();
         renderizzaAuto();
         gestisciVisibilitaExtra();
+
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
     } catch(e) { 
-        console.error(e); 
+        console.error(e);
+        if (loader) {
+            const p = loader.querySelector('p');
+            if (p) p.innerText = "Errore nel caricamento dei dati.";
+        }
     }
 }
 
