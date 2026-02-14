@@ -167,5 +167,8 @@
     const provider = new firebase.auth.GoogleAuthProvider();
 </script>
 <script src="script.js?v=18"></script>
+<div id="lightbox" onclick="closeLightbox()" style="display: none; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: zoom-out;">
+    <img id="lightbox-img" style="max-width: 95%; max-height: 90%; border-radius: 4px; box-shadow: 0 0 30px rgba(255,255,255,0.1); transition: transform 0.1s ease-out;">
+</div>
 </body>
 </html>

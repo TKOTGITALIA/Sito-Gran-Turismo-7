@@ -497,8 +497,15 @@ function creaCard(a) {
     card.className = `car-card ${isOwned ? 'owned' : ''}`;
     const safeId = a.id.replace(/'/g, "\\'"); 
 
+    const imgUrl = a.immagine_small || a.immagine;
+
     card.innerHTML = `
-        <img src="${a.immagine_small || a.immagine}" loading="lazy" alt="${a.nome}" width="280" height="180">
+        <img src="${imgUrl}" 
+             loading="lazy" 
+             alt="${a.nome}" 
+             width="280" 
+             height="180">
+        
         <div class="car-info">
             <span class="car-brand-tag">${a.marca}</span>
             <h3>${a.nome}</h3>
@@ -522,14 +529,12 @@ function mostraDettagli(a) {
     
     const campiGT7 = ['categoria', 'anno', 'pp', 'aspirazione', 'trasmissione', 'cilindrata', 'tipo_motore', 'cv', 'peso', 'prezzo', 'acquisto'];
     const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] : campiGT7;
-    
     const lbl = {categoria: 'Categoria', pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità'};
     
     let g = '<div class="specs-list" style="margin-top: 15px; border-top: 1px solid #333;">';
     s.forEach(x => {
         if (a[x]) {
-            g += `
-            <div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
+            g += `<div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
                 <span style="color: #888; text-transform: uppercase; font-weight: bold; font-size: 0.75rem;">${lbl[x] || x.replace('_', ' ')}</span>
                 <span style="color: #fff; font-weight: 500;">${a[x]}</span>
             </div>`;
@@ -541,24 +546,20 @@ function mostraDettagli(a) {
     const link2 = a.link2 ? `<a href="${a.link2}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; margin-left:10px; font-size:0.9rem;">Pagina Ufficiale</a>` : '';
 
     b.innerHTML = `
-        <img src="${a.immagine}" class="modal-img" style="width:100%; display:block;">
+        <img src="${a.immagine}" id="modal-img-zoom" class="modal-img" style="width:100%; display:block; cursor: zoom-in;">
         <div style="padding:25px; background: #111; color: white;">
             <h2 style="font-size: 1.8rem; margin: 0 0 5px 0; text-transform: uppercase;">${a.nome}</h2>
             <p style="color: #888; margin: 0; font-weight: bold; font-size: 1rem;">${a.marca}</p>
-            
             ${a.isVGT ? `<p style="color: #e10600; font-weight: 900; text-transform: uppercase; margin: 15px 0 5px 0; font-size: 0.85rem; letter-spacing: 1px;">Vision Gran Turismo</p>` : ''}
-            
             ${g}
-            
             ${a.titolo ? `<h4 style="color: #ffffff; margin-top: 25px; margin-bottom: 10px; font-size: 1.1rem; font-weight: 500; line-height: 1.4; border-left: 3px solid #e10600; padding-left: 15px;">${a.titolo}</h4>` : ''}
-            
-
             ${a.descrizione ? `<p style="line-height: 1.6; color: #ccc; margin-top: 15px; font-size: 0.95rem;">${a.descrizione}</p>` : ''}
-            
-            <div style="margin-top:25px; display:flex;">
-                ${link1} ${link2}
-            </div>
+            <div style="margin-top:25px; display:flex;">${link1} ${link2}</div>
         </div>`;
+
+    document.getElementById("modal-img-zoom").onclick = function() {
+        openLightbox(a.immagine, a.nome);
+    };
         
     m.style.display = "block";
     document.querySelector(".close-button").onclick = () => m.style.display = "none";
@@ -871,3 +872,41 @@ function renderizzaExtra() {
     }
     aggiornaContatore();
 }
+let currentScale = 1;
+
+function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+
+    if (lb && lbImg) {
+        currentScale = 1;
+        lbImg.src = src;
+        lbImg.style.transform = `scale(${currentScale})`;
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    if (lb) {
+        lb.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+document.addEventListener('wheel', (e) => {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+
+    if (lb && lb.style.display === 'flex') {
+        e.preventDefault();
+        const zoomSpeed = 0.1;
+        if (e.deltaY < 0) {
+            currentScale += zoomSpeed;
+        } else {
+            currentScale = Math.max(0.5, currentScale - zoomSpeed);
+        }
+        lbImg.style.transform = `scale(${currentScale})`;
+    }
+}, { passive: false });

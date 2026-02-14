@@ -453,3 +453,12 @@ body.game-mfgt #sort-container { display: none !important; }
 .nascondi-tasto {
     display: none !important;
 }
+.car-card img {
+    cursor: zoom-in;
+    transition: transform 0.2s;
+    object-fit: cover;
+}
+
+.car-card img:hover {
+    transform: scale(1.02);
+}
