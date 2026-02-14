@@ -214,9 +214,15 @@ async function caricaDati() {
             fetch('data2.json?v=' + new Date().getTime())
         ]);
         
-        tutteLeAuto = await resAuto.json();
-        infoMarchi = await resBrands.json();
-        autoExtra = await resExtra.json();
+        const [datiAuto, datiBrands, datiExtra] = await Promise.all([
+            resAuto.json(),
+            resBrands.json(),
+            resExtra.json()
+        ]);
+
+        tutteLeAuto = datiAuto;
+        infoMarchi = datiBrands;
+        autoExtra = datiExtra;
 
         popolaFiltri();
         renderizzaAuto();
