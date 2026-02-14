@@ -320,14 +320,22 @@ function renderizzaAuto() {
 
         if (sortAttivo === "default") {
             fil.forEach(a => {
-                const p = a.paese || "Altro";
-                if(!groups[p]) groups[p] = {};
-                if(!groups[p][a.marca]) groups[p][a.marca] = [];
-                groups[p][a.marca].push(a);
+        const p = (a.marca === "Gran Turismo") ? "Altro" : (a.paese || "Altro");
+        if(!groups[p]) groups[p] = {};
+        if(!groups[p][a.marca]) groups[p][a.marca] = [];
+        groups[p][a.marca].push(a);
             });
         } else if (sortAttivo === "marca" || sortAttivo === "paese") {
-            fil.forEach(a => addToGroup(sortAttivo === "marca" ? (a.marca || "Altro") : (a.paese || "Altro"), a));
-        } else if (sortAttivo === "anno") {
+    fil.forEach(a => {
+        let chiave;
+        if (sortAttivo === "marca") {
+            chiave = a.marca || "Altro";
+        } else {
+            chiave = (a.marca === "Gran Turismo") ? "Altro" : (a.paese || "Altro");
+        }
+        addToGroup(chiave, a);
+    });
+} else if (sortAttivo === "anno") {
     fil.forEach(a => {
         const annoVal = (!a.anno || a.anno === "/") ? "Altro" : a.anno;
         addToGroup(annoVal, a);
