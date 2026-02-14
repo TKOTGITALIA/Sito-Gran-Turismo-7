@@ -14,7 +14,7 @@ const parseVal = s => {
 };
 
 const mapTrasmissione = t => {
-    if (!t) return "Altro";
+    if (!t || t === "/") return "Altro";
     const s = t.toLowerCase();
     if (s.includes("ff") || (s.includes("motore anteriore") && s.includes("trazione anteriore"))) return "Motore Anteriore Trazione Anteriore";
         if (s.includes("fr") || (s.includes("motore anteriore") && s.includes("trazione posteriore"))) return "Motore Anteriore Trazione Posteriore";
@@ -328,23 +328,29 @@ function renderizzaAuto() {
         } else if (sortAttivo === "marca" || sortAttivo === "paese") {
             fil.forEach(a => addToGroup(sortAttivo === "marca" ? (a.marca || "Altro") : (a.paese || "Altro"), a));
         } else if (sortAttivo === "anno") {
-            fil.forEach(a => addToGroup(a.anno || "Altro", a));
+    fil.forEach(a => {
+        const annoVal = (!a.anno || a.anno === "/") ? "Altro" : a.anno;
+        addToGroup(annoVal, a);
+    });
         } else if (sortAttivo === "trasmissione") {
             ordineTrasmissioni.forEach(o => groups[o] = []);
             fil.forEach(a => addToGroup(mapTrasmissione(a.trasmissione), a));
         } else if (sortAttivo === "aspirazione") {
-            ordineAspirazioni.forEach(o => groups[o] = []);
-            fil.forEach(a => {
-                const asp = a.aspirazione || "";
-                let cat = "Altro";
-                if (asp.includes("Veicolo elettrico") || asp.includes("Elettrico")) cat = "Elettrico";
-                else if (asp.includes("Turbo + Compressore") || asp.includes("TC + CV")) cat = "Turbo + Compressore";
-                else if (asp.includes("Aspirazione Naturale") || asp.includes("(AN)")) cat = "Aspirazione Naturale";
-                else if (asp.includes("Turbocompressore") || asp.includes("(TC)")) cat = "Turbocompressore";
-                else if (asp.includes("Compressore Volumetrico") || asp.includes("(CV)")) cat = "Compressore Volumetrico";
-                addToGroup(cat, a);
-            });
-        } else if (sortAttivo === "potenza" || sortAttivo === "peso") {
+    ordineAspirazioni.forEach(o => groups[o] = []);
+    fil.forEach(a => {
+        const asp = a.aspirazione || "/";
+        let cat = "Altro";
+        
+        if (asp !== "/") {
+            if (asp.includes("Veicolo elettrico") || asp.includes("Elettrico")) cat = "Elettrico";
+            else if (asp.includes("Turbo + Compressore") || asp.includes("TC + CV")) cat = "Turbo + Compressore";
+            else if (asp.includes("Aspirazione Naturale") || asp.includes("(AN)")) cat = "Aspirazione Naturale";
+            else if (asp.includes("Turbocompressore") || asp.includes("(TC)")) cat = "Turbocompressore";
+            else if (asp.includes("Compressore Volumetrico") || asp.includes("(CV)")) cat = "Compressore Volumetrico";
+        }
+        addToGroup(cat, a);
+    });
+} else if (sortAttivo === "potenza" || sortAttivo === "peso") {
             const isPot = sortAttivo === "potenza";
             const cats = isPot ? ["1'600 CV -", "1'300 - 1'599 CV", "1'100 - 1'299 CV", "1'000 - 1'099 CV", "900 - 999 CV", "800 - 899 CV", "700 - 799 CV", "600 - 699 CV", "500 - 599 CV", "400 - 499 CV", "300 - 399 CV", "200 - 299 CV", "100 - 199 CV", "- 99 CV", "Altro"] : ["2'300 Kg -", "2'000 - 2'299 Kg", "1'800 - 1'999 Kg", "1'700 - 1'799 Kg", "1'600 - 1'699 Kg", "1'500 - 1'599 Kg", "1'400 - 1'499 Kg", "1'300 - 1'399 Kg", "1'200 - 1'299 Kg", "1'100 - 1'199 Kg", "1'000 - 1'099 Kg", "900 - 999 Kg", "800 - 899 Kg", "700 - 799 Kg", "600 - 699 Kg", "500 - 599 Kg", "- 499 Kg", "Altro"];
             
