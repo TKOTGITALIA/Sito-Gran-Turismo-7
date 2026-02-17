@@ -910,3 +910,8 @@ document.addEventListener('wheel', (e) => {
         lbImg.style.transform = `scale(${currentScale})`;
     }
 }, { passive: false });
+
+//Aggiungere sezione "Coppia" in data.json e data2.json (Nm e ft-lb)
+//Aggiungere divisioni categoria: "Per Punti Prestazione", "Per peso (Lb)", "Per coppia (Nm e ft-lb)", "Per negozio", "Per prezzo", "Per cilindrata", "Per tipo di motore", "Per categoria (Gr.)"
+//Aggiungere interfaccia per scaricare lista PDF
+//Aggiungere Inglese e Spagnolo
