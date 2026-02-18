@@ -527,19 +527,41 @@ function mostraDettagli(a) {
     const m = document.getElementById("carModal");
     const b = document.getElementById("modal-body");
     
-    const campiGT7 = ['categoria', 'anno', 'pp', 'aspirazione', 'trasmissione', 'cilindrata', 'tipo_motore', 'cv', 'peso', 'prezzo', 'acquisto'];
+    const campiGT7 = ['categoria', 'anno', 'pp', 'aspirazione', 'trasmissione', 'cilindrata', 'tipo_motore', 'cv', 'coppia', 'peso', 'prezzo', 'acquisto'];
     const s = a.gioco === "mfgt" ? ['anno','trasmissione','velocita','accelerazione','frenata','sterzata','stabilita'] : campiGT7;
-    const lbl = {categoria: 'Categoria', pp:'Punti Prestazione', cv:'Potenza', acquisto:'Negozio', velocita:'Velocità'};
+    
+    const lbl = {categoria: 'Categoria', pp:'Punti Prestazione', cv:'Potenza Massima', coppia:'Coppia Massima', acquisto:'Negozio', velocita:'Velocità'};
     
     let g = '<div class="specs-list" style="margin-top: 15px; border-top: 1px solid #333;">';
     s.forEach(x => {
-        if (a[x]) {
-            g += `<div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
-                <span style="color: #888; text-transform: uppercase; font-weight: bold; font-size: 0.75rem;">${lbl[x] || x.replace('_', ' ')}</span>
-                <span style="color: #fff; font-weight: 500;">${a[x]}</span>
-            </div>`;
+    let valore = a[x];
+    let etichetta = lbl[x] || x.replace('_', ' ');
+
+
+    if (x === 'coppia' && a.gioco !== "mfgt") {
+        let nm = "";
+        if (a.cv && a.cv.includes(' - ')) {
+            nm = a.cv.split(' - ')[1]; 
         }
-    });
+        
+        if (nm && valore) {
+            valore = `${nm} - ${valore}`;
+        } else {
+            valore = valore || nm;
+        }
+    }
+
+    if (x === 'cv' && valore && valore.includes(' - ')) {
+        valore = valore.split(' - ')[0];
+    }
+
+    if (valore && valore !== "/") {
+        g += `<div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
+            <span style="color: #888; text-transform: uppercase; font-weight: bold; font-size: 0.75rem;">${etichetta}</span>
+            <span style="color: #fff; font-weight: 500;">${valore}</span>
+        </div>`;
+    }
+});
     g += '</div>';
 
     const link1 = a.link ? `<a href="${a.link}" target="_blank" class="external-link" style="background:#e10600; padding: 10px 20px; color:white; text-decoration:none; font-weight:bold; display:inline-block; border-radius:2px; font-size:0.9rem;">Sito Ufficiale</a>` : '';
@@ -915,3 +937,5 @@ document.addEventListener('wheel', (e) => {
 //Aggiungere divisioni categoria: "Per Punti Prestazione", "Per peso (Lb)", "Per coppia (Nm e ft-lb)", "Per negozio", "Per prezzo", "Per cilindrata", "Per tipo di motore", "Per categoria (Gr.)"
 //Aggiungere interfaccia per scaricare lista PDF
 //Aggiungere Inglese e Spagnolo
+//Aggiungere sezione "Auto leggendarie" con il link per il sito in cui vedere la rotazione. Aggiungere anche il link alla pagina di ogni auto e della sua rotazione.
+//Aggiungere modalità griglia
