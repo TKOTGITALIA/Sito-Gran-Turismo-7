@@ -27,9 +27,20 @@
 
 <header>
     <div class="header-top">
-        <h1>Gran Turismo Database</h1>
-        <span class="version-badge">Alpha</span>
+    <h1>Gran Turismo Database</h1>
+    <div class="version-wrapper">
+        <span class="badge-alpha">PRE-ALPHA</span>
+        <span class="info-icon-version" onclick="apriChangelog()">i</span>
     </div>
+</div>
+
+<div id="changelogModal" class="modal">
+    <div class="modal-content">
+        <span class="close-changelog" onclick="chiudiChangelog()">&times;</span>
+        <div id="changelog-body">
+            </div>
+    </div>
+</div>
 
     <div id="auth-status">
         <button id="login-btn" class="game-btn">Accedi con Google</button>

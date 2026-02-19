@@ -462,3 +462,69 @@ body.game-mfgt #sort-container { display: none !important; }
 .car-card img:hover {
     transform: scale(1.02);
 }
+.version-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.close-changelog {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.version-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge-alpha {
+    background-color: #ff0000;
+    color: white;
+    font-size: 16px; 
+    font-weight: 900;
+    padding: 6px 20px;
+    border-radius: 3px;
+    letter-spacing: 3px;
+    line-height: 1;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+
+
+.info-icon-version {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 50%;
+    font-size: 14px;
+    font-family: serif;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.info-icon-version:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+}

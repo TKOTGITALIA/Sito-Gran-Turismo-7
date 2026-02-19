@@ -933,9 +933,44 @@ document.addEventListener('wheel', (e) => {
     }
 }, { passive: false });
 
-//Aggiungere sezione "Coppia" in data.json e data2.json (Nm e ft-lb)
+function apriChangelog() {
+    const modal = document.getElementById("changelogModal");
+    const body = document.getElementById("changelog-body");
+
+    body.innerHTML = `
+        <div class="update-section">
+            <h3 style="color: #fff; border-left: 3px solid #e10600; padding-left: 10px; margin: 20px 0 10px 0;">Prossime Funzionalità</h3>
+            <ul style="color: #ccc; line-height: 1.8; list-style: none; padding-left: 5px;">
+                <li><strong>Auto Leggendarie:</strong> Rotazione del negozio leggendario in tempo reale.</li>
+                <li><strong>Filtri:</strong> Più filtri, come "Per cilindrata" e "Per coppia".</li>
+                <li><strong>Modalità Griglia:</strong> Visualizzazione a griglia per vedere le auto più facilmente.</li>
+                <li><strong>Modalità PDF:</strong> Più opzioni per esportare i PDF.</li>
+                <li><strong>Più lingue:</strong> Aggiunta di più lingue, a partire dall'Inglese.</li>
+            </ul>
+        </div>
+        <div class="update-section">
+            <h3 style="color: #fff; border-left: 3px solid #888; padding-left: 10px; margin: 20px 0 10px 0;">Pre-Alpha</h3>
+        </div>
+    `;
+
+    modal.style.display = "block";
+}
+
+function chiudiChangelog() {
+    document.getElementById("changelogModal").style.display = "none";
+}
+
+const originalWindowOnClick = window.onclick;
+window.onclick = e => {
+    if (originalWindowOnClick) originalWindowOnClick(e);
+    const cm = document.getElementById('changelogModal');
+    if (e.target === cm) cm.style.display = 'none';
+};
+
 //Aggiungere divisioni categoria: "Per Punti Prestazione", "Per peso (Lb)", "Per coppia (Nm e ft-lb)", "Per negozio", "Per prezzo", "Per cilindrata", "Per tipo di motore", "Per categoria (Gr.)"
 //Aggiungere interfaccia per scaricare lista PDF
-//Aggiungere Inglese e Spagnolo
+//Aggiungere Inglese
 //Aggiungere sezione "Auto leggendarie" con il link per il sito in cui vedere la rotazione. Aggiungere anche il link alla pagina di ogni auto e della sua rotazione.
 //Aggiungere modalità griglia
+//Aggiungere interfaccia per vedere gli aggiornamenti che arriveranno in futuro
+//Aggiungere informazioni per ogni marca anche in "Per costruttore"
