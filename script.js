@@ -537,24 +537,6 @@ function mostraDettagli(a) {
     let valore = a[x];
     let etichetta = lbl[x] || x.replace('_', ' ');
 
-
-    if (x === 'coppia' && a.gioco !== "mfgt") {
-        let nm = "";
-        if (a.cv && a.cv.includes(' - ')) {
-            nm = a.cv.split(' - ')[1]; 
-        }
-        
-        if (nm && valore) {
-            valore = `${nm} - ${valore}`;
-        } else {
-            valore = valore || nm;
-        }
-    }
-
-    if (x === 'cv' && valore && valore.includes(' - ')) {
-        valore = valore.split(' - ')[0];
-    }
-
     if (valore && valore !== "/") {
         g += `<div class="spec-row" style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9rem;">
             <span style="color: #888; text-transform: uppercase; font-weight: bold; font-size: 0.75rem;">${etichetta}</span>
